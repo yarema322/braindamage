@@ -1,0 +1,117 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.header {
+    width: 100vw;
+    height: 100px;
+    
+    display: flex;
+    align-items: center;
+    background-color: #e2dbcf55;
+    justify-content: space-between;
+    padding: 8 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 0;
+}
+
+.dash_board {
+    width: 169px;
+    height: 39px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+
+}
+
+.search_box {
+  display: flex;
+  max-width: 695px;
+  width: 100%;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  
+}
+
+.search_input {
+  flex: 1;
+  padding: 0 10px;
+  border: none;
+  outline: none;
+}
+
+.search_box button {
+  border: none;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 10px;
+}
+
+.search_icon {
+  width: 36px;
+  height: 36px;
+}
+
+.highlight {
+    color: #ff4d6d;
+}
+
+.header, 
+.dash_board, 
+.search_box, 
+.search_input, 
+.organaizers_panels,
+.notif_cal,
+.notification,
+.calendar,
+.today_date {
+    border: 1px solid red;
+}
+
+.organaizers_panels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 169px;
+    height: 39px;
+}
+
+.notif_cal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75px;
+    height: 39px;
+}
+
+.today_date {
+    width: 73px;
+    height: 36px;
+    color: rgb(93, 114, 238);
+}
+
+.today_fullDate {
+    color: black;
+}

@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="header">
+
+    <div class="dash_board">
+        <h1><span class="highlight">Dash</span>board</h1>
+    </div>
+
+    <div class="search_box">
+    <input type="text" class="search_input" placeholder="Search your task here...">
+    <button onclick="search()"><img class="search_icon" src="/pictures/SearchICon.svg"></button>
+    </div>
+
+    <div class="organaizers_panels">
+        <div class="notif_cal" >
+            <div class="notification"><img src="/pictures/Notifications.svg"></div>
+            <div class="calendar"><img src="/pictures/Cal.svg"></div>
+        </div>
+        <div class="today_date">
+            <div class="today_day"></div>
+            <div class="today_fullDate"></div>
+        </div>
+    </div>
+
+    </header>
+    <Main>
+
+    </Main>    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const dayElement = document.querySelector(".today_day");
+        const fullDateElement = document.querySelector(".today_fullDate");
+
+        const date = new Date();
+        
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const dayName = days[date.getDay()];
+
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // месяцы от 0
+        const year = date.getFullYear();
+        const formattedDate = `${day}/${month}/${year}`;
+
+        if (dayElement) dayElement.textContent = dayName;
+        if (fullDateElement) fullDateElement.textContent = formattedDate;
+         });
+</script>
+</body>
+
+</html>
