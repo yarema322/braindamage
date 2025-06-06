@@ -4,39 +4,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header class="header">
-
-    <div class="dash_board">
-        <h1><span class="highlight">Dash</span>board</h1>
-    </div>
-
-    <div class="search_box">
-    <input type="text" class="search_input" placeholder="Search your task here...">
-    <button onclick="search()"><img class="search_icon" src="/pictures/SearchICon.svg"></button>
-    </div>
-
-    <div class="organaizers_panels">
-        <div class="notif_cal" >
-            <div class="notification"><img src="/pictures/Notifications.svg"></div>
-            <div class="calendar"><img src="/pictures/Cal.svg"></div>
+        <div class="header__title">
+            <h1 class="header__title-text"><span class="header__highlight">Dash</span>board</h1>
         </div>
-        <div class="today_date">
-            <div class="today_day"></div>
-            <div class="today_fullDate"></div>
+        <div class="search">
+            <input type="text" class="search__input" placeholder="Search your task here...">
+            <button class="search__button" onclick="search()">
+                <img class="search__icon" src="/pictures/SearchICon.svg" href="#" alt="search">
+            </button>
         </div>
-    </div>
-
+        <div class="organizer">
+            <div class="organizer__tools">
+                <div class="organizer__notification">
+                    <img src="/pictures/Notifications.svg" href="#" alt="Notifications">
+                </div>
+                <div class="organizer__calendar">
+                    <img src="/pictures/Cal.svg" href="#" alt="Calendar">
+                </div>
+            </div>
+            <div class="organizer__date">
+                <div class="organizer__day"></div>
+                <div class="organizer__full-date"></div>
+            </div>
+        </div>
     </header>
-    <Main>
 
-    </Main>    
+    <main>
+        <div class="sidebar">
+            <div class="sidebar__userinfo">
+                <img class="sidebar__profile-picture" src="/pictures/Ellipse 1.svg" href="#" alt="Profile picture">
+                <p class="sidebar__username">Sundar Gurung</p>
+                <p class="sidebar__usermail">sundargurung@gmail.com</p>
+            </div>
+            <div class="sidebar__nav">
+                <ul class="sidebar__list">
+                    <li class="sidebar__item">
+                        <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="Dashboard Icon">Dashboard
+                    </li>
+                    <li class="sidebar__item">
+                     <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="Vital Task Icon">Vital Task
+                    </li>
+                    <li class="sidebar__item">
+                        <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="My Task Icon">My Task
+                    </li>
+                    <li class="sidebar__item">
+                        <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="Task Categories Icon">Task Categories
+                    </li>
+                    <li class="sidebar__item">
+                        <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="Settings Icon">Settings
+                    </li>
+                    <li class="sidebar__item">
+                        <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="Help Icon">Help
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar__logout">
+            <button class="sidebar__logout-button">
+                <img class="sidebar__logout-icon" src="/pictures/VectorLogOut.svg" href="#" alt="Logout">Logout
+            </button>
+            </div>
+        </div>
+
+        
+        <div class="content">
+            <div class="content__greetings">
+
+                <div class="content__greetings__bar">
+                    <div class="content__greetings-invites__text">
+                        <p>Welcome back, Sundar</p>
+                    </div>
+                    <div class="content__greetings-invites__waving-hand">
+                        <img class="content_greetings_waving-hand" src="/pictures/hand wave.svg" href="#" alt="hand-wave">
+                    </div>
+                </div>
+
+                <div class="greetings__invites">
+                    <div class="greetings__invites-profiles"></div>
+                    <div class="greetings__invites-button"></div>
+                </div>
+            </div>
+                
+            
+
+            <div class="content__to-do">
+
+            </div>
+        </div>
+        
+
+     </main>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-        const dayElement = document.querySelector(".today_day");
-        const fullDateElement = document.querySelector(".today_fullDate");
+        const dayElement = document.querySelector(".organizer__day");
+        const fullDateElement = document.querySelector(".organizer__full-date");
 
         const date = new Date();
         
@@ -44,7 +112,7 @@
         const dayName = days[date.getDay()];
 
         const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0'); // месяцы от 0
+        const month = String(date.getMonth() + 1).padStart(2, '0');
         const year = date.getFullYear();
         const formattedDate = `${day}/${month}/${year}`;
 
