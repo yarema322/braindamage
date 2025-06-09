@@ -38,10 +38,10 @@
 
     <main>
         <div class="sidebar">
-            <div class="sidebar__userinfo">
+            <div class="sidebar__user-info">
                 <img class="sidebar__profile-picture" src="/pictures/Ellipse 1.svg" href="#" alt="Profile picture">
-                <p class="sidebar__username">Sundar Gurung</p>
-                <p class="sidebar__usermail">sundargurung@gmail.com</p>
+                <p class="sidebar__user-name">Sundar Gurung</p>
+                <p class="sidebar__user-mail">sundargurung@gmail.com</p>
             </div>
             <div class="sidebar__nav">
                 <ul class="sidebar__list">
@@ -49,7 +49,7 @@
                         <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="Dashboard Icon">Dashboard
                     </li>
                     <li class="sidebar__item">
-                     <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="Vital Task Icon">Vital Task
+                    <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="Vital Task Icon">Vital Task
                     </li>
                     <li class="sidebar__item">
                         <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="My Task Icon">My Task
@@ -71,30 +71,143 @@
             </button>
             </div>
         </div>
-
         
         <div class="content">
-            <div class="content__greetings">
 
-                <div class="content__greetings__bar">
-                    <div class="content__greetings-invites__text">
+            <div class="greetings">
+                <div class="greetings__bar">
+                    <div class="greetings__text">
                         <p>Welcome back, Sundar</p>
                     </div>
-                    <div class="content__greetings-invites__waving-hand">
-                        <img class="content_greetings_waving-hand" src="/pictures/hand wave.svg" href="#" alt="hand-wave">
+                    <div class="greetings__hand">
+                        <img class="greetings__hand-icon" src="/pictures/hand wave.svg" href="#" alt="hand-wave">
                     </div>
                 </div>
-
                 <div class="greetings__invites">
-                    <div class="greetings__invites-profiles"></div>
-                    <div class="greetings__invites-button"></div>
+                    <div class="greetings__profiles">
+                        <img src="/pictures/SearchICon1.svg" href="#" alt="profiles1">
+                        <img src="/pictures/SearchICon2.svg" href="#" alt="profiles2">
+                        <img src="/pictures/SearchICon3.svg" href="#" alt="profiles3">
+                        <img src="/pictures/SearchICon4.svg" href="#" alt="profiles4">
+                        <img src="/pictures/SearchICon5.svg" href="#" alt="profiles5">
+                    </div>
+                    <div class="greetings__button">
+                        <button><img src="/pictures/invite.svg" href="#" alt="invite-icon"></button>
+                    </div>
                 </div>
             </div>
                 
-            
+           <div class="main-part">
+                <div class="main-part__to-do">
+                    <div class="to-do__side to-do__side--one">
+                        <div class="container1">
+                            <div class="small-organizer">
+                                <div class="small-organizer__text">
+                                    <p><img class="small-organizer__icon" src="/pictures/Pending.svg    " href="#" alt="">To-Do</p>
+                                    <button class="add__task">Add Task</button>
+                                </div>
+                                <div class="small-organizer__today-date">
+                                    <div class="today-date"><p class="today-date__text">Today</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container2">
+                            <div class="task-one">
+                                <div class="task-one__circle">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="task-one__major">
+                                    <div class="task-header">
+                                        <p class="task-header__text">Attend Nischal's Birthday Party</p>
+                                    </div>
+                                    <div class="task-description">
+                                        <p>Buy gifts on the way and pick up cake from the bakery. (6 PM | Fresh Elements)...</p>
+                                        <img src="/pictures/task image.svg" href="#" alt="task-icon">
+                                    </div>
+                                    <div class="task-manage">
+                                        <div class="task-manage__priority"><p>Priority: <span>Moderate</span></p></div>
+                                        <div class="task-manage__status"><p>Status: <span>In Progress</span></p></div>
+                                        <div class="task-manage__date-create"><p>Created on: 20/06/2023</p></div>
+                                    </div>
+                                </div>
+                                <div class="task-one__more-info"><p>...</p></div>
+                            </div>                    
+                            <div class="task-two"></div>
+                            <div class="task-three"></div>
+                        </div>
+                    </div>
 
-            <div class="content__to-do">
+                    <div class="to-do__side to-do__side--two">
 
+                        <div class="task-status">
+                            <div class="task-status__describe">
+                                <img src="/pictures/Task Complete.svg" href="#" alt="task-complete-icon" class="task-status__icon">
+                                <p class="task-status__text">Task Status</p>
+                            </div>
+                            <div class="task-status__progress">
+                                <div class="task-status__progress-circle task-status__progress-circle--1">
+                                    <div class="progress-circle"><p>85%</p></div>
+                                    <div class="progress-circle__describe">
+                                        <ul>
+                                            <li>Completed</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="task-status__progress-circle task-status__progress-circle--2">
+                                    <div class="progress-circle"><p>85%</p></div>
+                                    <div class="progress-circle__describe">
+                                        <ul>
+                                            <li>Completed</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="task-status__progress-circle task-status__progress-circle--3">
+                                    <div class="progress-circle"><p>85%</p></div>
+                                    <div class="progress-circle__describe">
+                                        <ul>
+                                            <li>Completed</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="task-completed">
+                            <div class="task-completed__describe">
+                                <img src="/pictures/Book.svg" href="#" alt="book-icon" class="task-completed-icon">
+                                <p class="task-completed-text">Completed Task</p>
+                            </div>
+                            <div class="task-completed__item">
+                                <div class="task-completed__item--1">
+                                    <div class="completed-circle">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="completed-description">
+                                        <div class="completed-description__heading">
+                                            <p>Walk the dog</p>
+                                        </div>
+                                        <div class="completed-description__text">
+                                            <p>Take the dog to the park and bring treats as well.</p>
+                                        </div>
+                                        <div class="completed-description__status">
+                                            <p>Status: <span>Completed</span></p>
+                                        </div>
+                                        <div class="completed-description__day-complete">
+                                            <p>Completed 2 days ago.</p>
+                                        </div>
+                                    </div>
+                                    <div class="completed-info">
+                                        <div class="completed-info__more"><p>...</p></div>
+                                        <div class="completed-info__icon">
+                                            <img src="/pictures/dog-picture.svg" href="#" alt="dog-picture">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="task-completed__item--2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         
