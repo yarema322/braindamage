@@ -38,42 +38,44 @@
 
     <main>
         <div class="sidebar">
-            <div class="sidebar__user-info">
-                <img class="sidebar__profile-picture" src="/pictures/Ellipse 1.svg" href="#" alt="Profile picture">
-                <p class="sidebar__user-name">Sundar Gurung</p>
-                <p class="sidebar__user-mail">sundargurung@gmail.com</p>
-            </div>
-            <div class="sidebar__nav">
-                <ul class="sidebar__list">
-                    <li class="sidebar__item">
-                        <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="Dashboard Icon">Dashboard
-                    </li>
-                    <li class="sidebar__item">
-                    <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="Vital Task Icon">Vital Task
-                    </li>
-                    <li class="sidebar__item">
-                        <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="My Task Icon">My Task
-                    </li>
-                    <li class="sidebar__item">
-                        <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="Task Categories Icon">Task Categories
-                    </li>
-                    <li class="sidebar__item">
-                        <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="Settings Icon">Settings
-                    </li>
-                    <li class="sidebar__item">
-                        <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="Help Icon">Help
-                    </li>
-                </ul>
+            <div class="sidebar__content">
+                <div class="sidebar__user-info">
+                    <img class="sidebar__profile-picture" src="/pictures/Ellipse 1.svg" href="#" alt="Profile picture">
+                    <p class="sidebar__user-name">Sundar Gurung</p>
+                    <p class="sidebar__user-mail">sundargurung@gmail.com</p>
+                </div>
+                <div class="sidebar__nav">
+                    <ul class="sidebar__list">
+                        <li class="sidebar__item">
+                            <img class="sidebar__icon" src="/pictures/dashboard icon.svg" href="#" alt="Dashboard Icon">Dashboard
+                        </li>
+                        <li class="sidebar__item">
+                        <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="Vital Task Icon">Vital Task
+                        </li>
+                        <li class="sidebar__item">
+                            <img class="sidebar__icon" src="/pictures/my task icon.svg" href="#" alt="My Task Icon">My Task
+                        </li>
+                        <li class="sidebar__item">
+                            <img class="sidebar__icon" src="/pictures/Task Categories icon.svg" href="#" alt="Task Categories Icon">Task Categories
+                        </li>
+                        <li class="sidebar__item">
+                            <img class="sidebar__icon" src="/pictures/Settings icon.svg" href="#" alt="Settings Icon">Settings
+                        </li>
+                        <li class="sidebar__item">
+                            <img class="sidebar__icon" src="/pictures/Help icon.svg" href="#" alt="Help Icon">Help
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="sidebar__logout">
             <button class="sidebar__logout-button">
                 <img class="sidebar__logout-icon" src="/pictures/VectorLogOut.svg" href="#" alt="Logout">Logout
             </button>
             </div>
-        </div>
         
-        <div class="content">
+        </div>
 
+        <div class="content">
             <div class="greetings">
                 <div class="greetings__bar">
                     <div class="greetings__text">
@@ -96,126 +98,162 @@
                     </div>
                 </div>
             </div>
-                
-           <div class="main-part">
-                <div class="main-part__to-do">
-                    <div class="to-do__side to-do__side--one">
-                        <div class="container1">
-                            <div class="small-organizer">
-                                <div class="small-organizer__text">
-                                    <p><img class="small-organizer__icon" src="/pictures/Pending.svg    " href="#" alt="">To-Do</p>
-                                    <button class="add__task">Add Task</button>
-                                </div>
-                                <div class="small-organizer__today-date">
-                                    <div class="today-date"><p class="today-date__text">Today</p></div>
-                                </div>
+                    
+            <div class="content__frame">
+                <div class="task task__active">
+                    <div class="task__heading">
+                        <div class="heading__manage">
+                            <div class="manage manage--to-do">
+                                <img src="/pictures/Pending.svg" href="#" alt="Pending-icon">
+                                <p>To-Do</p>
+                            </div>
+                            <div class="manage manage--add-task">
+                                <img src="/pictures/plus.svg" alt="Plus-icon">
+                                <p>Add task</p>
                             </div>
                         </div>
-                        <div class="container2">
-                            <div class="task-one">
-                                <div class="task-one__circle">
-                                    <div class="circle"></div>
-                                </div>
-                                <div class="task-one__major">
-                                    <div class="task-header">
-                                        <p class="task-header__text">Attend Nischal's Birthday Party</p>
-                                    </div>
-                                    <div class="task-description">
-                                        <p>Buy gifts on the way and pick up cake from the bakery. (6 PM | Fresh Elements)...</p>
-                                        <img src="/pictures/task image.svg" href="#" alt="task-icon">
-                                    </div>
-                                    <div class="task-manage">
-                                        <div class="task-manage__priority"><p>Priority: <span>Moderate</span></p></div>
-                                        <div class="task-manage__status"><p>Status: <span>In Progress</span></p></div>
-                                        <div class="task-manage__date-create"><p>Created on: 20/06/2023</p></div>
-                                    </div>
-                                </div>
-                                <div class="task-one__more-info"><p>...</p></div>
-                            </div>                    
-                            <div class="task-two"></div>
-                            <div class="task-three"></div>
+                        <div class="heading__date">
+                            <div class="day"></div>
+                            <ul><li>Today</li></ul>
                         </div>
                     </div>
-
-                    <div class="to-do__side to-do__side--two">
-
-                        <div class="task-status">
-                            <div class="task-status__describe">
-                                <img src="/pictures/Task Complete.svg" href="#" alt="task-complete-icon" class="task-status__icon">
-                                <p class="task-status__text">Task Status</p>
-                            </div>
-                            <div class="task-status__progress">
-                                <div class="task-status__progress-circle task-status__progress-circle--1">
-                                    <div class="progress-circle"><p>85%</p></div>
-                                    <div class="progress-circle__describe">
-                                        <ul>
-                                            <li>Completed</li>
-                                        </ul>
-                                    </div>
+                    <div class="task__content">
+                        <div class="content__load">
+                            <div class="load_circle"></div>
+                            <div class="load_describe">
+                                <div class="describe__heading">
+                                    <p>Attend Nischal's Birthday Party</p>
                                 </div>
-                                <div class="task-status__progress-circle task-status__progress-circle--2">
-                                    <div class="progress-circle"><p>85%</p></div>
-                                    <div class="progress-circle__describe">
-                                        <ul>
-                                            <li>Completed</li>
-                                        </ul>
-                                    </div>
+                                <div class="describe__information">
+                                    <p>Buy gifts on the way and pick up cake from the bakery. (6 PM | Fresh Elements)...</p>
+                                    <img src="/pictures/task image.svg" alt="task-icon">
                                 </div>
-                                <div class="task-status__progress-circle task-status__progress-circle--3">
-                                    <div class="progress-circle"><p>85%</p></div>
-                                    <div class="progress-circle__describe">
-                                        <ul>
-                                            <li>Completed</li>
-                                        </ul>
-                                    </div>
+                                <div class="describe__footer">
+                                    <p class="footer__priority">Priority: <span>Moderate</span></p>
+                                    <p class="footer__status">Status: <span>In Progress</span></p>
+                                    <p class="footer__create-date">Created on: 20/06/2023</p>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="task-completed">
-                            <div class="task-completed__describe">
-                                <img src="/pictures/Book.svg" href="#" alt="book-icon" class="task-completed-icon">
-                                <p class="task-completed-text">Completed Task</p>
-                            </div>
-                            <div class="task-completed__item">
-                                <div class="task-completed__item--1">
-                                    <div class="completed-circle">
-                                        <div class="circle"></div>
-                                    </div>
-                                    <div class="completed-description">
-                                        <div class="completed-description__heading">
-                                            <p>Walk the dog</p>
-                                        </div>
-                                        <div class="completed-description__text">
-                                            <p>Take the dog to the park and bring treats as well.</p>
-                                        </div>
-                                        <div class="completed-description__status">
-                                            <p>Status: <span>Completed</span></p>
-                                        </div>
-                                        <div class="completed-description__day-complete">
-                                            <p>Completed 2 days ago.</p>
-                                        </div>
-                                    </div>
-                                    <div class="completed-info">
-                                        <div class="completed-info__more"><p>...</p></div>
-                                        <div class="completed-info__icon">
-                                            <img src="/pictures/dog-picture.svg" href="#" alt="dog-picture">
-                                        </div>
-                                    </div>
+                        <div class="content__load">
+                            <div class="load_circle"></div>
+                            <div class="load_describe">
+                                <div class="describe__heading">
+                                    <p>Attend Nischal's Birthday Party</p>
                                 </div>
-                                <div class="task-completed__item--2"></div>
+                                <div class="describe__information">
+                                    <p>Buy gifts on the way and pick up cake from the bakery. (6 PM | Fresh Elements)...</p>
+                                    <img src="/pictures/task image.svg" alt="task-icon">
+                                </div>
+                                <div class="describe__footer">
+                                    <p class="footer__priority">Priority: <span>Moderate</span></p>
+                                    <p class="footer__status">Status: <span>In Progress</span></p>
+                                    <p class="footer__create-date">Created on: 20/06/2023</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content__load">
+                            <div class="load_circle"></div>
+                            <div class="load_describe">
+                                <div class="describe__heading">
+                                    <p>Attend Nischal's Birthday Party</p>
+                                </div>
+                                <div class="describe__information">
+                                    <p>Buy gifts on the way and pick up cake from the bakery. (6 PM | Fresh Elements)...</p>
+                                    <img src="/pictures/task image.svg" alt="task-icon">
+                                </div>
+                                <div class="describe__footer">
+                                    <p class="footer__priority">Priority: <span>Moderate</span></p>
+                                    <p class="footer__status">Status: <span>In Progress</span></p>
+                                    <p class="footer__create-date">Created on: 20/06/2023</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="task task__status">
+                    <div class="status">
+                        <div class="status__heading">
+                            <img src="/pictures/Task Complete.svg" alt="">
+                            <p>Task Status</p>
+                        </div>
+                        <div class="status__content">
+                            <div>
+                                <div class="status__circle">
+                                <p>84%</p>
+                                </div>
+                                <p>Completed</p>
+                            </div>
+
+                            <div>
+                                <div class="status__circle">
+                                <p>84%</p>
+                                </div>
+                                <p>In progress</p>
+                            </div>
+
+                            <div>
+                                <div class="status__circle">
+                                <p>84%</p>
+                                </div>
+                                <p>Not started</p>
+                            </div>
+
+                         </div>
+                    </div>
+                    <div class="completed">
+                        <div class="completed__heading">
+                            <img src="/pictures/Book.svg" alt="">
+                            <p class="completed__text">Task Completed</p>
+                        </div>
+                        <div class="completed__task">
+                        <div class="content__load">
+                            <div class="load_circle"></div>
+                            <div class="load_describe">
+                                <div class="describe__heading">
+                                    <p>Attend Nischal's Birthday Party</p>
+                                </div>
+                                <div class="describe__information">
+                                    <p>Buy gifts on the way and pick up cake from the bakery. (6 PM | Fresh Elements)...</p>
+                                    <img src="/pictures/task image.svg" alt="task-icon">
+                                </div>
+                                <div class="describe__footer">
+                                    <p class="footer__priority">Priority: <span>Moderate</span></p>
+                                    <p class="footer__status">Status: <span>In Progress</span></p>
+                                    <p class="footer__create-date">Created on: 20/06/2023</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="content__load">
+                            <div class="load_circle"></div>
+                            <div class="load_describe">
+                                <div class="describe__heading">
+                                    <p>Attend Nischal's Birthday Party</p>
+                                </div>
+                                <div class="describe__information">
+                                    <p>Buy gifts on the way and pick up cake from the bakery. (6 PM | Fresh Elements)...</p>
+                                    <img src="/pictures/task image.svg" alt="task-icon">
+                                </div>
+                                <div class="describe__footer">
+                                    <p class="footer__priority">Priority: <span>Moderate</span></p>
+                                    <p class="footer__status">Status: <span>In Progress</span></p>
+                                    <p class="footer__create-date">Created on: 20/06/2023</p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+                
         </div>
         
 
      </main>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
         const dayElement = document.querySelector(".organizer__day");
         const fullDateElement = document.querySelector(".organizer__full-date");
 
@@ -232,7 +270,18 @@
         if (dayElement) dayElement.textContent = dayName;
         if (fullDateElement) fullDateElement.textContent = formattedDate;
          });
-</script>
+    </script>
+
+    <script>
+    const dayElement = document.querySelector('.day');
+
+    const date = new Date();
+    const day = date.getDate();
+    const month = date.toLocaleString('en-US', { month: 'long' });
+
+    dayElement.textContent = `${day} ${month}`;
+    </script>
+
 </body>
 
 </html>
