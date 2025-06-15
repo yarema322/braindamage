@@ -39,40 +39,46 @@
     <main>
         <div class="sidebar">
             <div class="sidebar__content">
-                <div class="sidebar__user-info">
-                    <img class="sidebar__profile-picture" src="/pictures/Ellipse 1.svg" href="#" alt="Profile picture">
-                    <p class="sidebar__user-name">Sundar Gurung</p>
-                    <p class="sidebar__user-mail">sundargurung@gmail.com</p>
+                <div>
+                    <div class="sidebar__user-info">
+                        <img class="sidebar__profile-picture" src="/pictures/Ellipse 1.svg" href="#" alt="Profile picture">
+                        <p class="sidebar__user-name">Sundar Gurung</p>
+                        <p class="sidebar__user-mail">sundargurung@gmail.com</p>
+                    </div>
+                    <div class="sidebar__nav">
+                        <ul class="sidebar__list">
+                            <li class="sidebar__item">
+                                <img class="sidebar__icon" src="/pictures/dashboard icon.svg" href="#" alt="Dashboard Icon">Dashboard
+                            </li>
+                            <li class="sidebar__item">
+                            <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="Vital Task Icon">Vital Task
+                            </li>
+                            <li class="sidebar__item">
+                                <img class="sidebar__icon" src="/pictures/my task icon.svg" href="#" alt="My Task Icon">My Task
+                            </li>
+                            <li class="sidebar__item">
+                                <img class="sidebar__icon" src="/pictures/Task Categories icon.svg" href="#" alt="Task Categories Icon">Task Categories
+                            </li>
+                            <li class="sidebar__item">
+                                <img class="sidebar__icon" src="/pictures/Settings icon.svg" href="#" alt="Settings Icon">Settings
+                            </li>
+                            <li class="sidebar__item">
+                                <img class="sidebar__icon" src="/pictures/Help icon.svg" href="#" alt="Help Icon">Help
+                            </li>
+                            
+                        </ul>
+                    </div>
                 </div>
-                <div class="sidebar__nav">
-                    <ul class="sidebar__list">
-                        <li class="sidebar__item">
-                            <img class="sidebar__icon" src="/pictures/dashboard icon.svg" href="#" alt="Dashboard Icon">Dashboard
+                <div class="sidebar__logout">
+                    <li class="sidebar__item">
+                            <button>
+                                <img class="sidebar__icon" src="/pictures/VectorLogOut.svg" href="#" alt="Help Icon">Logout
+                            </button>
                         </li>
-                        <li class="sidebar__item">
-                        <img class="sidebar__icon" src="/pictures/Vector.svg" href="#" alt="Vital Task Icon">Vital Task
-                        </li>
-                        <li class="sidebar__item">
-                            <img class="sidebar__icon" src="/pictures/my task icon.svg" href="#" alt="My Task Icon">My Task
-                        </li>
-                        <li class="sidebar__item">
-                            <img class="sidebar__icon" src="/pictures/Task Categories icon.svg" href="#" alt="Task Categories Icon">Task Categories
-                        </li>
-                        <li class="sidebar__item">
-                            <img class="sidebar__icon" src="/pictures/Settings icon.svg" href="#" alt="Settings Icon">Settings
-                        </li>
-                        <li class="sidebar__item">
-                            <img class="sidebar__icon" src="/pictures/Help icon.svg" href="#" alt="Help Icon">Help
-                        </li>
-                    </ul>
                 </div>
             </div>
-            <div class="sidebar__logout">
-            <button class="sidebar__logout-button">
-                <img class="sidebar__logout-icon" src="/pictures/VectorLogOut.svg" href="#" alt="Logout">Logout
-            </button>
-            </div>
-        
+                
+
         </div>
 
         <div class="content">
@@ -119,8 +125,10 @@
                     </div>
                     <div class="task__content">
                         <div class="content__load">
-                            <div class="load_circle"></div>
-                            <div class="load_describe">
+                            <div class="load__circle">
+                                <img src="/pictures/Red-Circle.svg" href="#" alt="Red-Circle">
+                            </div>
+                            <div class="load__describe">
                                 <div class="describe__heading">
                                     <p>Attend Nischal's Birthday Party</p>
                                 </div>
@@ -129,15 +137,15 @@
                                     <img src="/pictures/task image.svg" alt="task-icon">
                                 </div>
                                 <div class="describe__footer">
-                                    <p class="footer__priority">Priority: <span>Moderate</span></p>
-                                    <p class="footer__status">Status: <span>In Progress</span></p>
+                                    <p class="footer__priority">Priority: <span class="moderate">Moderate</span></p>
+                                    <p class="footer__status">Status: <span class="footer__status--progress">In Progress</span></p>
                                     <p class="footer__create-date">Created on: 20/06/2023</p>
                                 </div>
                             </div>
                         </div>
                         <div class="content__load">
-                            <div class="load_circle"></div>
-                            <div class="load_describe">
+                            <div class="load__circle"><img src="/pictures/Red-Circle.svg" href="#" alt="Red-Circle"></div>
+                            <div class="load__describe">
                                 <div class="describe__heading">
                                     <p>Attend Nischal's Birthday Party</p>
                                 </div>
@@ -146,15 +154,15 @@
                                     <img src="/pictures/task image.svg" alt="task-icon">
                                 </div>
                                 <div class="describe__footer">
-                                    <p class="footer__priority">Priority: <span>Moderate</span></p>
-                                    <p class="footer__status">Status: <span>In Progress</span></p>
+                                    <p class="footer__priority">Priority: <span class="moderate">Moderate</span></p>
+                                    <p class="footer__status">Status: <span class="footer__status--progress">In Progress</span></p>
                                     <p class="footer__create-date">Created on: 20/06/2023</p>
                                 </div>
                             </div>
                         </div>
                         <div class="content__load">
-                            <div class="load_circle"></div>
-                            <div class="load_describe">
+                            <div class="load__circle"><img src="/pictures/Red-Circle.svg" href="#" alt="Red-Circle"></div>
+                            <div class="load__describe">
                                 <div class="describe__heading">
                                     <p>Attend Nischal's Birthday Party</p>
                                 </div>
@@ -163,8 +171,8 @@
                                     <img src="/pictures/task image.svg" alt="task-icon">
                                 </div>
                                 <div class="describe__footer">
-                                    <p class="footer__priority">Priority: <span>Moderate</span></p>
-                                    <p class="footer__status">Status: <span>In Progress</span></p>
+                                    <p class="footer__priority">Priority: <span  class="moderate">Moderate</span></p>
+                                    <p class="footer__status">Status: <span class="footer__status--progress">In Progress</span></p>
                                     <p class="footer__create-date">Created on: 20/06/2023</p>
                                 </div>
                             </div>
@@ -208,8 +216,8 @@
                         </div>
                         <div class="completed__task">
                         <div class="content__load">
-                            <div class="load_circle"></div>
-                            <div class="load_describe">
+                            <div class="load__circle"><img src="/pictures/Red-Circle.svg" href="#" alt="Red-Circle"></div>
+                            <div class="load__describe">
                                 <div class="describe__heading">
                                     <p>Attend Nischal's Birthday Party</p>
                                 </div>
@@ -218,16 +226,16 @@
                                     <img src="/pictures/task image.svg" alt="task-icon">
                                 </div>
                                 <div class="describe__footer">
-                                    <p class="footer__priority">Priority: <span>Moderate</span></p>
-                                    <p class="footer__status">Status: <span>In Progress</span></p>
+                                    <p class="footer__priority">Priority: <span class="moderate">Moderate</span></p>
+                                    <p class="footer__status">Status: <span class="footer__status--progress">In Progress</span></p>
                                     <p class="footer__create-date">Created on: 20/06/2023</p>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="content__load">
-                            <div class="load_circle"></div>
-                            <div class="load_describe">
+                            <div class="load__circle"><img src="/pictures/Red-Circle.svg" href="#" alt="Red-Circle"></div>
+                            <div class="load__describe">
                                 <div class="describe__heading">
                                     <p>Attend Nischal's Birthday Party</p>
                                 </div>
@@ -236,8 +244,8 @@
                                     <img src="/pictures/task image.svg" alt="task-icon">
                                 </div>
                                 <div class="describe__footer">
-                                    <p class="footer__priority">Priority: <span>Moderate</span></p>
-                                    <p class="footer__status">Status: <span>In Progress</span></p>
+                                    <p class="footer__priority">Priority: <span class="moderate">Moderate</span></p>
+                                    <p class="footer__status">Status: <span class="footer__status--progress">In Progress</span></p>
                                     <p class="footer__create-date">Created on: 20/06/2023</p>
                                 </div>
                             </div>
