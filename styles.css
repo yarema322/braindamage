@@ -66,7 +66,7 @@ html, body {
 
 .search {
   display: flex;
-  max-width: 694px;
+  max-width: 500px;
   width: 100%;
   height: 36px;
   border: none;
@@ -227,9 +227,6 @@ main {
   background-color: var(--color-white);
 }
 
-
-/* лоаугт кнопка */
-
 .sidebar__item button {
   all: unset;
   display: flex;
@@ -241,6 +238,14 @@ main {
   cursor: pointer;
 }
 
+.sidebar__item:hover .sidebar__icon {
+  filter: brightness(0) saturate(100%) invert(39%) sepia(91%) saturate(2823%) hue-rotate(328deg) brightness(101%) contrast(101%);
+}
+
+.sidebar__icon--white {
+  filter: brightness(0) invert(1);
+}
+
 .sidebar__logout {
   margin-bottom: 20px;
 }
@@ -250,7 +255,7 @@ main {
   position: relative;
   flex-grow: 1;
   height: 100%;
-  margin: 0 60px;
+  margin: 0 60px 0 30px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -301,13 +306,6 @@ main {
   cursor: pointer;
 }
 
-.main-part {
-  border: 1px solid #dee2e6;
-  box-shadow: 
-    -2px 2px 4px var(--color-shadow),
-    2px 2px 4px var(--color-shadow);
-}
-
 .content__frame {
   display: flex;
   flex: 1;
@@ -319,8 +317,8 @@ main {
   background: var(--color-white);
   border: 1px solid var(--color-border-main);
   box-shadow: 
-    -4px 5px 4px var(--color-shadow),
-    4px 5px 4px var(--color-shadow);
+    -4px 8px 10px var(--color-shadow),
+    4px 8px 10px var(--color-shadow);
 }
 
 .task {
@@ -337,8 +335,8 @@ main {
   padding: 18px 26px;
   background: var(--color-white);
   box-shadow: 
-    -4px 5px 4px var(--color-shadow),
-    4px 5px 4px var(--color-shadow);
+    -4px 4px 4px var(--color-shadow), 
+    4px 4px 4px var(--color-shadow);
 }
 
 .task__status {
@@ -351,8 +349,9 @@ main {
 .status, .completed {
   border: 1px solid var(--color-border-main);
   border-radius: 10px;
-  box-shadow: -4px 5px 4px var(--color-shadow),
-  4px 5px 4px var(--color-shadow);
+  box-shadow: 
+    -4px 4px 4px var(--color-shadow), 
+    4px 4px 4px var(--color-shadow);
 }
 
 .heading__manage {
@@ -422,7 +421,8 @@ main {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin: 8px 16px 8px 0;
+  margin: 0 16px 8px 0;
+  padding-top: 14px;
 }
 
 .describe__heading {
@@ -477,6 +477,7 @@ p {
 .status__heading {
   display: flex;
   justify-content: left;
+  gap: 10px;
   font-size: 15px;
   font-weight: 500;
   color: var(--color-primary);
@@ -532,4 +533,9 @@ p {
   color: var(--color-primary);
   font-size: 15px;
   font-weight: 500;
+}
+
+.completed__heading img {
+  width: 23px;
+  height: 23px;
 }
