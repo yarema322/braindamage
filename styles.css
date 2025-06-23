@@ -239,6 +239,13 @@ main {
   box-shadow: 8px 3px 10px -2px var(--color-shadow);
 
   @media screen and (max-width: 1095px) {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    height: 100%;
+    width: 300px;
+    transition: left 0.3s;
+    z-index: 1050;
   }
 }
 
