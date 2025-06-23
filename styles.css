@@ -1,9 +1,11 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
 * {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 :root {
@@ -21,7 +23,7 @@
   --color-circle-in-progress: #1a30f5;
   --color-circle-not-started: #fc0303;
   --box-shadow: 0 4px 14px -10px rgba(0, 0, 0, 0.2);
-  --color-header: #F8F8F8;
+  --color-header: #f8f8f8;
 }
 
 html {
@@ -38,7 +40,8 @@ body {
   gap: 56px;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -184,7 +187,7 @@ html, body {
 }
 
 .organizer__calendar svg path {
-  transition: fill 0.3s ;
+  transition: fill 0.3s;
   fill: var(--color-white);
 }
 
@@ -234,6 +237,9 @@ main {
   border-radius: 5px;
   background-color: var(--color-primary);
   box-shadow: 8px 3px 10px -2px var(--color-shadow);
+
+  @media screen and (max-width: 1095px) {
+  }
 }
 
 .sidebar__content {
@@ -265,7 +271,6 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
-
 }
 
 .sidebar__user-name {
@@ -332,6 +337,16 @@ main {
   cursor: pointer;
 }
 
+.sidebar__item--selected {
+  color: var(--color-primary);
+  background-color: var(--color-white);
+}
+
+.sidebar__item--selected .sidebar__item-icon {
+  fill: var(--color-primary);
+  color: var(--color-primary);
+}
+
 .content {
   position: relative;
   flex-grow: 1;
@@ -385,27 +400,25 @@ main {
   width: 38px;
   height: 38px;
   border-radius: 10px;
-  backdrop-filter: sepia(90%)
+  backdrop-filter: sepia(90%);
 }
 
 .greetings__button button {
-  width: 100px; 
+  width: 100px;
   height: 38px;
   background-color: transparent;
-  border: none;
+  border: 1px solid var(--color-primary);
   cursor: pointer;
   padding: 0;
   transition: background-color 0.3s;
-  border-radius: 8px; 
-  color: var(--color-primary); 
+  border-radius: 8px;
+  color: var(--color-primary);
 }
 
 .greetings__button button:hover {
   background-color: var(--color-primary);
-  color: var(--color-white); 
+  color: var(--color-white);
 }
-
-
 
 .content__frame {
   display: flex;
@@ -416,8 +429,7 @@ main {
   margin-bottom: 40px;
   background: var(--color-white);
   border: 1px solid var(--color-border-main);
-  box-shadow: 
-    -4px 8px 10px var(--color-shadow),
+  box-shadow: -4px 8px 10px var(--color-shadow),
     4px 8px 10px var(--color-shadow);
 }
 
@@ -434,9 +446,7 @@ main {
   gap: 15px;
   padding: 18px 26px;
   background: var(--color-white);
-  box-shadow: 
-    -4px 4px 4px var(--color-shadow), 
-    4px 4px 4px var(--color-shadow);
+  box-shadow: -4px 4px 4px var(--color-shadow), 4px 4px 4px var(--color-shadow);
 }
 
 .task__status {
@@ -446,12 +456,11 @@ main {
   gap: 10px;
 }
 
-.status, .completed {
+.status,
+.completed {
   /*border: 1px solid var(--color-border-main);*/
   border-radius: 10px;
-  box-shadow: 
-    -4px 4px 4px var(--color-shadow), 
-    4px 4px 4px var(--color-shadow);
+  box-shadow: -4px 4px 4px var(--color-shadow), 4px 4px 4px var(--color-shadow);
 }
 
 .heading__manage {
@@ -486,15 +495,14 @@ main {
 }
 
 .manage--add-task {
-  margin: 0 12px ;
+  margin: 0 12px;
 }
 
-.manage--add-task p  {
+.manage--add-task p {
   display: flex;
   align-items: center;
   white-space: nowrap;
   opacity: 0.5;
-
 }
 
 .task__content {
@@ -518,7 +526,7 @@ main {
   margin: 12px 6px;
 }
 
-.load__describe{
+.load__describe {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -547,7 +555,7 @@ main {
   opacity: 0.8;
 }
 
-.describe__footer{
+.describe__footer {
   display: flex;
   justify-content: space-between;
 }
@@ -560,7 +568,7 @@ main {
   color: var(--color-progress);
 }
 
-.footer__create-date{
+.footer__create-date {
   opacity: 0.5;
 }
 
@@ -656,14 +664,14 @@ p {
 }
 
 .progress__text::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
   width: 0.5em;
   height: 0.5em;
-  border-radius: 50%; 
+  border-radius: 50%;
 }
 
 .progress--completed .progress__text::before {
@@ -684,7 +692,6 @@ p {
   flex-direction: column;
   gap: 15px;
   padding: 18px 26px;
-  
 }
 
 .completed__task {
@@ -702,4 +709,3 @@ p {
   font-size: 15px;
   font-weight: 500;
 }
-
