@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Sign In</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+    <script defer src="/_vercel/insights/script.js"></script>
+  </head>
+
+  <body class="login-form login-form-background">
+    <form action="#" method="post">
+      <div class="login-container">
+        <div class="sign-in-container">
+          <div class="sign-in">
+            <span class="sign-in-up-text">Sign In</span>
+            <input
+              class="uname-input login-signup-input"
+              type="text"
+              placeholder="Enter Username"
+              name="uname"
+              required />
+            <input
+              class="psw-input login-signup-input"
+              type="password"
+              placeholder="Enter Password"
+              name="psw"
+              required />
+
+            <label class="remember-me">
+              <input type="checkbox" name="remember" /> Remember me
+            </label>
+            <button class="login-button" type="submit">Login</button>
+          </div>
+
+          <div class="login-optional">
+            <div class="social">
+              <span>Or, Login with</span>
+              <a class="social-icons" href="#"
+                ><img src="/pictures/google.png" alt="Google"
+              /></a>
+              <a class="social-icons" href="#"
+                ><img src="/pictures/facebook.png" alt="Facebook"
+              /></a>
+              <a class="social-icons" href="#"
+                ><img src="/pictures/twitter.png" alt="Twitter"
+              /></a>
+            </div>
+            <span
+              >Don't have an account?
+              <a
+                class="create-account"
+                href="http://127.0.0.1:5500/signup.html"
+                target="_blank"
+                >Create One</a
+              ></span
+            >
+          </div>
+        </div>
+
+        <div class="login-picture">
+          <img src="/pictures/phone.png " alt="login-picture" href="#" />
+        </div>
+      </div>
+    </form>
+    <div class="background-image"></div>
+  </body>
+</html>
