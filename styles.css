@@ -170,6 +170,7 @@ nav {
   margin: 0;
   font-size: 24px;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .header__highlight {
@@ -1358,6 +1359,18 @@ input::placeholder {
 
 .more-description__button svg {
   transform: translate(-16%, -6%);
+}
+
+.more-description__button:hover {
+  background-color: var(--color-white);
+}
+
+.more-description__button:hover rect {
+  fill: var(--color-white);
+}
+
+.more-description__button:hover svg path {
+  fill: var(--color-primary);
 }
 
 /* modal */
