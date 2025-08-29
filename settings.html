@@ -3,16 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>To-Do</title>
+    <title>Settings</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet" />
     <script defer src="/_vercel/insights/script.js"></script>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-
   <body>
     <header class="header">
       <nav>
@@ -24,7 +23,7 @@
       </nav>
       <div class="header__title">
         <h1 class="header__title-text">
-          <span class="header__highlight">To</span>-Do
+          <span class="header__highlight">Set</span>tings
         </h1>
       </div>
       <div class="search">
@@ -114,9 +113,7 @@
       </div>
     </header>
 
-    <div class="overlay"></div>
-
-    <main class="todo__page">
+    <main class="settings">
       <div class="sidebar">
         <div class="sidebar__content">
           <div>
@@ -133,7 +130,7 @@
             <div class="sidebar__nav">
               <ul class="sidebar__list">
                 <a href="/index.html">
-                  <li class="sidebar__item">
+                  <li class="sidebar__item sidebar__item--dashboard">
                     <svg
                       class="sidebar__item-icon"
                       width="24"
@@ -162,23 +159,25 @@
                   </svg>
                   Vital Task
                 </li>
-                <li class="sidebar__item sidebar__item--selected">
-                  <svg
-                    class="sidebar__item-icon"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M5 22H19C20.103 22 21 21.103 21 20V5C21 3.897 20.103 3 19 3H17C17 2.73478 16.8946 2.48043 16.7071 2.29289C16.5196 2.10536 16.2652 2 16 2H8C7.73478 2 7.48043 2.10536 7.29289 2.29289C7.10536 2.48043 7 2.73478 7 3H5C3.897 3 3 3.897 3 5V20C3 21.103 3.897 22 5 22ZM5 5H7V7H17V5H19V20H5V5Z"
-                      fill="currentColor" />
-                    <path
-                      d="M11 13.586L9.20697 11.793L7.79297 13.207L11 16.414L16.207 11.207L14.793 9.79297L11 13.586Z"
-                      fill="currentColor" />
-                  </svg>
-                  My Task
-                </li>
+                <a href="/todo.html">
+                  <li class="sidebar__item">
+                    <svg
+                      class="sidebar__item-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M5 22H19C20.103 22 21 21.103 21 20V5C21 3.897 20.103 3 19 3H17C17 2.73478 16.8946 2.48043 16.7071 2.29289C16.5196 2.10536 16.2652 2 16 2H8C7.73478 2 7.48043 2.10536 7.29289 2.29289C7.10536 2.48043 7 2.73478 7 3H5C3.897 3 3 3.897 3 5V20C3 21.103 3.897 22 5 22ZM5 5H7V7H17V5H19V20H5V5Z"
+                        fill="currentColor" />
+                      <path
+                        d="M11 13.586L9.20697 11.793L7.79297 13.207L11 16.414L16.207 11.207L14.793 9.79297L11 13.586Z"
+                        fill="currentColor" />
+                    </svg>
+                    My Task
+                  </li>
+                </a>
                 <li class="sidebar__item">
                   <svg
                     class="sidebar__item-icon"
@@ -193,22 +192,20 @@
                   </svg>
                   Task Categories
                 </li>
-                <a href="/settings.html">
-                  <li class="sidebar__item">
-                    <svg
-                      class="sidebar__item-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M8.71642 24L8.23881 20.16C7.9801 20.06 7.73612 19.94 7.50687 19.8C7.27761 19.66 7.05393 19.51 6.83582 19.35L3.28358 20.85L0 15.15L3.07463 12.81C3.05473 12.67 3.04478 12.5348 3.04478 12.4044V11.5956C3.04478 11.4652 3.05473 11.33 3.07463 11.19L0 8.85L3.28358 3.15L6.83582 4.65C7.05473 4.49 7.28358 4.34 7.52239 4.2C7.76119 4.06 8 3.94 8.23881 3.84L8.71642 0H15.2836L15.7612 3.84C16.0199 3.94 16.2639 4.06 16.4931 4.2C16.7224 4.34 16.9461 4.49 17.1642 4.65L20.7164 3.15L24 8.85L20.9254 11.19C20.9453 11.33 20.9552 11.4652 20.9552 11.5956V12.4044C20.9552 12.5348 20.9353 12.67 20.8955 12.81L23.9701 15.15L20.6866 20.85L17.1642 19.35C16.9453 19.51 16.7164 19.66 16.4776 19.8C16.2388 19.94 16 20.06 15.7612 20.16L15.2836 24H8.71642ZM12.0597 16.2C13.2139 16.2 14.199 15.79 15.0149 14.97C15.8308 14.15 16.2388 13.16 16.2388 12C16.2388 10.84 15.8308 9.85 15.0149 9.03C14.199 8.21 13.2139 7.8 12.0597 7.8C10.8856 7.8 9.89532 8.21 9.08896 9.03C8.28259 9.85 7.8798 10.84 7.8806 12C7.8806 13.16 8.28338 14.15 9.08896 14.97C9.89453 15.79 10.8848 16.2 12.0597 16.2Z"
-                        fill="currentColor" />
-                    </svg>
-                    Settings
-                  </li>
-                </a>
+                <li class="sidebar__item sidebar__item--settings">
+                  <svg
+                    class="sidebar__item-icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M8.71642 24L8.23881 20.16C7.9801 20.06 7.73612 19.94 7.50687 19.8C7.27761 19.66 7.05393 19.51 6.83582 19.35L3.28358 20.85L0 15.15L3.07463 12.81C3.05473 12.67 3.04478 12.5348 3.04478 12.4044V11.5956C3.04478 11.4652 3.05473 11.33 3.07463 11.19L0 8.85L3.28358 3.15L6.83582 4.65C7.05473 4.49 7.28358 4.34 7.52239 4.2C7.76119 4.06 8 3.94 8.23881 3.84L8.71642 0H15.2836L15.7612 3.84C16.0199 3.94 16.2639 4.06 16.4931 4.2C16.7224 4.34 16.9461 4.49 17.1642 4.65L20.7164 3.15L24 8.85L20.9254 11.19C20.9453 11.33 20.9552 11.4652 20.9552 11.5956V12.4044C20.9552 12.5348 20.9353 12.67 20.8955 12.81L23.9701 15.15L20.6866 20.85L17.1642 19.35C16.9453 19.51 16.7164 19.66 16.4776 19.8C16.2388 19.94 16 20.06 15.7612 20.16L15.2836 24H8.71642ZM12.0597 16.2C13.2139 16.2 14.199 15.79 15.0149 14.97C15.8308 14.15 16.2388 13.16 16.2388 12C16.2388 10.84 15.8308 9.85 15.0149 9.03C14.199 8.21 13.2139 7.8 12.0597 7.8C10.8856 7.8 9.89532 8.21 9.08896 9.03C8.28259 9.85 7.8798 10.84 7.8806 12C7.8806 13.16 8.28338 14.15 9.08896 14.97C9.89453 15.79 10.8848 16.2 12.0597 16.2Z"
+                      fill="currentColor" />
+                  </svg>
+                  Settings
+                </li>
                 <li class="sidebar__item">
                   <svg
                     class="sidebar__item-icon"
@@ -317,179 +314,57 @@
           </div>
         </div>
       </div>
-
-      <div class="to-do__content">
-        <div class="small-description">
-          <p class="small-description__tittle">My Task</p>
-          <span class="my-task__underline"></span>
-          <div class="content__load">
-            <div class="load__circle">
-              <svg
-                width="14"
-                height="15"
-                viewBox="0 0 14 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M1 7.67126C1 9.26256 1.63214 10.7887 2.75736 11.9139C3.88258 13.0391 5.4087 13.6713 7 13.6713C8.5913 13.6713 10.1174 13.0391 11.2426 11.9139C12.3679 10.7887 13 9.26256 13 7.67126C13 6.07997 12.3679 4.55384 11.2426 3.42862C10.1174 2.30341 8.5913 1.67126 7 1.67126C5.4087 1.67126 3.88258 2.30341 2.75736 3.42862C1.63214 4.55384 1 6.07997 1 7.67126Z"
-                  stroke="#F21E1E"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </div>
-            <div class="load__describe">
-              <div class="describe__heading">
-                <p>Attend Nischal's Birthday Party</p>
-              </div>
-              <div class="describe__information">
-                <p>
-                  Buy gifts on the way and pick up cake from the bakery. (6 PM |
-                  Fresh Elements)...
-                </p>
-                <img
-                  class="task__image"
-                  src="/pictures/Indus.jpg"
-                  href="#"
-                  alt="task image" />
-              </div>
-              <div class="describe__footer">
-                <p class="footer__priority">
-                  Priority: <span class="moderate">Moderate</span>
-                </p>
-                <p class="footer__status">
-                  Status:
-                  <span class="footer__status--progress">In Progress</span>
-                </p>
-                <p class="footer__create-date">Created on: 20/06/2023</p>
-              </div>
-            </div>
+      <div class="settings__information">
+        <div class="settings__header">
+          <h2 class="settings__heading">Change Password</h2>
+          <span class="settings__underline"></span>
+          <a href="index.html">
+            <button class="close__add-task" id="close__add-task">
+              Go Back
+            </button></a
+          >
+        </div>
+        <div class="settings__account">
+          <div class="settings__profile-picture">
+            <img
+              src="https://images.unsplash.com/photo-1644904105846-095e45fca990?q=80&w=692&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              href="#"
+              alt="profile-picture" />
           </div>
-          <div class="content__load">
-            <div class="load__circle">
-              <svg
-                width="14"
-                height="15"
-                viewBox="0 0 14 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M1 7.67126C1 9.26256 1.63214 10.7887 2.75736 11.9139C3.88258 13.0391 5.4087 13.6713 7 13.6713C8.5913 13.6713 10.1174 13.0391 11.2426 11.9139C12.3679 10.7887 13 9.26256 13 7.67126C13 6.07997 12.3679 4.55384 11.2426 3.42862C10.1174 2.30341 8.5913 1.67126 7 1.67126C5.4087 1.67126 3.88258 2.30341 2.75736 3.42862C1.63214 4.55384 1 6.07997 1 7.67126Z"
-                  stroke="#F21E1E"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </div>
-            <div class="load__describe">
-              <div class="describe__heading">
-                <p>Attend Nischal's Birthday Party</p>
-              </div>
-              <div class="describe__information">
-                <p>
-                  Buy gifts on the way and pick up cake from the bakery. (6 PM |
-                  Fresh Elements)...
-                </p>
-                <img
-                  class="task__image"
-                  src="/pictures/Indus.jpg"
-                  href="#"
-                  alt="task image" />
-              </div>
-              <div class="describe__footer">
-                <p class="footer__priority">
-                  Priority: <span class="moderate">Moderate</span>
-                </p>
-                <p class="footer__status">
-                  Status:
-                  <span class="footer__status--progress">In Progress</span>
-                </p>
-                <p class="footer__create-date">Created on: 20/06/2023</p>
-              </div>
-            </div>
+
+          <div class="settings__user-information">
+            <p class="settings__user-name">Sundar Gurung</p>
+            <p class="settings__user-mail">sundar.gurung@example.com</p>
           </div>
         </div>
-        <div class="more-description">
-          <div class="more-description__item">
-            <img
-              class="more-description__photo"
-              src="/pictures/picture-of-task.jpg"
-              href="#"
-              alt="picture-task" />
-
-            <div class="more-description__text more-description__text--small">
-              <h2>Submit Documents</h2>
-              <p>Priority: <span>Extreme</span></p>
-              <p>Status: <span>Not Started</span></p>
-              <p>Created on: 20/06/2023</p>
+        <div class="settings__password">
+          <form class="settings__form" action="#" method="#">
+            <label for="current-password">Current Password</label>
+            <input
+              type="password"
+              id="current-password"
+              name="current-password"
+              required />
+            <label for="new-password">New Password</label>
+            <input
+              type="password"
+              id="new-password"
+              name="new-password"
+              required />
+            <label for="confirm-password">Confirm New Password</label>
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              required />
+            <div class="settings__buttons">
+              <button type="submit">Update Password</button>
+              <button type="reset">Cancel</button>
             </div>
-          </div>
-
-          <div class="more-description__text more-description__text--large">
-            <p><b>Task Tittle: </b>Document Submission.</p>
-            <p>
-              <b>Objective: </b>To submit required documents for something
-              important
-            </p>
-            <p>
-              <b>Task Description: </b>Review the list of documents required for
-              submission and ensure all necessary documents are ready. Organize
-              the documents accordingly and scan them if physical copies need to
-              be submitted digitally. Rename the scanned files appropriately for
-              easy identification and verify the accepted file formats. Upload
-              the documents securely to the designated platform, double-check
-              for accuracy, and obtain confirmation of successful submission.
-              Follow up if necessary to ensure proper processing.
-            </p>
-            <p><b>Additional Notes:</b></p>
-            <ul class="more-description__list">
-              <li class="more-description__list-item">
-                Ensure that the documents are authentic and up-to-date.
-              </li>
-              <li class="more-description__list-item">
-                Maintain confidentiality and security of sensitive information
-                during the submission process.
-              </li>
-              <li class="more-description__list-item">
-                If there are specific guidelines or deadlines for submission,
-                adhere to them diligently.
-              </li>
-            </ul>
-            <p><b>Deadline for Submission: </b>End of Day</p>
-          </div>
-
-          <div class="more-description__tools">
-            <button class="more-description__button">
-              <svg
-                width="36"
-                height="36"
-                viewBox="0 0 36 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <rect width="36" height="36" rx="8" fill="#ff4d6d" />
-                <path
-                  d="M21 8.94979C22.296 8.94979 23.496 9.35979 24.477 10.0598L15.343 19.1928C15.2475 19.285 15.1713 19.3954 15.1189 19.5174C15.0665 19.6394 15.0389 19.7706 15.0377 19.9034C15.0366 20.0362 15.0619 20.1678 15.1122 20.2907C15.1625 20.4136 15.2367 20.5253 15.3306 20.6192C15.4245 20.7131 15.5361 20.7873 15.659 20.8376C15.7819 20.8879 15.9136 20.9132 16.0464 20.912C16.1792 20.9109 16.3104 20.8833 16.4324 20.8309C16.5544 20.7785 16.6648 20.7023 16.757 20.6068L25.891 11.4728C26.6141 12.4878 27.0019 13.7035 27 14.9498V24.9498C27 25.4802 26.7893 25.9889 26.4142 26.364C26.0391 26.7391 25.5304 26.9498 25 26.9498H11C10.4696 26.9498 9.96086 26.7391 9.58579 26.364C9.21071 25.9889 9 25.4802 9 24.9498V10.9498C9 10.4194 9.21071 9.91065 9.58579 9.53557C9.96086 9.1605 10.4696 8.94979 11 8.94979H21ZM27.657 8.29279C27.8445 8.48031 27.9498 8.73462 27.9498 8.99979C27.9498 9.26495 27.8445 9.51926 27.657 9.70679L25.89 11.4728C25.5006 10.9261 25.0227 10.4482 24.476 10.0588L26.242 8.29279C26.4295 8.10532 26.6838 8 26.949 8C27.2142 8 27.4695 8.10532 27.657 8.29279Z"
-                  fill="white" />
-              </svg>
-            </button>
-            <button class="more-description__button">
-              <svg
-                width="36"
-                height="36"
-                viewBox="0 0 36 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <rect width="36" height="36" rx="8" fill="#ff4d6d" />
-                <path
-                  d="M12 25C12 26.1 12.9 27 14 27H22C23.1 27 24 26.1 24 25V15C24 13.9 23.1 13 22 13H14C12.9 13 12 13.9 12 15V25ZM24 10H21.5L20.79 9.29C20.61 9.11 20.35 9 20.09 9H15.91C15.65 9 15.39 9.11 15.21 9.29L14.5 10H12C11.45 10 11 10.45 11 11C11 11.55 11.45 12 12 12H24C24.55 12 25 11.55 25 11C25 10.45 24.55 10 24 10Z"
-                  fill="white" />
-              </svg>
-            </button>
-          </div>
+          </form>
         </div>
       </div>
     </main>
-
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const dayElement = document.querySelector(".organizer__day");
@@ -519,95 +394,13 @@
     </script>
 
     <script>
-      const dayElement = document.querySelector(".day");
-
-      const date = new Date();
-      const day = date.getDate();
-      const month = date.toLocaleString("en-US", { month: "long" });
-
-      dayElement.textContent = `${day} ${month}`;
-    </script>
-
-    <script>
-      function setProgress(id, percent) {
-        const circle = document.getElementById(id);
-        const label = document.getElementById("percent-" + id.split("-")[1]);
-        const radius = 45;
-        const circumference = 2 * Math.PI * radius;
-
-        circle.style.strokeDasharray = circumference;
-        const offset = circumference - (percent / 100) * circumference;
-        circle.style.strokeDashoffset = offset;
-
-        label.textContent = `${percent}%`;
-      }
-
-      // znachenie progressa
-      setProgress("progress-completed", 84);
-      setProgress("progress-inprogress", 46);
-      setProgress("progress-notstarted", 13);
-    </script>
-
-    <script>
-      if (window.location.pathname === "/todo.html") {
-        const dashboardItem = document.querySelector(".sidebar__item--my-task");
-        dashboardItem.classList.add("sidebar__item--selected");
-      }
-    </script>
-
-    <script>
-      const hamMenu = document.querySelector(".ham__menu");
-      const sidebar = document.querySelector(".sidebar");
-      const overlay = document.querySelector(".overlay");
-
-      hamMenu.addEventListener("click", () => {
-        sidebar.classList.toggle("active");
-        hamMenu.classList.toggle("active");
-        overlay.classList.toggle("active");
-
-        const body = window.document.body;
-        if (body.classList.contains("no-scroll")) {
-          body.classList.remove("no-scroll");
-        } else {
-          body.classList.add("no-scroll");
-        }
-      });
-
-      function throttle(mainFunction, delay) {
-        let timerFlag = null;
-        return (...args) => {
-          if (timerFlag === null) {
-            mainFunction(...args);
-            timerFlag = setTimeout(() => {
-              timerFlag = null;
-            }, delay);
-          }
-        };
-      }
-
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          console.count("Window resized", window.innerWidth);
-          if (window.innerWidth > 768) {
-            sidebar.classList.remove("active");
-            hamMenu.classList.remove("active");
-            overlay.classList.remove("active");
-            document.body.classList.remove("no-scroll");
-          }
-        }, 300)
-      );
-
-      document.addEventListener("click", (e) => {
+      document.addEventListener("DOMContentLoaded", () => {
+        const settingsItem = document.querySelector(".sidebar__item--settings");
         if (
-          sidebar.classList.contains("active") &&
-          !sidebar.contains(e.target) &&
-          !hamMenu.contains(e.target)
+          window.location.pathname.endsWith("settings.html") &&
+          settingsItem
         ) {
-          sidebar.classList.remove("active");
-          hamMenu.classList.remove("active");
-          overlay.classList.remove("active");
-          document.body.classList.remove("no-scroll");
+          settingsItem.classList.add("sidebar__item--selected");
         }
       });
     </script>
