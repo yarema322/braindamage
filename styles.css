@@ -508,6 +508,7 @@ main {
   gap: 20px;
   cursor: pointer;
   transition: background-color 0.3s;
+  white-space: nowrap;
 }
 
 .sidebar__item-icon {
@@ -1564,12 +1565,16 @@ input::placeholder {
 .footer__task-description,
 .footer__upload-image {
   display: flex;
+  justify-content: flex-end;
   flex-direction: column;
   gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .task-description {
   width: 500px;
+  max-width: 550px;
   height: 200px;
   border: 1px solid var(--color-border-main);
   border-radius: 6px;
