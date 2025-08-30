@@ -44,6 +44,10 @@ body {
   @media screen and (max-width: 1140px) {
     gap: 10px;
   }
+
+  @media screen and (min-width: 2560px) {
+    align-items: center;
+  }
 }
 
 html,
@@ -60,8 +64,17 @@ a {
   text-decoration: none;
 }
 
+header {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: var(--color-header);
+  box-shadow: 0 13px 14px -10px var(--color-shadow);
+}
+
 .header {
   width: 100%;
+  max-width: 1926px;
   height: 80px;
   min-height: 80px;
   display: flex;
@@ -69,7 +82,7 @@ a {
   background-color: var(--color-header);
   justify-content: space-between;
   padding: 0px 90px;
-  box-shadow: 0 13px 14px -10px var(--color-shadow);
+
   margin: 0;
   position: sticky;
   top: 0;
@@ -84,6 +97,9 @@ a {
 
   @media screen and (max-width: 767px) {
     padding: 0 30px;
+  }
+
+  @media screen and (min-width: 1441px) {
   }
 }
 
@@ -395,6 +411,10 @@ main {
 
   @media screen and (max-width: 1140px) {
     padding: 0 30px;
+  }
+
+  @media screen and (min-width: 2560px) {
+    min-width: 2000px;
   }
 }
 
@@ -1221,6 +1241,12 @@ input::placeholder {
 
 /* to-do page */
 
+.todo__page {
+  @media screen and (max-width: 2560px) {
+    max-width: 2000px;
+  }
+}
+
 .to-do__content {
   display: flex;
   flex-grow: 1;
@@ -1681,8 +1707,14 @@ input::placeholder {
 }
 
 /* settings page */
+
 .settings {
-  display: flex;
+  width: 100%;
+  height: 100%;
+
+  @media screen and (max-width: 2560px) {
+    max-width: 2000px;
+  }
 }
 
 .settings__underline {
@@ -1695,7 +1727,8 @@ input::placeholder {
 }
 
 .settings__information {
-  height: 98%;
+  height: calc(100% - 20px);
+  width: 100%;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -1794,4 +1827,80 @@ input::placeholder {
   background-color: var(--color-white);
   color: var(--color-primary);
   border-color: var(--color-primary);
+}
+
+/* account settings */
+
+.account__settings {
+  height: calc(100% - 20px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 30px;
+  margin: 0 90px 0 30px;
+  padding: 16px 30px;
+  border: 1px solid var(--color-border-main);
+  border-radius: 10px;
+  box-shadow: -4px 4px 4px var(--color-shadow), 4px 4px 4px var(--color-shadow);
+}
+
+.account__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.account__header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.account__underline {
+  height: 2px;
+  width: 160px;
+  background-color: var(--color-primary);
+  border-radius: 4px;
+  position: absolute;
+  transform: translateY(1500%);
+}
+
+.account__information {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.account__user-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.account__user-mail {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.account__edit-information {
+  border: 1px solid var(--color-border-main);
+  border-radius: 10px;
+  padding: 20px 30px;
+}
+
+.account__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.account__form input {
+  max-width: 500px;
+  min-height: 30px;
+  border: 1px solid var(--color-border-main);
+  border-radius: 6px;
+}
+
+.account__form label {
+  font-size: 14px;
+  font-weight: 600;
 }
