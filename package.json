@@ -9,7 +9,9 @@
   "description": "",
   "main": "middleware.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "dev": "webpack serve --mode development --config webpack.config.js",
+    "start": "webpack serve --mode development --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -26,12 +28,15 @@
     "@babel/core": "^7.28.5",
     "@babel/preset-env": "^7.28.5",
     "babel-loader": "^10.0.0",
+    "copy-webpack-plugin": "^12.0.2",
     "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.4",
     "sass": "^1.94.0",
     "sass-loader": "^16.0.6",
     "style-loader": "^4.0.0",
     "webpack": "^5.102.1",
-    "webpack-cli": "^6.0.1"
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.1.0"
   }
 }
