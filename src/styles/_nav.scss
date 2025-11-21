@@ -1,0 +1,19 @@
+@use 'variables' as *; 
+
+nav {
+  display: none;
+  transform: translateX(-10000%);
+  position: absolute;
+  transition: transform 0.5s ease;
+
+  @media screen and (max-width: 1140px) {
+    display: flex;
+    position: relative;
+    transform: translateX(0);
+    gap: 10px;
+  }
+
+  @media screen and (max-width: 767px) {
+    transform: translateX(0%);
+  }
+}

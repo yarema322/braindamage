@@ -1,0 +1,65 @@
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  gap: 56px;
+
+  @media screen and (max-width: 1140px) {
+    gap: 10px;
+  }
+
+  @media screen and (min-width: 2560px) {
+    align-items: center;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 0;
+  height: auto;
+
+  @media screen and (max-width: 1140px) {
+    padding: 0 30px;
+  }
+
+  @media screen and (min-width: 2560px) {
+    min-width: 2000px;
+  }
+}

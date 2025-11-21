@@ -1,0 +1,80 @@
+@use 'variables' as *; 
+
+.sign-up-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-white;
+  gap: 80px;
+  padding: 20px 30px 20px 0;
+  border-radius: 10px;
+
+  @media screen and (max-width: 1020px) {
+    padding: 20px 30px;
+    gap: 0;
+  }
+}
+
+.sign-up-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sign-up-picture img {
+  width: 340px;
+  height: 500px;
+  transform: translateY(8%);
+
+  @media screen and (max-width: 1020px) {
+    display: none;
+  }
+}
+
+.first-name {
+  background-image: url(/pictures/icon-park-solid_edit-name.svg);
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 20px 20px;
+  padding-left: 40px;
+}
+
+.last-name {
+  background-image: url(/pictures/icon-park-outline_edit-name.svg);
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 20px 20px;
+  padding-left: 40px;
+}
+
+.uname-sign-up {
+  background-image: url(/pictures/Vector4.svg);
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 20px 20px;
+  padding-left: 40px;
+}
+
+.email-sign-up {
+  background-image: url(/pictures/Vector5.svg);
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 20px 20px;
+  padding-left: 40px;
+}
+
+.psw-sign-up {
+  background-image: url(/pictures/Vector6.svg);
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 20px 20px;
+  padding-left: 40px;
+}
+
+.psw-sign-up-confirm {
+  background-image: url(/pictures/Vector7.svg);
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 20px 20px;
+  padding-left: 40px;
+}

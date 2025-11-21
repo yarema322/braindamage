@@ -1,1 +1,36 @@
-pictures.zip
+# Node.js dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Archives / temp
+*.zip
+*.tar.gz
+*.rar
+
+# Environment variables
+.env
+
+# VS Code settings
+.vscode/
+
+# Optional: IDE / Editor specific
+*.sublime-workspace
+*.sublime-project
+.idea/
+
+# Generated CSS (если используешь сборку SCSS в CSS и не хочешь хранить)
+*.css
+
+# Images / media, если не нужны в Git
+# pictures/

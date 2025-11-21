@@ -1,0 +1,158 @@
+@use 'variables' as *; 
+
+.sidebar {
+  height: 100%;
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 0 10px;
+  border-radius: 5px;
+  background-color: $color-primary;
+  box-shadow: 8px 3px 10px -2px $color-shadow;
+  transition: left 0.4s ease-in-out;
+  z-index: 1000;
+
+  @media screen and (max-width: 1140px) {
+    position: fixed;
+    transform: translateX(-110%);
+    height: calc(100% - 80px);
+  }
+
+  @media screen and (max-width: 767px) {
+    position: fixed;
+    transform: translateX(-110%);
+    height: calc(100% - 80px);
+  }
+}
+
+.sidebar.active {
+  transform: translateX(0);
+  left: 0;
+}
+
+.item--hidden.active {
+  visibility: visible;
+}
+.sidebar__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.sidebar__user-info {
+  position: relative;
+  top: -40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: $color-white;
+
+  @media screen and (max-width: 1140px) {
+    top: 0;
+    margin-bottom: 30px;
+  }
+}
+
+.sidebar__user-avatar {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  @media screen and (max-width: 1140px) {
+    display: none;
+  }
+}
+
+.sidebar__user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sidebar__user-name {
+  margin: 10px 0 0 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sidebar__user-mail {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.sidebar__nav {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.sidebar__list {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  list-style: none;
+}
+
+.sidebar__item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 10px;
+  padding: 10px 30px;
+  border-radius: 14px;
+  color: $color-white;
+  gap: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+.sidebar__item-icon {
+  color: #ffffff;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.sidebar__item:hover .sidebar__item-icon {
+  fill: $color-primary;
+  color: $color-primary;
+}
+
+.sidebar__item:hover {
+  color: $color-primary;
+  background-color: $color-white;
+}
+
+.sidebar__item--selected {
+  color: $color-primary;
+  background-color: $color-white;
+}
+
+.sidebar__item--selected path {
+  fill: $color-primary;
+}
+
+.sidebar__item--hidden {
+  display: none;
+
+  @media screen and (max-width: 482px) {
+    display: flex;
+  }
+}
+
+.sidebar__item button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}

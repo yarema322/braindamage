@@ -1,0 +1,255 @@
+@use 'variables' as *; 
+
+header {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: $color-header;
+  box-shadow: 0 13px 14px -10px $color-shadow;    
+}
+
+.header {
+  width: 100%;
+  max-width: 1926px;
+  height: 80px;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  background-color: $color-header;
+  justify-content: space-between;
+  padding: 0px 90px;
+
+  margin: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+
+  @media screen and (max-width: 1140px) {
+    gap: 20px;
+    padding: 0 30px;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 0 30px;
+  }
+
+  //@media screen and (min-width: 1441px) {}
+}
+
+
+.header__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 122px;
+
+  @media screen and (max-width: 734px) {
+    position: absolute;
+    transform: translateX(40%);
+  }
+
+  @media screen and (max-width: 338px) {
+    display: none;
+  }
+}
+
+.header__title-text {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.header__highlight {
+  color: $color-primary;
+}
+
+.search {
+  display: flex;
+  max-width: 500px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background-color: $color-white;
+  filter: drop-shadow(0 2px 4px $color-shadow);
+  transition: max-width 0.5s ease;
+
+  @media screen and (max-width: 734px) {
+    display: none;
+  }
+}
+
+.search__input {
+  flex: 1;
+  padding: 0 10px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-weight: 600;
+  opacity: 0.5;
+}
+
+.search__button {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  border: 2px solid $color-primary;
+  border-radius: 10px;
+  background-color: $color-white;
+  transition: background-color 0.3s;
+}
+
+.search__button .search__icon-bg {
+  fill: $color-primary;
+  transition: fill 0.3s;
+}
+
+.search__button .search__icon-path {
+  transition: fill 0.3s;
+}
+
+.search__button:hover .search__icon-bg {
+  fill: $color-white;
+}
+
+.search__button:hover .search__icon-path {
+  fill: $color-primary;
+  border: 1px solid $color-primary;
+}
+
+.search__icon {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+}
+
+.organizer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.organizer__search {
+  display: none;
+  width: 34px;
+  height: 34px;
+
+  @media screen and (max-width: 734px) {
+    display: inline-flex;
+    border-radius: 8px;
+    background-color: $color-primary;
+    cursor: pointer;
+
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+  }
+}
+
+.organizer__search {
+  color: $color-primary;
+}
+
+.organizer__search svg path {
+  transition: fill 0.3s;
+  fill: $color-white;
+}
+
+.organizer__search:hover {
+  background-color: $color-white;
+}
+
+.organizer__search:hover svg path {
+  fill: $color-primary;
+}
+
+.organizer__search svg rect {
+  fill: none;
+  transition: fill 0.3s;
+}
+
+.organizer__tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+
+  @media screen and (max-width: 483px) {
+    display: none;
+  }
+}
+
+.organizer__notification {
+  border-radius: 8px;
+  background-color: $color-primary;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.organizer__notification svg path {
+  transition: fill 0.3s;
+  fill: $color-white;
+}
+
+.organizer__notification:hover {
+  background-color: $color-white;
+}
+
+.organizer__notification:hover svg path {
+  fill: $color-primary;
+}
+
+.organizer__notification svg rect {
+  fill: none;
+  transition: fill 0.3s;
+}
+
+.organizer__calendar {
+  border-radius: 8px;
+  background-color: $color-primary;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.organizer__calendar svg path {
+  transition: fill 0.3s;
+  fill: $color-white;
+}
+
+.organizer__calendar:hover {
+  background-color: $color-white;
+}
+
+.organizer__calendar:hover svg path {
+  fill: $color-primary;
+}
+
+.organizer__calendar svg rect {
+  fill: none;
+  transition: fill 0.3s;
+}
+
+.organizer__date {
+  font-weight: 500;
+}
+
+.organizer__day {
+  color: $color-accent;
+}
+
+.organizer__full-date {
+  font-weight: 500;
+  color: $color-black;
+}
