@@ -9,9 +9,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode=production --config webpack.config.js",
-    "dev": "webpack serve --mode development --config webpack.config.js",
-    "start": "webpack serve --mode development --config webpack.config.js"
+    "build": "webpack --mode=production",
+    "dev": "webpack serve --mode development "
   },
   "repository": {
     "type": "git",

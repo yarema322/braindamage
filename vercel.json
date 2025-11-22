@@ -10,23 +10,23 @@
   "outputDirectory": "dist",
   "routes": [
     {
-      "src": "^/signin$",
+      "src": "/signin",
       "dest": "/signin.html"
     },
     {
-      "src": "^/signup$",
+      "src": "/signup",
       "dest": "/signup.html"
     },
     {
-      "src": "^/todo$",
+      "src": "/todo",
       "dest": "/todo.html"
     },
     {
-      "src": "^/account-information$",
+      "src": "/account-information",
       "dest": "/account-information.html"
     },
     {
-      "src": "^/change-password$",
+      "src": "/change-password",
       "dest": "/change-password.html"
     },
     {
