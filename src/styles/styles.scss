@@ -1,14 +1,21 @@
 @use 'variables' as *; 
+
+@use 'global';
+
 @use 'hamMenu';
 @use 'header';
 @use 'nav';
 @use 'sidebar';
 @use 'overlay';
-@use 'content';
-@use 'global';
-@use 'modal';
+
+
+
+
+// pages
 @use 'sign-in-page.scss';
 @use 'sign-up-page.scss';
 @use 'todo-page.scss';
 @use 'account-info-page.scss';
 @use 'change-psw-page.scss';
+@use 'content';
+@use 'modal';

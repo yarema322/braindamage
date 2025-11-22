@@ -18,7 +18,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     clean: true,
     assetModuleFilename: "assets/[name][ext]",
-    publicPath: "/", // Добавьте это для Vercel
+    publicPath: "./", // Добавьте это для Vercel
   },
   performance: {
     hints: false,
