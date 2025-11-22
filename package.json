@@ -7,9 +7,9 @@
   "name": "projects",
   "version": "1.0.0",
   "description": "",
-  "main": "middleware.js",
+  "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack --mode=production --config webpack.config.js",
     "dev": "webpack serve --mode development --config webpack.config.js",
     "start": "webpack serve --mode development --config webpack.config.js"
   },

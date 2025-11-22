@@ -14,16 +14,16 @@ module.exports = {
     dashBoard: "./src/js/dashboard/index.js",
   },
   output: {
-    filename: "js/[name].js",
+    filename: "js/[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
-    assetModuleFilename: "assets/[name][ext]",
-    publicPath: "./", // Добавьте это для Vercel
+    assetModuleFilename: "assets/[name].[hash][ext]",
+    publicPath: "/", // Важно: используйте "/" для Vercel
   },
   performance: {
     hints: false,
     maxAssetSize: 512000,
-    maxEntrypointSize: 512000, 
+    maxEntrypointSize: 512000,
   },
   module: {
     rules: [
@@ -37,11 +37,11 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         test: /\.scss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
@@ -51,14 +51,14 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "styles/[name].css",
+      filename: "styles/[name].[contenthash].css",
     }),
     
-    // HTML файлы для каждой страницы
+    // HTML плагины без указания publicPath (будет использован из output)
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "index.html",
-      chunks: ["dashBoard"], // Только dashboard JS/CSS
+      chunks: ["dashBoard"],
     }),
     new HtmlWebpackPlugin({
       template: "./src/signin.html",
@@ -66,7 +66,7 @@ module.exports = {
       chunks: ["signin"],
     }),
     new HtmlWebpackPlugin({
-      template: "./src/signup.html", 
+      template: "./src/signup.html",
       filename: "signup.html",
       chunks: ["signup"],
     }),
@@ -86,7 +86,6 @@ module.exports = {
       chunks: ["changePassword"],
     }),
 
-    // Копируем статические файлы
     new CopyWebpackPlugin({
       patterns: [
         {
