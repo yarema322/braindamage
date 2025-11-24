@@ -18,7 +18,15 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     clean: true,
     assetModuleFilename: "assets/[name].[hash][ext]",
-    publicPath: "/", // Важно: используйте "/" для Vercel
+    publicPath: "/",
+  },
+  devServer:{
+    port: 9000,
+    compress: true,
+    hot: true,
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    }
   },
   performance: {
     hints: false,
@@ -53,8 +61,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "styles/[name].[contenthash].css",
     }),
-    
-    // HTML плагины без указания publicPath (будет использован из output)
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "index.html",
@@ -89,8 +95,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: "src/assets",
-          to: "assets",
+          from: "src/pictures",
+          to: "pictures",
           noErrorOnMissing: true,
         },
       ],
