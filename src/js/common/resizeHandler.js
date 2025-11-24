@@ -3,6 +3,11 @@ export function initResizeHandler(sidebarSelector, hamMenuSelector, overlaySelec
   const hamMenu = document.querySelector(hamMenuSelector);
   const overlay = document.querySelector(overlaySelector);
 
+  if (!sidebar || !hamMenu || !overlay) {
+    console.warn("initResizeHandler: элемент не найден", { sidebar, hamMenu, overlay });
+    return;
+  }
+
   window.addEventListener(
     "resize",
     throttleFn(() => {

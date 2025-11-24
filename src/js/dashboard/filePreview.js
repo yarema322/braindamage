@@ -1,25 +1,22 @@
-// Сделайте функцию глобальной
-window.showFileNames = function(files) {
+export function showFileNames(files) {
   const container = document.getElementById("drop-zone");
+  if (!container) return;
+
   const svgElements = container.querySelectorAll("svg");
   const uploadText = container.querySelector(".upload-text");
 
-  // Удаляем все превью перед добавлением новых
   const existingPreviews = container.querySelectorAll(".preview-img");
   existingPreviews.forEach((img) => img.remove());
 
   if (files.length === 0) {
-    // Нет файлов — показываем SVG и текст обратно
     svgElements.forEach((svg) => (svg.style.display = "block"));
     if (uploadText) uploadText.style.display = "inline";
     return;
   }
 
-  // Скрываем SVG и текст
   svgElements.forEach((svg) => (svg.style.display = "none"));
   if (uploadText) uploadText.style.display = "none";
 
-  // Для каждого файла создаем миниатюру
   Array.from(files).forEach((file) => {
     if (!file.type.startsWith("image/")) return;
 
@@ -37,43 +34,39 @@ window.showFileNames = function(files) {
     };
     reader.readAsDataURL(file);
   });
-};
+}
 
-// Инициализация после загрузки DOM
-document.addEventListener('DOMContentLoaded', function() {
-  const dropZone = document.getElementById('drop-zone');
-  const fileInput = document.getElementById('task-image');
-  
-  if (dropZone && fileInput) {
-    // Обработчик изменения файлов через input
-    fileInput.addEventListener('change', function(e) {
-      window.showFileNames(e.target.files);
-    });
+export function initFileUpload(dropZoneSelector, inputSelector) {
+  const dropZone = document.querySelector(dropZoneSelector);
+  const fileInput = document.querySelector(inputSelector);
 
-    // Обработчик клика на drop-zone
-    dropZone.addEventListener('click', function(e) {
-      if (e.target.tagName !== 'INPUT') {
-        fileInput.click();
-      }
-    });
+  if (!dropZone || !fileInput) return;
 
-    // Drag & drop функциональность
-    dropZone.addEventListener('dragover', function(e) {
-      e.preventDefault();
-      dropZone.style.backgroundColor = '#f5f5f5';
-    });
+  fileInput.addEventListener("change", (e) => {
+    showFileNames(e.target.files);
+  });
 
-    dropZone.addEventListener('dragleave', function(e) {
-      e.preventDefault();
-      dropZone.style.backgroundColor = '';
-    });
+  dropZone.addEventListener("click", (e) => {
+    if (e.target.tagName !== "INPUT") {
+      fileInput.click();
+    }
+  });
 
-    dropZone.addEventListener('drop', function(e) {
-      e.preventDefault();
-      dropZone.style.backgroundColor = '';
-      const files = e.dataTransfer.files;
-      fileInput.files = files;
-      window.showFileNames(files);
-    });
-  }
-});
+  dropZone.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dropZone.style.backgroundColor = "#f5f5f5";
+  });
+
+  dropZone.addEventListener("dragleave", (e) => {
+    e.preventDefault();
+    dropZone.style.backgroundColor = "";
+  });
+
+  dropZone.addEventListener("drop", (e) => {
+    e.preventDefault();
+    dropZone.style.backgroundColor = "";
+    const files = e.dataTransfer.files;
+    fileInput.files = files;
+    showFileNames(files);
+  });
+}

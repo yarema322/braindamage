@@ -1,6 +1,10 @@
-import "../common/dateFull.js";
-import "../common/hamMenu.js";
-import "../common/throttle.js";
-import "../common/resizeHandler.js";
-import "../common/clickOutsideSidebar.js";
 import "@styles/styles.scss";
+
+import { throttle } from "../common/throttle.js";
+import { initHamMenu } from "../common/hamMenu.js";
+import { initResizeHandler } from "../common/resizeHandler.js";
+import { initClickOutside } from "../common/clickOutsideSidebar.js";
+
+initHamMenu();
+initResizeHandler(".sidebar", ".ham__menu", ".overlay", throttle);
+initClickOutside(".sidebar", ".ham__menu", ".overlay");

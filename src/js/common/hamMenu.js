@@ -3,6 +3,9 @@ export function initHamMenu() {
   const sidebar = document.querySelector(".sidebar");
   const overlay = document.querySelector(".overlay");
 
+  // Проверяем, что все элементы существуют
+  if (!hamMenu || !sidebar || !overlay) return;
+
   hamMenu.addEventListener("click", () => {
     sidebar.classList.toggle("active");
     hamMenu.classList.toggle("active");
