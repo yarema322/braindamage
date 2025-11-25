@@ -7,3 +7,4 @@ export function initDatePicker() {
     allowInput: true,
   });
 }
+console.log("Date picker initialized.");

@@ -34,3 +34,6 @@ Thumbs.db
 
 # Images / media, если не нужны в Git
 # pictures/
+
+test.js
+src/modal.html
