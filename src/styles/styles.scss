@@ -11,6 +11,8 @@
 
 
 
+
+
 // pages
 @use 'sign-in-page.scss';
 @use 'sign-up-page.scss';
@@ -19,3 +21,4 @@
 @use 'change-psw-page.scss';
 @use 'content';
 @use 'modal';
+@use 'invite-modal';

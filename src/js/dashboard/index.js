@@ -11,6 +11,8 @@ import "./highlightDashboard.js";
 import "./modalForm.js";
 import "./modalWindow.js";
 
+import "./dropDownRoles.js"
+
 
 import { showFileNames, initFileUpload } from "./filePreview.js";
 import { throttle } from "../common/throttle.js";

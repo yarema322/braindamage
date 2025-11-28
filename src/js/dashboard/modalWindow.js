@@ -1,19 +1,25 @@
- const open = document.getElementById("add-task");
-      const modal__container = document.getElementById(
-        "modal-container__add-task"
-      );
-      const close = document.getElementById("close__add-task");
+const openButtons = document.querySelectorAll("[data-open]");
 
-      open.addEventListener("click", () => {
-        modal__container.classList.add("show");
-      });
+openButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const modalName = button.dataset.open; 
+    const modal = document.querySelector(`[data-modal="${modalName}"]`);
+    modal.classList.add("show");
 
-      close.addEventListener("click", () => {
-        modal__container.classList.remove("show");
-      });
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.remove("show");
+      }
+    });
+  });
+});
 
-      modal__container.addEventListener("click", (e) => {
-        if (e.target === modal__container) {
-          modal__container.classList.remove("show");
-        }
-      });
+const closeButtons = document.querySelectorAll("[data-close]");
+
+closeButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const modalName = button.dataset.close;
+    const modal = document.querySelector(`[data-modal="${modalName}"]`);
+    modal.classList.remove("show");
+  });
+});

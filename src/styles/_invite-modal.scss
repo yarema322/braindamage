@@ -1,0 +1,269 @@
+@use 'variables' as *;
+
+.modal-invite {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 600px;
+  max-width: 100%;
+  border-radius: 5px;
+  background-color: $color-white;
+  padding: 40px 60px;
+
+  @media screen and (max-width: 630px) {
+    padding: 10px 14px;
+  }
+}
+
+.modal-invite__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-invite__title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.modal-invite__close {
+  background-color: $color-white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.modal-invite__underline {
+  height: 2px;
+  width: 90px;
+  background-color: $color-primary;
+  border-radius: 4px;
+  position: absolute;
+  transform: translateY(1000%);
+}
+
+.modal-invite__content {
+  border: 1px solid $color-border-main;
+  padding: 16px;
+}
+
+.modal-invite__member-picture-img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.modal-invite__content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-invite__members {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-invite__members-heading {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.modal-invite__member-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.modal-invite__member-email {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.modal-invite__member {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.modal-invite__member-about {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-invite__member-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal-invite__email {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+}
+
+.modal-invite__email span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.modal-invite__send-email {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  flex-grow: 1;
+}
+
+.modal-invite__send-email input {
+  flex-grow: 1;
+  max-width: 500px;
+  border: 1px solid $color-border-main;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.modal-invite__send-invite {
+  width: 116px;
+  background-color: $color-primary;
+  color: $color-white;
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.modal-invite__send-invite:hover {
+  background-color: $color-white;
+  color: $color-primary;
+  border: 1px solid $color-primary;
+}
+
+.modal-invite__project-link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modal-invite__project-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.modal-invite__project-link-input {
+  flex-grow: 1;
+  max-width: 500px;
+  border: 1px solid $color-border-main;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.modal-invite__share-project-link {
+  width: 116px;
+  background-color: $color-primary;
+  color: $color-white;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.modal-invite__share-project-link:hover {
+  background-color: $color-white;
+  color: $color-primary;
+  border: 1px solid $color-primary;
+}
+
+.modal-invite__project-link span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.modal-invite__member-info {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.modal-invite__member-manage {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.member-manage__trigger {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: relative;
+
+}
+
+.member-roles {
+  width: 110px;
+  max-width: 200px;
+  min-width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transform: translateY(-5px) scale(0.95);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+
+
+  position: absolute;
+  top: calc(100% + 8px);
+  left: -30px;
+  z-index: 20;
+
+  background-color: $color-white;
+  border: 1px solid $color-border-main;
+
+  padding: 4px;
+}
+
+.member-roles span {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.member-roles span:hover {
+  background-color: $color-shadow;
+}
+
+.member-role-svg {
+  transform: rotate(90deg);
+}
+
+.member-manage__trigger[data-roles-open="true"] .member-roles {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.member-manage__trigger > svg {
+  transition: transform 0.2s ease;
+  transform-origin: center;
+}
+
+.member-manage__trigger[data-roles-open="true"] > svg {
+  transform: rotate(90deg);
+}
