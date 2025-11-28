@@ -59,7 +59,13 @@ main {
     padding: 0 30px;
   }
 
+  @media screen and (max-width: 460px) {
+    padding: 0 10px;
+  }
+
   @media screen and (min-width: 2560px) {
     min-width: 2000px;
   }
+
+
 }

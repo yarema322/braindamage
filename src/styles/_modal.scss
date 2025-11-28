@@ -14,11 +14,15 @@
 .add-task:hover {
   transform: scale(1.1);
   transition: transform 0.3s ease;
+  color: #f24e1e;
 }
 
-.add-task:hover {
-  color: #f24e1e;
+.add-task svg {
   transition: transform 0.3s ease;
+}
+
+.add-task:hover svg {
+  transform: rotate(180deg);
 }
 
 .add-task span {

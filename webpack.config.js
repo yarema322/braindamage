@@ -2,6 +2,7 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { watch } = require("fs");
 
 module.exports = {
   mode: "production",
@@ -12,6 +13,7 @@ module.exports = {
     account: "./src/js/account-information/account-information.js",
     changePassword: "./src/js/change-password/change-password.js",
     dashBoard: "./src/js/dashboard/index.js",
+    viewTask: "./src/js/view-task/view-task.js",
   },
   output: {
     filename: "js/[name].[contenthash].js",
@@ -24,9 +26,11 @@ module.exports = {
     port: 9000,
     compress: true,
     hot: true,
+    open: true,
     static: {
       directory: path.join(__dirname, 'dist'),
-    }
+    },
+    watchFiles: ['src/**/*'],
   },
   performance: {
     hints: false,
@@ -90,6 +94,11 @@ module.exports = {
       template: "./src/change-password.html",
       filename: "change-password.html",
       chunks: ["changePassword"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/view-task.html",
+      filename: "view-task.html",
+      chunks: ["viewTask"],
     }),
 
     new CopyWebpackPlugin({

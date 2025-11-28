@@ -8,11 +8,6 @@
 @use 'sidebar';
 @use 'overlay';
 
-
-
-
-
-
 // pages
 @use 'sign-in-page.scss';
 @use 'sign-up-page.scss';
@@ -22,3 +17,4 @@
 @use 'content';
 @use 'modal';
 @use 'invite-modal';
+@use 'view-task.scss';
