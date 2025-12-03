@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { watch } = require("fs");
+const { create } = require("domain");
 
 module.exports = {
   mode: "production",
@@ -14,6 +15,8 @@ module.exports = {
     changePassword: "./src/js/change-password/change-password.js",
     dashBoard: "./src/js/dashboard/index.js",
     viewTask: "./src/js/view-task/view-task.js",
+    taskCategories: "./src/js/task-categories/task-categories.js",
+    createCategories: "./src/js/create-categories/create-categories.js",
   },
   output: {
     filename: "js/[name].[contenthash].js",
@@ -99,6 +102,16 @@ module.exports = {
       template: "./src/view-task.html",
       filename: "view-task.html",
       chunks: ["viewTask"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/task-categories.html",
+      filename: "task-categories.html",
+      chunks: ["taskCategories"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/create-categories.html",
+      filename: "create-categories.html",
+      chunks: ["createCategories"],
     }),
 
     new CopyWebpackPlugin({

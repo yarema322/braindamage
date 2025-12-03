@@ -1,0 +1,303 @@
+@use 'variables' as *;
+
+.task-categories {
+  height: calc(100% - 20px);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 20px;
+
+  border: 1px solid $color-border-main;
+  border-radius: 10px;
+
+  margin: 0 90px 0 30px;
+  padding: 16px 24px;
+
+  box-shadow: -4px 4px 4px $color-shadow, 4px 4px 4px $color-shadow;
+
+  button:not(#back-button, #add-status, #add-priority) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: $color-white;
+    background-color: $color-primary;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 8px 16px;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-white;
+      border: 1px solid $color-primary;
+      color: $color-primary;
+    }
+
+    &:hover svg path {
+      fill: $color-primary;
+    }
+
+    & svg {
+      height: 18px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: $color-black;
+
+    .task-categories__line {
+      height: 2px;
+      width: 50px;
+      background-color: $color-primary;
+      border-radius: 4px;
+      position: absolute;
+      transform: translateY(800%);
+    }
+  }
+
+  &__button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  &__status span,
+  &__priority span {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  &__add-status,
+  &__add-priority {
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+    opacity: .7;
+    font-size: 12px;
+    background: none;
+    border: none;
+    transition: .3s;
+
+    &:hover {
+      transform: scale(1.1);
+      color: $color-primary;
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    svg {
+      transition: .3s;
+    }
+  }
+
+  &__status,
+  &__priority {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__status-header,
+  &__priority-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__status-table,
+  &__priority-table {
+    width: 100%;
+    border: 1px solid $color-border-main;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: -4px 4px 4px $color-shadow, 4px 4px 4px $color-shadow;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse; 
+    text-align: center;
+  }
+
+  td, th {
+    padding: 12px;
+    border-right: 1px solid $color-border-main;
+  }
+
+  td:last-child,
+  th:last-child {
+    border-right: none;
+  }
+
+  tr:first-child td,
+  tr:first-child th {
+    background: $color-white;
+    font-weight: 600;
+    border-bottom: 1px solid $color-border-main;
+  }
+
+  tr:not(:first-child) td {
+    font-weight: 500;
+    font-size: 15px;
+  }
+}
+
+
+.task-categories__middle-line {
+  width: calc(100% + 50px);
+  height: 1px;
+  background-color: $color-border-main;
+  position: relative;
+  left: -25px;
+  margin: 20px 0;
+}
+
+.task-categories__status-line, .task-categories__priority-line {
+  height: 2px;
+  width: 50px;
+  background-color: $color-primary;
+  border-radius: 4px;
+  position: absolute;
+  transform: translateY(700%);
+  margin-bottom: 10px;
+}
+
+/*modal att task priority*/
+
+.modal-add-task-priority, 
+.modal-add-new-priority,
+.modal-edit-task-status,
+.modal-add-task-status {
+  width: 80%;
+  height: 50%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-white;
+  gap: 24px;
+  padding: 32px 40px;
+  border-radius: 10px;
+  flex-grow: 1;
+}
+
+.modal-add-task-priority__header,
+.modal-add-new-priority__header,
+.modal-edit-task-status__header,
+.modal-add-task-status__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-add-task-priority__title,
+.modal-add-new-priority__title,
+.modal-edit-task-status__title,
+.modal-add-task-status__title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.modal-add-task-priority__close,
+.modal-add-new-priority__close,
+.modal-edit-task-status__close,
+.modal-add-task-status__close {
+  background-color: $color-white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.modal-add-task-priority__content,
+.modal-add-new-priority__content,
+.modal-edit-task-status__content,
+.modal-add-task-status__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 20px;
+  border: 1px solid $color-border-main;
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.modal-add-task-priority__content-field,
+.modal-add-new-priority__content-field,
+.modal-edit-task-status__content-field,
+.modal-add-task-status__content-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-add-task-priority__content-field label,
+.modal-add-new-priority__content-field label,
+.modal-edit-task-status__content-field label,
+.modal-add-task-status__content-field label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.modal-add-task-priority__content-field input,
+.modal-add-new-priority__content-field input,
+.modal-edit-task-status__content-field input,
+.modal-add-task-status__content-field input {
+  max-width: 512px;
+  height: 38px;
+  border: 1px solid $color-border-main;
+  border-radius: 10px;  
+}
+
+.modal-add-task-priority__manager button,
+.modal-add-new-priority__manager button,
+.modal-edit-task-status__manager button,
+.modal-add-task-status__manager button {
+  background-color: $color-primary;
+  color: $color-white;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 8px 36px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform .3s ease;
+  cursor: pointer;
+}
+
+.modal-add-task-priority__manager button:hover,
+.modal-add-new-priority__manager button:hover,
+.modal-edit-task-status__manager button:hover,
+.modal-add-task-status__manager button:hover{
+  background-color: $color-white;
+  border-color: $color-primary;
+  color: $color-primary;
+  
+}
+
+.modal-add-task-priority__underline,
+.modal-add-new-priority__underline,
+.modal-edit-task-status__underline,
+.modal-add-task-status__underline {
+  height: 2px;
+  width: 50px;
+  background-color: $color-primary;
+  border-radius: 4px;
+  position: absolute;
+  transform: translateY(1100%);
+}

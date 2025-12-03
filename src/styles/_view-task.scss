@@ -9,14 +9,14 @@
     gap: 20px;
 
     border: 1px solid $color-border-main;
-    margin: 0 90px 0 30px; 
+    margin: 0 90px 0px 30px; 
     padding: 16px 30px 30px 30px;
 
     border-radius: 10px;
 
     box-shadow: -4px 4px 4px $color-shadow, 4px 4px 4px $color-shadow;
 
-    @media screen and (max-height: 1140px) {
+    @media screen and (max-width: 1140px) {
     padding: 16px;
     margin: 0 30px;
   }
