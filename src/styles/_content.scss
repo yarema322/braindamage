@@ -216,6 +216,7 @@
 }
 
 .describe__heading {
+  overflow: hidden;
   font-size: 16px;
   font-weight: 600;
   overflow-wrap: break-word;
@@ -247,6 +248,9 @@
 }
 
 .describe__information p {
+ 
+  overflow: hidden;
+
   white-space: normal;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -268,6 +272,14 @@
 
 .moderate {
   color: $color-moderate;
+}
+
+.low {
+  color: $color-low;
+}
+
+.extreme {
+  color: $color-progress;
 }
 
 .footer__status--progress {
@@ -420,4 +432,22 @@ p {
   color: $color-primary;
   font-size: 15px;
   font-weight: 500;
+}
+
+.priority-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 16px;
+  height: 16px;
+  border: 1px solid $color-border-main;
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+}
+
+.priority-radio:checked {
+  background-color: $color-primary;
+  border-color: currentColor;
 }

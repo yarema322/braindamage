@@ -7,6 +7,8 @@ import "./taskProgress.js";
 
 import "./highlightDashboard.js";
 
+import "./addTask.js"
+
 import "../common/modalWindow.js";
 import "../common/modalForm.js";
 

@@ -1,20 +1,15 @@
-const form = document.getElementById("modal-form");
-      const checkboxes = document.querySelectorAll(
-        'input[name="task-priority"]'
-      );
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("modal-form");
+  const modal = document.querySelector('[data-modal="add-task"]');
 
-      checkboxes.forEach((checkbox) => {
-        checkbox.addEventListener("change", () => {
-          checkboxes.forEach((cb) => {
-            if (cb !== checkbox) cb.checked = false;
-          });
-        });
-      });
+  if (!form) return;
 
-      form.addEventListener("submit", (e) => {
-        const oneChecked = Array.from(checkboxes).some((cb) => cb.checked);
-        if (!oneChecked) {
-          e.preventDefault();
-          alert("ОБЕРИ БЛЯДЬ ПРІОРИТЕТ!");
-        }
-      });
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();    
+
+    const priority = form.elements["task-priority"].value;
+
+    modal.classList.remove("show"); 
+    form.reset();
+  });
+});
