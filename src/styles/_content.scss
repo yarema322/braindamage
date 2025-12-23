@@ -118,11 +118,11 @@
   }
 }
 
-.task {
+/* .task {
   flex: 1;
   border: 1px solid $color-white;
   border-radius: 10px;
-}
+} */
 
 .task__active {
   display: flex;
@@ -134,7 +134,7 @@
   box-shadow: -4px 4px 4px $color-shadow, 4px 4px 4px $color-shadow;
 }
 
-.task__status {
+.task__status__INDEX {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -186,7 +186,7 @@
   color: $color-primary;
 }
 
-.task__content {
+.task__content__INDEX {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -235,17 +235,7 @@
   }
 }
 
-.task__image {
-  width: 88px;
-  height: 88px;
-  border-radius: 10px;
-  object-fit: cover;
 
-  @media screen and (max-width: 1800px) {
-    min-width: 88px;
-    min-height: 88px;
-  }
-}
 
 .describe__information p {
  

@@ -30,27 +30,26 @@ document.addEventListener("click", (e) => {
 });
 
 function renderTaskDetails(task) { 
-    const priorityMap = {
-    extreme: "Extreme",
-    moderate: "Moderate",
-    low: "Low",
-  };
-  const priorityText = priorityMap[task.priority] || "";
     taskDetails.innerHTML = `
     <div class="task-details__item">
 
         <header class="task-details__header">
              ${task.image ? `<img class="task-details__image" src="${task.image}" alt="task image" />` : ""}
             <div class="task-details__meta">
-                <h2 class="task-details__title">${task.title}</h2>
-                <p class="task-details__priority">Priority: <span class="${task.priority}">${priorityText}</p>
-                <p class="task-details__status">Status: <span class="footer__status--progress">In Progress</span></p>
+                <h2 class="task-details__title">${truncate(task.title, 60)}</h2>
+                <p class="task-details__priority">Priority: <span class="task__priority--${task.priority}">
+            ${formatPriority(task.priority)}
+          </span></p>
+                <p class="task-details__status">Status:
+          <span class="task__status--${task.status}">
+            ${formatStatus(task.status)}
+          </span></p>
                 <p class="task-details__date">Created on: ${task.createdAt}</p>
             </div>
         </header>
 
         <div class="task-details__content">
-            <p class="task-details__description">${task.description || ""}</p>
+            <p class="task-details__description">${truncate(task.description, 1670)}</p>
         </div>
 
         <footer class="task-details__actions">
@@ -88,3 +87,32 @@ function renderTaskDetails(task) {
     </div>
   `;
 }
+
+  // helpers
+
+  function truncate(text, maxLength) {
+  if (!text) return "";
+  return text.length > maxLength
+    ? text.slice(0, maxLength).trim() + "..."
+    : text;
+}
+
+function formatPriority(priority) {
+  const map = {
+    extreme: "Extreme",
+    moderate: "Moderate",
+    low: "Low",
+  };
+  return map[priority] || priority;
+}
+
+function formatStatus(status) {
+  const map = {
+    "not-started": "Not Started",
+    "in-progress": "In Progress",
+    "low": "Low",
+  };
+  return map[status] || status;
+}
+
+
