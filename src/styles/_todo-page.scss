@@ -56,6 +56,26 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  max-height: 74vh;
+  overflow-y: auto;
+
+  padding-right: 8px;
+}
+
+/* scroll task list */
+
+.task-list__container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.task-list__container::-webkit-scrollbar-thumb {
+  background: $color-primary;
+  border-radius: 10px;
+}
+
+.task-list__container::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 /* header task list */
