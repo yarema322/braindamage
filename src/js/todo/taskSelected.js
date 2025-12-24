@@ -1,5 +1,6 @@
 let taskDetails;
 let selectedTaskId = null;
+const taskTemplate = document.getElementById("task-details-template");
 
 document.addEventListener("DOMContentLoaded", () => {
   taskDetails = document.querySelector(".task-details");
@@ -30,64 +31,54 @@ document.addEventListener("click", (e) => {
 });
 
 function renderTaskDetails(task) { 
-    taskDetails.innerHTML = `
-    <div class="task-details__item">
+  taskDetails.innerHTML = "";
 
-        <header class="task-details__header">
-             ${task.image ? `<img class="task-details__image" src="${task.image}" alt="task image" />` : ""}
-            <div class="task-details__meta">
-                <h2 class="task-details__title">${truncate(task.title, 60)}</h2>
-                <p class="task-details__priority">Priority: <span class="task__priority--${task.priority}">
-            ${formatPriority(task.priority)}
-          </span></p>
-                <p class="task-details__status">Status:
-          <span class="task__status--${task.status}">
-            ${formatStatus(task.status)}
-          </span></p>
-                <p class="task-details__date">Created on: ${task.createdAt}</p>
-            </div>
-        </header>
+  const taskDetailsNode = taskTemplate.content.cloneNode(true);
 
-        <div class="task-details__content">
-            <p class="task-details__description">${truncate(task.description, 1670)}</p>
-        </div>
+  const titleEl = taskDetailsNode.querySelector(".task-details__title");
+  const descEl = taskDetailsNode.querySelector(".task-details__description");
+  const dateEl = taskDetailsNode.querySelector(".task-details__date");
 
-        <footer class="task-details__actions">
-            <button class="task-details__button task-details__button--edit">
-              <a href="view-task.html">
-                <svg
-                  width="36"
-                  height="36"
-                  viewBox="0 0 36 36"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <rect width="36" height="36" rx="8" fill="#ff4d6d" />
-                  <path
-                    d="M21 8.94979C22.296 8.94979 23.496 9.35979 24.477 10.0598L15.343 19.1928C15.2475 19.285 15.1713 19.3954 15.1189 19.5174C15.0665 19.6394 15.0389 19.7706 15.0377 19.9034C15.0366 20.0362 15.0619 20.1678 15.1122 20.2907C15.1625 20.4136 15.2367 20.5253 15.3306 20.6192C15.4245 20.7131 15.5361 20.7873 15.659 20.8376C15.7819 20.8879 15.9136 20.9132 16.0464 20.912C16.1792 20.9109 16.3104 20.8833 16.4324 20.8309C16.5544 20.7785 16.6648 20.7023 16.757 20.6068L25.891 11.4728C26.6141 12.4878 27.0019 13.7035 27 14.9498V24.9498C27 25.4802 26.7893 25.9889 26.4142 26.364C26.0391 26.7391 25.5304 26.9498 25 26.9498H11C10.4696 26.9498 9.96086 26.7391 9.58579 26.364C9.21071 25.9889 9 25.4802 9 24.9498V10.9498C9 10.4194 9.21071 9.91065 9.58579 9.53557C9.96086 9.1605 10.4696 8.94979 11 8.94979H21ZM27.657 8.29279C27.8445 8.48031 27.9498 8.73462 27.9498 8.99979C27.9498 9.26495 27.8445 9.51926 27.657 9.70679L25.89 11.4728C25.5006 10.9261 25.0227 10.4482 24.476 10.0588L26.242 8.29279C26.4295 8.10532 26.6838 8 26.949 8C27.2142 8 27.4695 8.10532 27.657 8.29279Z"
-                    fill="white" />
-                </svg>
-              </a>
-            </button>
-            <button class="task-details__button task-details__button-delete">
-              <svg
-                width="36"
-                height="36"
-                viewBox="0 0 36 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <rect width="36" height="36" rx="8" fill="#ff4d6d" />
-                <path
-                  d="M12 25C12 26.1 12.9 27 14 27H22C23.1 27 24 26.1 24 25V15C24 13.9 23.1 13 22 13H14C12.9 13 12 13.9 12 15V25ZM24 10H21.5L20.79 9.29C20.61 9.11 20.35 9 20.09 9H15.91C15.65 9 15.39 9.11 15.21 9.29L14.5 10H12C11.45 10 11 10.45 11 11C11 11.55 11.45 12 12 12H24C24.55 12 25 11.55 25 11C25 10.45 24.55 10 24 10Z"
-                  fill="white" />
-              </svg>
-            </button>
-          </footer>
-    
-    
-    </div>
-  `;
+  titleEl.textContent = truncate(task.title, 60);
+  descEl.textContent = truncate(task.description, 1670);
+  dateEl.textContent = `Created on: ${task.createdAt}`;
+
+  const priorityEl = taskDetailsNode.querySelector(".task-details__priority");
+
+  if (task.priority) {
+    priorityEl.innerHTML = `
+      Priority: <span class="task__priority--${task.priority}">
+        ${formatPriority(task.priority)}
+      </span>
+    `;
+  } else {
+    priorityEl.remove();
+  }
+
+  const statusEl = taskDetailsNode.querySelector(".task-details__status");
+
+  if (task.status) {
+    statusEl.innerHTML = `
+      Status:
+      <span class="task__status--${task.status}">
+        ${formatStatus(task.status)}
+      </span>
+    `;
+  } else {
+    statusEl.remove();
+  }
+
+  const imgEl = taskDetailsNode.querySelector(".task-details__image");
+
+  if (task.image) {
+    imgEl.src = task.image;
+    imgEl.alt = "task-image";
+  } else {
+    imgEl.remove();
+  }
+
+  taskDetails.append(taskDetailsNode);
 }
-
   // helpers
 
   function truncate(text, maxLength) {
@@ -114,5 +105,4 @@ function formatStatus(status) {
   };
   return map[status] || status;
 }
-
 
