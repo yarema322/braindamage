@@ -35,6 +35,9 @@ function renderTaskDetails(task) {
 
   const taskDetailsNode = taskTemplate.content.cloneNode(true);
 
+  const detailsItem = taskDetailsNode.querySelector(".task-details__item");
+  detailsItem.dataset.taskId = task.id;
+
   const titleEl = taskDetailsNode.querySelector(".task-details__title");
   const descEl = taskDetailsNode.querySelector(".task-details__description");
   const dateEl = taskDetailsNode.querySelector(".task-details__date");

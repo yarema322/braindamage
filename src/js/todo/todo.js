@@ -3,6 +3,7 @@ import "@styles/styles.scss";
 import "../common/dateFull.js";
 import "./todoTask.js";
 import "./taskSelected.js";
+import "./taskNavigation.js";
 
 import { throttle } from "../common/throttle.js";
 import { initHamMenu } from "../common/hamMenu.js";
