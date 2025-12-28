@@ -12,68 +12,56 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // storage 
-
 function getTasksFromStorage() {
   const data = localStorage.getItem("tasks");
   return data ? JSON.parse(data) : [];
 }
 
 // render task
+const taskTemplate = document.getElementById("task-template");
 
 function renderTask(task) {
-  const taskEl = document.createElement("div");
-  taskEl.className = "task";
+  const fragment = taskTemplate.content.cloneNode(true);
+
+  const taskEl = fragment.querySelector(".task");
   taskEl.dataset.taskId = task.id;
 
-  taskEl.innerHTML = `
-    <div class="task__circle">
-      ${renderStatusIcon(task.status)}
-    </div>
+  const circle = fragment.querySelector(".task__circle");
+  circle.innerHTML = renderStatusIcon(task.status);
 
-    <div class="task__body">
-      <header class="task__header">
-        <h2 class="task__title">${truncate(task.title, 20)}</h2>
-      </header>
+  fragment.querySelector(".task__title").textContent = truncate(task.title, 20);
 
-      <div class="task__content">
-        <p class="task__description">
-          ${truncate(task.description, 60)}
-        </p>
+  fragment.querySelector(".task__description").textContent = truncate(task.description, 60);
 
-        ${
-          task.image
-            ? `<img src="${task.image}" alt="task-image" class="task__image">`
-            : ""
-        }
-      </div>
-
-      <footer class="task__footer">
-        <p class="task__priority">
-          Priority:
-          <span class="task__priority--${task.priority}">
-            ${formatPriority(task.priority)}
-          </span>
-        </p>
-
-        <p class="task__status">
-          Status:
-          <span class="task__status--${task.status}">
-            ${formatStatus(task.status)}
-          </span>
-        </p>
-
-        <p class="task__date">
-          Created on: ${task.createdAt}
-        </p>
-      </footer>
-    </div>
+  fragment.querySelector(".task__priority").innerHTML = `
+    Priority:
+    <span class="task__priority--${task.priority}">
+      ${formatPriority(task.priority)}
+    </span>
   `;
 
-  return taskEl;
+  fragment.querySelector(".task__status").innerHTML = `
+    Status:
+    <span class="task__status--${task.status}">
+      ${formatStatus(task.status)}
+    </span>
+  `;
+
+  fragment.querySelector(".task__date").textContent = `Created on: ${task.createdAt}`;
+
+  const img = fragment.querySelector(".task__image");
+
+  if (task.image) {
+    img.src = task.image;
+    img.alt = "task image";
+  } else {
+    img.remove();
+  }
+
+  return fragment;
 }
 
 // helpers
-
 function truncate(text, maxLength) {
   if (!text) return "";
   return text.length > maxLength
@@ -100,7 +88,6 @@ function formatStatus(status) {
 }
 
 // icon
-
 function renderStatusIcon(status) {
   const colorMap = {
     "not-started": "#F21E1E",
