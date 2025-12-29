@@ -44,7 +44,7 @@ function renderViewTask(task) {
     }
 
     // task title
-    fragment.querySelector(".view-task__title").textContent = truncate(task.title, 220);
+    fragment.querySelector(".view-task__title").textContent = task.title;
     // task priority
     const priorityViewTask = fragment.querySelector(".view-task__priority");
     
@@ -75,7 +75,7 @@ function renderViewTask(task) {
         `Created on: ${task.createdAt}`;
     
     // task description
-    fragment.querySelector(".view-task__description").textContent = truncate(task.description, 2898);
+    fragment.querySelector(".view-task__description").textContent = task.description;
 
     containerViewTask.append(fragment);
 }
