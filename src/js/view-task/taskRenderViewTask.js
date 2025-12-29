@@ -44,7 +44,7 @@ function renderViewTask(task) {
     }
 
     // task title
-    fragment.querySelector(".view-task__title").textContent = task.title;
+    fragment.querySelector(".view-task__title").textContent = truncate(task.title, 220);
     // task priority
     const priorityViewTask = fragment.querySelector(".view-task__priority");
     
@@ -75,7 +75,7 @@ function renderViewTask(task) {
         `Created on: ${task.createdAt}`;
     
     // task description
-    fragment.querySelector(".view-task__description").textContent = task.description;
+    fragment.querySelector(".view-task__description").textContent = truncate(task.description, 2898);
 
     containerViewTask.append(fragment);
 }
@@ -98,4 +98,12 @@ function formatStatus(status) {
     "low": "Low",
   };
   return map[status] || status;
+}
+
+// truncate text
+  function truncate(text, maxLength) {
+  if (!text) return "";
+  return text.length > maxLength
+    ? text.slice(0, maxLength).trim() + "..."
+    : text;
 }
