@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // data from the form
     const title = document.getElementById("task-title").value.trim();
-    const description = document.getElementById("task-description").value.trim();
     const createdAt = document.getElementById("task-create-date").value;
     const priority = form.elements["task-priority"].value;
-
+    const description = document.getElementById("task-description").value.trim();
+  
     // localStorage
     const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
