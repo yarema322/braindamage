@@ -329,8 +329,9 @@
         </div>
       </div>
 
-      <template id="view-task">
-        <div class="view-task">
+      <div class="view-task"></div>
+
+      <template id="view-task-template">
           <header class="view-task__header">
             <img class="view-task__header-img" alt="">
             <div class="view-task__meta">
@@ -339,8 +340,7 @@
               <p class="view-task__status"></p>
               <p class="view-task__date"></p>
             </div>
-            <!-- button js history back -->
-              <button class="view-task__back">
+              <button class="view-task__back" data-action="history-back">
                 Go Back
               </button>
             </a>
@@ -391,7 +391,6 @@
               </svg>
             </button>
           </footer>
-        </div>
       </template>
 
       <div
