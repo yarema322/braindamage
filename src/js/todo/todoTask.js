@@ -107,3 +107,16 @@ function renderStatusIcon(status) {
     </svg>
   `;
 }
+
+// delete task event
+document.addEventListener("task:deleted", (e) => {
+  const container = document.getElementById("task-list__container");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  e.detail.forEach(task => {
+    const taskElement = renderTask(task);
+    container.appendChild(taskElement);
+  });
+});
