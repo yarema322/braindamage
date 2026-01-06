@@ -52,9 +52,9 @@ function renderTaskDetails(task) {
   const descEl = taskDetailsNode.querySelector(".task-details__description");
   const dateEl = taskDetailsNode.querySelector(".task-details__date");
 
-  // truncate long text
-  titleEl.textContent = truncate(task.title, 60);
-  descEl.textContent = truncate(task.description, 1670);
+  // bind data
+  titleEl.textContent = task.title;
+  descEl.textContent = task.description;
   // task date
   dateEl.textContent = `Created on: ${task.createdAt}`;
 

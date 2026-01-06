@@ -221,6 +221,7 @@ display: flex;
   width: 158px;
   height: 158px;
   border-radius: 10px;
+  flex-shrink: 0;
 }
 
 .task-details__meta {
@@ -234,6 +235,9 @@ display: flex;
 .task-details__title {
   font-size: 16px;
   font-weight: 600;
+  max-height: 60px;
+  overflow-y: auto;
+  padding-right: 4px;
 }
 
 .task-details__priority,
@@ -250,13 +254,12 @@ display: flex;
 
 /* content task details */
 .task-details__description {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 19;
-  overflow: hidden;
+  max-height: 500px;
+  overflow-y: auto;
   text-overflow: ellipsis;
   font-size: 16px;
   font-weight: 700;
+  padding-right: 4px;
 }
 
 /* footer task details  */
@@ -307,4 +310,19 @@ cursor: pointer;
   fill: $color-primary;
 }
 
+/* scrolls */
+.task-details__title::-webkit-scrollbar,
+.task-details__description::-webkit-scrollbar {
+  width: 6px;
+}
 
+.task-details__title::-webkit-scrollbar-thumb,
+.task-details__description::-webkit-scrollbar-thumb {
+  background: $color-primary;
+  border-radius: 10px;
+}
+
+.task-details__title::-webkit-scrollbar-track,
+.task-details__description::-webkit-scrollbar-track {
+  background: transparent;
+}
