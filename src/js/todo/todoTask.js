@@ -1,3 +1,5 @@
+import { formatTaskDate } from "../common/formatTaskDate.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("task-list__container");
   if (!container) return;
@@ -47,7 +49,7 @@ function renderTask(task) {
     </span>
   `;
 
-  fragment.querySelector(".task__date").textContent = `Created on: ${task.createdAt}`;
+  fragment.querySelector(".task__date").textContent = `Created on: ${formatTaskDate(task.createdAt)}`;
 
   const img = fragment.querySelector(".task__image");
 

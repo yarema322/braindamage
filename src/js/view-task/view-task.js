@@ -5,7 +5,11 @@ import "../common/modalWindow.js";
 import "../common/modalForm.js";
 
 
-import "../view-task/taskRenderViewTask.js";
+import "./renderViewTask.js";
+import "./editTask.js";
+import { initEditTaskPrefill } from "./editTaskPrefill.js";
+
+initEditTaskPrefill();
 
 import "../common/historyBackButton.js";
 
@@ -17,7 +21,6 @@ import { initHamMenu } from "../common/hamMenu.js";
 import { initResizeHandler } from "../common/resizeHandler.js";
 import { initClickOutside } from "../common/clickOutsideSidebar.js";
 import { initDatePicker } from "../common/datePicker.js";
-
 
 initHamMenu();
 initResizeHandler(".sidebar", ".ham__menu", ".overlay", throttle);

@@ -1,3 +1,5 @@
+import { formatTaskDate } from "../common/formatTaskDate.js";
+
 let taskDetails;
 let selectedTaskId = null; // id task
 const taskTemplate = document.getElementById("task-details-template"); // template
@@ -52,11 +54,13 @@ function renderTaskDetails(task) {
   const descEl = taskDetailsNode.querySelector(".task-details__description");
   const dateEl = taskDetailsNode.querySelector(".task-details__date");
 
+  
+
   // bind data
   titleEl.textContent = task.title;
   descEl.textContent = task.description;
   // task date
-  dateEl.textContent = `Created on: ${task.createdAt}`;
+  dateEl.textContent = `Created on: ${formatTaskDate(task.createdAt)}`;
 
   // task priority
   const priorityEl = taskDetailsNode.querySelector(".task-details__priority");

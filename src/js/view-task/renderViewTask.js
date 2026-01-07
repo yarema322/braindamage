@@ -1,18 +1,15 @@
-// id from URL
-function getTaskIdFromUrl() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get("id");
-}
+import { formatTaskDate } from "../common/formatTaskDate.js";
 
-// get task from LocalStorage
-function getTasksFromStorage() {
-    const data = localStorage.getItem("tasks");
-    return data ? JSON.parse(data) : [];
+// id from URL
+export function getTaskIdFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("id");
 }
 
 // get task by id
-function getTaskById(id) {
-    const tasks = getTasksFromStorage();
+export function getTaskById(id) {
+    const data = localStorage.getItem("tasks");
+    const tasks = data ? JSON.parse(data) : [];
     return tasks.find(task => task.id === id);
 }
 
@@ -30,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const containerViewTask = document.querySelector(".view-task");
 const template = document.getElementById("view-task-template");
 
-function renderViewTask(task) {
+export function renderViewTask(task) {
     containerViewTask.innerHTML = "";
 
     const fragment = template.content.cloneNode(true);
@@ -57,8 +54,8 @@ function renderViewTask(task) {
     } else {
         priorityViewTask.remove();
     }
-    // task status
 
+    // task status
     const statusViewTask = fragment.querySelector(".view-task__status");
 
     if (task.status) {
@@ -71,9 +68,8 @@ function renderViewTask(task) {
         statusViewTask.remove();
     }
     // task date
-    fragment.querySelector(".view-task__date").textContent =
-        `Created on: ${task.createdAt}`;
-    
+    const createdOn = fragment.querySelector(".view-task__date");
+    createdOn.textContent = `Created on: ${formatTaskDate(task.createdAt)}`;
     // task description
     fragment.querySelector(".view-task__description").textContent = task.description;
 
