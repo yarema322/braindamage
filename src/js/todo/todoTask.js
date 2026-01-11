@@ -111,13 +111,14 @@ function renderStatusIcon(status) {
 }
 
 // delete task event
-document.addEventListener("task:deleted", (e) => {
+document.addEventListener("task:deleted", () => {
   const container = document.getElementById("task-list__container");
   if (!container) return;
 
   container.innerHTML = "";
 
-  e.detail.forEach(task => {
+  const tasks = getTasksFromStorage();
+  tasks.forEach(task => {
     const taskElement = renderTask(task);
     container.appendChild(taskElement);
   });

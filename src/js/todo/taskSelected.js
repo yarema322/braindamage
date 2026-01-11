@@ -1,4 +1,5 @@
 import { formatTaskDate } from "../common/formatTaskDate.js";
+import { deleteTaskById } from "../common/deleteTaskById.js";
 
 let taskDetails;
 let selectedTaskId = null; // id task
@@ -135,32 +136,12 @@ document.addEventListener("click", (e) => {
   const deleteBtn = e.target.closest("[data-delete-button]");
   if (!deleteBtn) return;
 
-  handleDeleteTask();
-});
-
-// handle delete task
-function handleDeleteTask() {
   if (!selectedTaskId) return;
+  
+  const confirmed = confirm("Delete this task?");
+  if (!confirmed) return;
 
-  // task from localStorage
-  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-
-  // delete task by filter
-  const updatedTasks = tasks.filter(
-    (task) => task.id !== selectedTaskId
-  );
-
-  // upd local storage
-  localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-
-  // reset view
+  deleteTaskById(selectedTaskId);
   selectedTaskId = null;
   renderEmptyState();
-
-  // update task list
-  document.dispatchEvent(
-    new CustomEvent("task:deleted", {
-      detail: updatedTasks,
-    })
-  );
-}
+});

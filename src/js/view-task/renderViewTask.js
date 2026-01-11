@@ -1,4 +1,5 @@
 import { formatTaskDate } from "../common/formatTaskDate.js";
+import { deleteTaskById } from "../common/deleteTaskById.js";
 
 // id from URL
 export function getTaskIdFromUrl() {
@@ -96,10 +97,18 @@ function formatStatus(status) {
   return map[status] || status;
 }
 
-// truncate text
-  function truncate(text, maxLength) {
-  if (!text) return "";
-  return text.length > maxLength
-    ? text.slice(0, maxLength).trim() + "..."
-    : text;
-}
+// delete task 
+document.addEventListener("click", (e) => {
+  const deleteBtn = e.target.closest("[data-delete-task]");
+  if (!deleteBtn) return;
+
+  const taskId = getTaskIdFromUrl();
+  if (!taskId) return;
+
+  const confirmed = confirm("Delete this task?");
+  if (!confirmed) return;
+
+  deleteTaskById(taskId);
+
+  window.location.href = "todo.html";
+});

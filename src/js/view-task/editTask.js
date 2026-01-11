@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const index = tasks.findIndex(task => task.id === taskId);
     if (index === -1) return;
 
-    // если файл не выбран — обновляем без картинки
+    // if no file selected — update without changing image
     if (!file) {
       tasks[index] = {
         ...tasks[index],
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // если файл выбран — читаем и обновляем картинку
+    // if file selected — read and update image
     const reader = new FileReader();
 
     reader.onload = () => {
