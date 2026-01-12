@@ -17,6 +17,7 @@ module.exports = {
     viewTask: "./src/js/view-task/view-task.js",
     taskCategories: "./src/js/task-categories/task-categories.js",
     createCategories: "./src/js/create-categories/create-categories.js",
+    vitalTask: "./src/js/vital-task/vital-task.js",
   },
   output: {
     filename: "js/[name].[contenthash].js",
@@ -112,6 +113,11 @@ module.exports = {
       template: "./src/create-categories.html",
       filename: "create-categories.html",
       chunks: ["createCategories"],
+    }),
+    new HtmlWebpackPlugin ({
+      template: "./src/vital-task.html",
+      filename: "vital-task.html",
+      chunks: ["vitalTask"]
     }),
 
     new CopyWebpackPlugin({

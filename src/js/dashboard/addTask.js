@@ -25,9 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
         title,
         description,
         priority,
-        status: "in-progress",
+        status: "not-started",
         createdAt,
-        image, 
+        image,
+        mode: "normal", 
       };
 
       tasks.push(task);

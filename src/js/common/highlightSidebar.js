@@ -3,7 +3,7 @@ export function highlightSidebar() {
 
   const routes = {
     "index.html": "dashboard",
-    // create vital task 
+    "vital-task.html": "vital-task",
     "todo.html": "tasks",
     "task-categories.html": "task-categories",
     "account-information.html": "settings",

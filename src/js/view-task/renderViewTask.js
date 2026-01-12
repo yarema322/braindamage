@@ -99,16 +99,44 @@ function formatStatus(status) {
 
 // delete task 
 document.addEventListener("click", (e) => {
-  const deleteBtn = e.target.closest("[data-delete-task]");
-  if (!deleteBtn) return;
+    const deleteBtn = e.target.closest("[data-delete-task]");
+    if (!deleteBtn) return;
 
-  const taskId = getTaskIdFromUrl();
-  if (!taskId) return;
+    const taskId = getTaskIdFromUrl();
+    if (!taskId) return;
 
-  const confirmed = confirm("Delete this task?");
-  if (!confirmed) return;
+    const confirmed = confirm("Delete this task?");
+    if (!confirmed) return;
 
-  deleteTaskById(taskId);
+    deleteTaskById(taskId);
 
-  window.location.href = "todo.html";
+    window.location.href = "todo.html";
+});
+
+// vital button 
+
+document.addEventListener("click", (e) => {
+    const vitalBtn = e.target.closest("[data-vital-task]");
+    if (!vitalBtn) return;
+
+    const taskId = getTaskIdFromUrl();
+    if (!taskId) return;
+
+    const confirmVital = confirm("Get this task vital status?");
+    if (!confirmVital) return;
+
+    const task = getTaskById(taskId);
+    if (!task) return;
+
+    const data = localStorage.getItem("tasks");
+    let tasks = data ? JSON.parse(data) : [];
+
+    tasks = tasks.map(task => {
+        if (task.id === taskId) {
+            return { ...task, mode: "vital", status: "in-progress"};
+        }
+        return task;
+    });
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 });
