@@ -12,10 +12,12 @@ import { initResizeHandler } from "../common/resizeHandler.js";
 import { initClickOutside } from "../common/clickOutsideSidebar.js";
 import { initDatePicker } from "../common/datePicker.js";
 import { initEditTaskPrefill } from "./editTaskPrefill.js";
+import { highlightSidebar } from "../common/highlightSidebar.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   await loadLayout();
 
+  highlightSidebar();
   initHamMenu();
   initResizeHandler(".sidebar", ".ham__menu", ".overlay", throttle);
   initClickOutside(".sidebar", ".ham__menu", ".overlay");
