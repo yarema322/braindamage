@@ -4,11 +4,12 @@ async function loadPartial(id, url) {
   document.getElementById(id).innerHTML = html;
 
   if (id === "header") {
-    import("./dateFull.js").then(m => m.dateFull());
+    const m = await import("./dateFull.js");
+    m.dateFull();
   }
 }
 
 export async function loadLayout() {
-  loadPartial("header", "partials/header.html");
-  loadPartial("sidebar", "partials/sidebar.html");
+  await loadPartial("header", "partials/header.html");
+  await loadPartial("sidebar", "partials/sidebar.html");
 }
