@@ -1,11 +1,14 @@
 import "../../styles/styles.scss";
+import { loadLayout } from "../common/layout";
+document.addEventListener("DOMContentLoaded", () => {
+  loadLayout();
+});
 
 import "../common/dateFull.js";
 import "./dateShort.js";
 
 import "./taskProgress.js";
 
-import "./highlightDashboard.js";
 
 import "./addTask.js"
 

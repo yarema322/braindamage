@@ -1,6 +1,11 @@
+import "../../styles/styles.scss";
+import { loadLayout } from "../common/layout";
+document.addEventListener("DOMContentLoaded", () => {
+  loadLayout();
+});
+
 import "./highlightDashboardChPass.js";
 import "../common/dateFull.js";
-import "../../styles/styles.scss";
 
 import { throttle } from "../common/throttle.js";
 import { initHamMenu } from "../common/hamMenu.js";

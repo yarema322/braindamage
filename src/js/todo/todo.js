@@ -1,5 +1,10 @@
 import "@styles/styles.scss";
 
+import { loadLayout } from "../common/layout";
+document.addEventListener("DOMContentLoaded", () => {
+  loadLayout();
+});
+
 import "../common/dateFull.js";
 import "./todoTask.js";
 import "./taskSelected.js";

@@ -1,4 +1,8 @@
 import "../../styles/styles.scss";
+import { loadLayout } from "../common/layout";
+document.addEventListener("DOMContentLoaded", () => {
+  loadLayout();
+});
 
 import "../common/dateFull.js";
 import "../common/modalWindow.js";
@@ -8,14 +12,13 @@ import "../common/modalForm.js";
 import "./renderViewTask.js";
 import "./editTask.js";
 import { initEditTaskPrefill } from "./editTaskPrefill.js";
-
 initEditTaskPrefill();
 
 import "../common/historyBackButton.js";
 
 
 
-import { showFileNames, initFileUpload } from "../common/filePreview.js";
+import { initFileUpload } from "../common/filePreview.js";
 import { throttle } from "../common/throttle.js";
 import { initHamMenu } from "../common/hamMenu.js";
 import { initResizeHandler } from "../common/resizeHandler.js";

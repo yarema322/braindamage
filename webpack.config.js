@@ -123,6 +123,12 @@ module.exports = {
         },
       ],
     }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "src/assets/partials", to: "partials" }
+      ]
+    }),
+
   ],
   resolve: {
     extensions: [".js", ".scss", ".css"],
