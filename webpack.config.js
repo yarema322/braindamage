@@ -63,6 +63,10 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)$/i,
         type: "asset/resource",
       },
+      {
+        test: /\.hbs$/i,
+        loader: "handlebars-loader",
+      }
     ],
   },
   plugins: [
@@ -137,7 +141,7 @@ module.exports = {
 
   ],
   resolve: {
-    extensions: [".js", ".scss", ".css"],
+    extensions: [".js", ".scss", ".css", ".hbs",],
     alias: {
       "@styles": path.resolve(__dirname, "src/styles"),
     },

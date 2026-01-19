@@ -2,7 +2,8 @@
   "private": true,
   "dependencies": {
     "@vercel/edge": "^0.1.2",
-    "flatpickr": "^4.6.13"
+    "flatpickr": "^4.6.13",
+    "handlebars": "^4.7.8"
   },
   "name": "projects",
   "version": "1.0.0",
@@ -29,6 +30,7 @@
     "babel-loader": "^10.0.0",
     "copy-webpack-plugin": "^12.0.2",
     "css-loader": "^7.1.2",
+    "handlebars-loader": "^1.7.3",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.4",
     "sass": "^1.94.0",

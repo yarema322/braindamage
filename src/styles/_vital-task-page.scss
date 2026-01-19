@@ -24,6 +24,15 @@
 }
 
 /* vital task section */
+.vital-task-list__container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 74vh;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
 .vital-task-list {
     display: flex;
     flex-direction: column;
