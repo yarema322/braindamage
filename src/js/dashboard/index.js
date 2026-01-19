@@ -1,18 +1,18 @@
 import "../../styles/styles.scss";
-import "./dateShort.js";
+import "./date-short.js";
 import "./taskProgress.js";
-import "./addTask.js";
-import "../common/modalWindow.js";
-import "../common/modalForm.js";
-import "./dropDownRoles.js";
+import "./add-task.js";
+import "../common/modal-window.js";
+import "../common/modal-form.js";
+import "./drop-down-roles.js";
 import { loadLayout } from "../common/layout";
-import { initDatePicker } from "../common/datePicker.js";
+import { initDatePicker } from "../common/date-picker.js";
 import { throttle } from "../common/throttle.js";
-import { initHamMenu } from "../common/hamMenu.js";
-import { initResizeHandler } from "../common/resizeHandler.js";
-import { initClickOutside } from "../common/clickOutsideSidebar.js";
-import { initFileUpload } from "../common/filePreview.js";
-import { highlightSidebar } from "../common/highlightSidebar.js";
+import { initHamMenu } from "../common/ham-menu.js";
+import { initResizeHandler } from "../common/resize-handler.js";
+import { initClickOutside } from "../common/click-outside-sidebar.js";
+import { initFileUpload } from "../common/file-preview.js";
+import { highlightSidebar } from "../common/highlight-sidebar.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   await loadLayout();

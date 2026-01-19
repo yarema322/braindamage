@@ -1,4 +1,4 @@
-import { getTaskIdFromUrl, getTaskById } from "./renderViewTask.js";
+import { getTaskIdFromUrl, getTaskById } from "./render-view-task.js";
 
 export function initEditTaskPrefill() {
   const editBtn = document.querySelector('[data-open="task-edit-modal"]');

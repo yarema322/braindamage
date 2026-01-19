@@ -4,7 +4,7 @@ async function loadPartial(id, url) {
   document.getElementById(id).innerHTML = html;
 
   if (id === "header") {
-    const m = await import("./dateFull.js");
+    const m = await import("./date-full.js");
     m.dateFull();
   }
 }

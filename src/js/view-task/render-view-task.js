@@ -1,5 +1,5 @@
-import { formatTaskDate } from "../common/formatTaskDate.js";
-import { deleteTaskById } from "../common/deleteTaskById.js";
+import { formatTaskDate } from "../common/format-task-date.js";
+import { deleteTaskById } from "../common/delete-task-by-id.js";
 
 // id from URL
 export function getTaskIdFromUrl() {

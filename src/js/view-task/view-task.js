@@ -1,18 +1,18 @@
 import "../../styles/styles.scss";
-import "../common/modalWindow.js";
-import "../common/modalForm.js";
-import "../common/historyBackButton.js";
-import "./renderViewTask.js";
-import "./editTask.js";
+import "../common/modal-window.js";
+import "../common/modal-form.js";
+import "../common/history-back-button.js";
+import "./render-view-task.js";
+import "./edit-task.js";
 import { loadLayout } from "../common/layout";
-import { initFileUpload } from "../common/filePreview.js";
+import { initFileUpload } from "../common/file-preview.js";
 import { throttle } from "../common/throttle.js";
-import { initHamMenu } from "../common/hamMenu.js";
-import { initResizeHandler } from "../common/resizeHandler.js";
-import { initClickOutside } from "../common/clickOutsideSidebar.js";
-import { initDatePicker } from "../common/datePicker.js";
-import { initEditTaskPrefill } from "./editTaskPrefill.js";
-import { highlightSidebar } from "../common/highlightSidebar.js";
+import { initHamMenu } from "../common/ham-menu.js";
+import { initResizeHandler } from "../common/resize-handler.js";
+import { initClickOutside } from "../common/click-outside-sidebar.js";
+import { initDatePicker } from "../common/date-picker.js";
+import { initEditTaskPrefill } from "./edit-task-prefill.js";
+import { highlightSidebar } from "../common/highlight-sidebar.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   await loadLayout();

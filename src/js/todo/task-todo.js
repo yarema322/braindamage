@@ -1,4 +1,4 @@
-import { formatTaskDate } from "../common/formatTaskDate.js";
+import { formatTaskDate } from "../common/format-task-date.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("task-list__container");
