@@ -21,3 +21,13 @@
 @use 'task-categories.scss';
 @use 'create-categories.scss';
 @use 'vital-task-page.scss';
+
+.task__priority{
+    width: 90px;
+}
+.task__status{
+    width: 90px;
+}
+.task__date {
+    width: 110px;
+}

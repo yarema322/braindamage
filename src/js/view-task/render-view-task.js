@@ -1,5 +1,7 @@
 import { formatTaskDate } from "../common/format-task-date.js";
 import { deleteTaskById } from "../common/delete-task-by-id.js";
+import { formatPriority } from "../common/format-priority.js";
+import { formatStatus } from "../common/format-status.js";
 
 // id from URL
 export function getTaskIdFromUrl() {
@@ -75,26 +77,6 @@ export function renderViewTask(task) {
     fragment.querySelector(".view-task__description").textContent = task.description;
 
     containerViewTask.append(fragment);
-}
-
-// format priority
-function formatPriority(priority) {
-    const map = {
-        extreme: "Extreme",
-        moderate: "Moderate",
-        low: "Low",
-    };
-    return map[priority] || priority;
-}
-
-// format status
-function formatStatus(status) {
-  const map = {
-    "not-started": "Not Started",
-    "in-progress": "In Progress",
-    "low": "Low",
-  };
-  return map[status] || status;
 }
 
 // delete task 

@@ -1,6 +1,8 @@
 import { formatTaskDate } from "../common/format-task-date.js";
 import { deleteTaskById } from "../common/delete-task-by-id.js";
-
+import { formatPriority } from "../common/format-priority.js";
+import { formatStatus } from "../common/format-status.js";
+ 
 let taskDetails;
 let selectedTaskId = null; // id task
 const taskTemplate = document.getElementById("task-details-template"); // template
@@ -101,34 +103,6 @@ function renderTaskDetails(task) {
   }
 
   taskDetails.append(taskDetailsNode);
-}
-
-// truncate
-  function truncate(text, maxLength) {
-  if (!text) return "";
-  return text.length > maxLength
-    ? text.slice(0, maxLength).trim() + "..."
-    : text;
-}
-
-// format priority
-function formatPriority(priority) {
-  const map = {
-    extreme: "Extreme",
-    moderate: "Moderate",
-    low: "Low",
-  };
-  return map[priority] || priority;
-}
-
-// format status
-function formatStatus(status) {
-  const map = {
-    "not-started": "Not Started",
-    "in-progress": "In Progress",
-    "low": "Low",
-  };
-  return map[status] || status;
 }
 
 // delete task
