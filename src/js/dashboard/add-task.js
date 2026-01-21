@@ -1,3 +1,5 @@
+import { getTasksFromStorage, saveTasksToStorage } from "../common/storage.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("modal-form");
   if (!form) return;
@@ -12,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const description = document.getElementById("task-description").value.trim();
   
     // localStorage
-    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    const tasks = getTasksFromStorage();
 
     // save picture
     const imageInput = document.getElementById("task-image");
@@ -32,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       };
 
       tasks.push(task);
-      localStorage.setItem("tasks", JSON.stringify(tasks));
+      saveTasksToStorage(tasks);
 
       form.reset();
     };

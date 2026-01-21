@@ -3,6 +3,7 @@ import { formatTaskDate } from "../common/format-task-date.js";
 import { formatPriority } from "../common/format-priority.js";
 import { formatStatus } from "../common/format-status.js";
 import { deleteTaskById } from "../common/delete-task-by-id.js";
+import { getTaskById } from "./storage.js";
 
 let taskDetails;
 
@@ -15,10 +16,7 @@ document.addEventListener("task:selected", (e) => {
     const taskId = e.detail;
     if (!taskId) return;
 
-    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    if (!tasks.length) return;
-
-    const task = tasks.find(t => String(t.id) === String(taskId));
+    const task = getTaskById(taskId);
     if (!task) return;
 
     renderSelectedTask(task);
@@ -54,7 +52,9 @@ document.addEventListener("click", (e) => {
     }
 });
 
-function renderSelectedTask(task) {
+export function renderSelectedTask(task) {
+    if (!taskDetails) return;
+
     const model = {
         id: task.id,
 

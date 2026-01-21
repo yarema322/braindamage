@@ -4,6 +4,7 @@ import { truncate } from "../common/truncate.js";
 import { formatPriority } from "../common/format-priority.js";
 import { formatStatus } from "../common/format-status.js";
 import { renderStatusIcon } from "../common/render-status-icon.js";
+import { getTasksFromStorage } from "../common/storage.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("task-list__container");
@@ -23,12 +24,6 @@ document.addEventListener("click", (e) => {
     new CustomEvent("task:selected", { detail: taskId })
   );
 });
-
-// storage 
-function getTasksFromStorage() {
-  const data = localStorage.getItem("tasks");
-  return data ? JSON.parse(data) : [];
-}
 
 function toTemplateModel(task) {
     return {

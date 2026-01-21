@@ -1,4 +1,4 @@
-import { renderViewTask } from "./render-view-task.js";
+import { getTaskById, updateTaskById } from "../common/storage";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".view-task-edit-modal__form");
@@ -8,58 +8,56 @@ document.addEventListener("DOMContentLoaded", () => {
   const taskId = params.get("id");
   if (!taskId) return;
 
+  const task = getTaskById(taskId);
+  if (!task) return;
+
+  form.title.value = task.title || "";
+  form.date.value = task.createdAt || "";
+  form.priority.value = task.priority || "";
+  form.description.value = task.description || "";
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+
+    const confirmed = confirm ("Save changes?");
+    if (!confirmed) return;
 
     const title = form.title.value.trim();
     const date = form.date.value;
     const priority = form.priority.value;
     const description = form.description.value.trim();
+    const imageFile = form.image?.files?.[0];
 
-    const imageInput = document.getElementById("task-image");
-    const file = imageInput?.files[0];
+    if (!title) return;
 
-    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    const index = tasks.findIndex(task => task.id === taskId);
-    if (index === -1) return;
+    if (imageFile) {
+      const reader = new FileReader();
 
-    // if no file selected — update without changing image
-    if (!file) {
-      tasks[index] = {
-        ...tasks[index],
-        title,
-        date,
-        priority,
-        description
+      reader.onload = () => {
+        update(taskId, {
+          title,
+          createdAt: date,
+          priority,
+          description,
+          image: reader.result,
+        });
       };
 
-      localStorage.setItem("tasks", JSON.stringify(tasks));
-      renderViewTask(tasks[index]);
-
-      return;
-    }
-
-    // if file selected — read and update image
-    const reader = new FileReader();
-
-    reader.onload = () => {
-      tasks[index] = {
-        ...tasks[index],
+      reader.readAsDataURL(imageFile);
+    } else {
+      update(taskId, {
         title,
-        date,
+        createdAt: date,
         priority,
         description,
-        image: reader.result
-      };
-
-      localStorage.setItem("tasks", JSON.stringify(tasks));
-      renderViewTask(tasks[index]);
-
-      document
-        .querySelector('[data-modal="task-edit-modal"]')
-        .classList.remove("show");
-    };
-
-    reader.readAsDataURL(file);
+      });
+    }
   });
 });
+
+function update(taskId, patch) {
+  const updatedTask = updateTaskById(taskId, patch);
+  if (!updatedTask) return;
+
+  window.location.href = `view-task.html?id=${taskId}`;
+}
