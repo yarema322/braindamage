@@ -5,6 +5,7 @@ import "./add-task.js";
 import "../common/modal-window.js";
 import "../common/modal-form.js";
 import "./drop-down-roles.js";
+import taskTpl from "../../assets/partials/task.hbs";
 import { loadLayout } from "../common/layout";
 import { initDatePicker } from "../common/date-picker.js";
 import { throttle } from "../common/throttle.js";
@@ -13,8 +14,16 @@ import { initResizeHandler } from "../common/resize-handler.js";
 import { initClickOutside } from "../common/click-outside-sidebar.js";
 import { initFileUpload } from "../common/file-preview.js";
 import { highlightSidebar } from "../common/highlight-sidebar.js";
+import { toTemplateModel } from "../common/render-task-list.js";
+import { getTasksFromStorage } from "../common/storage.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
+  const taskListContainer = document.getElementById("task-list");
+  if (!taskListContainer) return;
+
+  const tasks = getTasksFromStorage();
+  taskListContainer.innerHTML = tasks.map(t => taskTpl(toTemplateModel(t))).join("");
+
   await loadLayout();
 
   highlightSidebar();

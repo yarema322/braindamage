@@ -1,6 +1,6 @@
 import taskTpl from "../../assets/partials/task.hbs";
 import { getTasksFromStorage } from "../common/storage.js";
-import { toTemplateModel } from "../common/render-task.js";
+import { toTemplateModel } from "../common/render-task-list.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("vital-task-list__container");

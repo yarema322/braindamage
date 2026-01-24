@@ -441,3 +441,28 @@ p {
   background-color: $color-primary;
   border-color: currentColor;
 }
+
+/* dashboard task list */
+
+.dashboard-task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 10px;
+  max-height: 65vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.dashboard-task-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dashboard-task-list::-webkit-scrollbar-thumb {
+  background: $color-primary;
+  border-radius: 10px;
+}
+
+.dashboard-task-list::-webkit-scrollbar-track {
+  background: transparent;
+}
