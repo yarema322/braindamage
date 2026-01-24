@@ -7,6 +7,7 @@ import { initResizeHandler } from "../common/resize-handler.js";
 import { initClickOutside } from "../common/click-outside-sidebar.js";
 import { highlightSidebar } from "../common/highlight-sidebar.js";
 
+import "../common/render-task-selected.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   await loadLayout();
