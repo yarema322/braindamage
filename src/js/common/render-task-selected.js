@@ -33,6 +33,7 @@ function renderEmptyState () {
 document.addEventListener("click", (e) => {
     const editBtn = e.target.closest("[data-view-task]");
     const deleteBtn = e.target.closest("[data-delete-button]");
+    const taskEditBtn = e.target.closest(".task-details__button--edit");
 
     if (editBtn) {
         const id = editBtn.dataset.taskId;
@@ -49,6 +50,16 @@ document.addEventListener("click", (e) => {
         if (!confirmed) return;
 
         deleteTaskById(id);
+    }
+
+    if (taskEditBtn) {
+        const detailsItem = taskEditBtn.closest(".task-details__item");
+        if (!detailsItem) return;
+
+        const taskId = detailsItem.dataset.taskId;
+        if (!taskId) return;
+
+        window.location.href = `view-task.html?id=${taskId}`;
     }
 });
 
