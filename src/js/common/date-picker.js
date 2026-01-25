@@ -3,7 +3,7 @@ import "flatpickr/dist/flatpickr.min.css";
 
 export function initDatePicker() {
   flatpickr("#task-create-date", {
-    dateFormat: "d.m.Y",
+    dateFormat: "Y-m-d",
     allowInput: true,
   });
 }

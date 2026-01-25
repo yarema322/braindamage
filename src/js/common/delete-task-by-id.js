@@ -12,4 +12,6 @@ export function deleteTaskById(taskId) {
   document.dispatchEvent(
     new CustomEvent("task:deleted", { detail: taskId })
   );
+
+  window.location.reload();
 }

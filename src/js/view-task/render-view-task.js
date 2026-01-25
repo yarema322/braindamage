@@ -2,19 +2,10 @@ import { formatTaskDate } from "../common/format-task-date.js";
 import { deleteTaskById } from "../common/delete-task-by-id.js";
 import { formatPriority } from "../common/format-priority.js";
 import { formatStatus } from "../common/format-status.js";
+import { getTaskById, updateTaskById, getTaskIdFromUrl } from "../common/storage.js";
 
 // id from URL
-export function getTaskIdFromUrl() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get("id");
-}
 
-// get task by id
-export function getTaskById(id) {
-    const data = localStorage.getItem("tasks");
-    const tasks = data ? JSON.parse(data) : [];
-    return tasks.find(task => task.id === id);
-}
 
 // process of rendering
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!taskId) return;
 
     const task = getTaskById(taskId);
+    if (!task) return;
 
     renderViewTask(task);
 });
@@ -107,18 +99,6 @@ document.addEventListener("click", (e) => {
     const confirmVital = confirm("Get this task vital status?");
     if (!confirmVital) return;
 
-    const task = getTaskById(taskId);
-    if (!task) return;
-
-    const data = localStorage.getItem("tasks");
-    let tasks = data ? JSON.parse(data) : [];
-
-    tasks = tasks.map(task => {
-        if (task.id === taskId) {
-            return { ...task, mode: "vital", status: "in-progress"};
-        }
-        return task;
-    });
-
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    updateTaskById(taskId, { mode: "vital", status: "in-progress" });
+    window.location.reload();
 });

@@ -54,5 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     reader.readAsDataURL(file);
+
+    window.location.reload();
   });
 });

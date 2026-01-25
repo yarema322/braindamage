@@ -32,3 +32,8 @@ export function updateTaskById(id, patch) {
 
     return tasks[index];
 }
+
+export function getTaskIdFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("id");
+}
