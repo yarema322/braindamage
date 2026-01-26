@@ -3,6 +3,7 @@ export function renderStatusIcon(status) {
         "not-started": "#F21E1E",
         "in-progress": "#1a30f5",
         "low": "#1eff00ff",
+        "completed": "#00ff73ff",
     };
 
     return `

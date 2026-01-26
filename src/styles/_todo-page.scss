@@ -147,6 +147,10 @@
 }
 
 /* task footer */
+.task__status--completed {
+  color: $color-circle-completed;
+}
+
 .task__priority--extreme {
   color: $color-circle-not-started;
 }

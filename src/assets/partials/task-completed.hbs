@@ -1,0 +1,18 @@
+<div class="task task--completed" data-task-id="{{id}}">
+        <div class="task__circle">{{{statusIcon}}}</div>
+        <div class="task__body">
+            <header class="task__header">
+                <h2 class="task__title">{{taskTitle}}</h2>
+            </header>
+            <div class="task__content">
+                <p class="task__description">{{taskDescriptionShort}}</p>
+                {{#if image}}
+                    <img alt="" class="task__image" src="{{image}}">
+                {{/if}}
+            </div>
+            <footer class="task__footer">
+                <p class="task__status"> Status: <span class="task__status--{{status}}"> {{statusLabel}} </span> </p>
+                <p class="task__date"> Completed on: {{createdAtLabel}} </p>
+            </footer>
+        </div>
+</div>

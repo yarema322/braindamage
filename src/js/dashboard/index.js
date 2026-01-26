@@ -6,6 +6,9 @@ import "../common/modal-window.js";
 import "../common/modal-form.js";
 import "./drop-down-roles.js";
 import taskTpl from "../../assets/partials/task.hbs";
+
+import taskCompleted from "../../assets/partials/task-completed.hbs";
+
 import { loadLayout } from "../common/layout";
 import { initDatePicker } from "../common/date-picker.js";
 import { throttle } from "../common/throttle.js";
@@ -16,6 +19,7 @@ import { initFileUpload } from "../common/file-preview.js";
 import { highlightSidebar } from "../common/highlight-sidebar.js";
 import { toTemplateModel } from "../common/render-task-list.js";
 import { getTasksFromStorage } from "../common/storage.js";
+import { completedTask } from "../common/render-task-list-completed.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const taskListContainer = document.getElementById("task-list");
@@ -23,6 +27,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const tasks = getTasksFromStorage();
   taskListContainer.innerHTML = tasks.map(t => taskTpl(toTemplateModel(t))).join("");
+
+  const taskListContainerCompleted = document.getElementById("completed-task-list");
+  if (!taskListContainerCompleted) return;
+
+  const completedTasks = tasks.filter(task => task.status === "completed");
+  taskListContainerCompleted.innerHTML = completedTasks.map(t => taskCompleted(completedTask(t))).join("");
 
   await loadLayout();
 

@@ -2,7 +2,7 @@ export function formatStatus(status) {
     const map = {
         "not-started": "Not Started",
         "in-progress": "In Progress",
-        "low": "Low",
+        "completed": "Completed",
     };
 
     return map[status] || status;

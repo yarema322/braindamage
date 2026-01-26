@@ -1,5 +1,25 @@
 @use 'variables' as *; 
 
+.content {
+  position: relative;
+  flex-grow: 1;
+  height: 100%;
+  margin: 0 90px 0 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @media screen and (max-width: 1140px) {
+    gap: 10px;
+    margin: 0;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+/* greetings */
 .greetings {
   display: flex;
   align-content: center;
@@ -19,6 +39,12 @@
   }
 }
 
+/* greetings bar */
+.greetings__bar {
+  display: flex;
+  gap: 10px;
+}
+
 .greetings__text p {
   font-size: 36px;
   font-weight: 500;
@@ -30,17 +56,6 @@
   @media screen and (max-width: 495px) {
     display: none;
   }
-}
-
-.greetings__bar {
-  display: flex;
-  gap: 10px;
-}
-
-.greetings__button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .greetings__invites {
@@ -67,6 +82,12 @@
   backdrop-filter: sepia(90%);
 }
 
+.greetings__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .greetings__button button {
   width: 100px;
   height: 38px;
@@ -86,21 +107,7 @@
   color: $color-white;
 }
 
-.content {
-  position: relative;
-  flex-grow: 1;
-  height: 100%;
-  margin: 0 90px 0 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-
-  @media screen and (max-width: 1140px) {
-    gap: 10px;
-    margin: 0;
-  }
-}
-
+/* content frame */
 .content__frame {
   display: flex;
   flex: 1;
@@ -118,12 +125,7 @@
   }
 }
 
-/* .task {
-  flex: 1;
-  border: 1px solid $color-white;
-  border-radius: 10px;
-} */
-
+// left side
 .task__active {
   display: flex;
   flex-direction: column;
@@ -131,27 +133,6 @@
   gap: 15px;
   padding: 18px 26px;
   background: $color-white;
-  box-shadow: -4px 4px 4px $color-shadow, 4px 4px 4px $color-shadow;
-}
-
-.task__status__INDEX {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  gap: 10px;
-
-  @media screen and (max-width: 1067px) {
-    padding: 18px;
-    border: 1px solid $color-shadow;
-    box-shadow: -4px 4px 4px $color-shadow,
-      4px 4px 4px $color-shadow;
-  }
-}
-
-
-.status,
-.completed {
-  border-radius: 10px;
   box-shadow: -4px 4px 4px $color-shadow, 4px 4px 4px $color-shadow;
 }
 
@@ -186,102 +167,68 @@
   color: $color-primary;
 }
 
-.task__content__INDEX {
+/* dashboard task list */
+.dashboard-task-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 10px 16px;
+  border-radius: 10px;
+  max-height: 65vh;
+  overflow-y: auto;
+  padding-right: 8px;
 }
 
-.content__load {
-  display: flex;
-  justify-content: center;
-  border: 1px solid $color-border-main;
+.dashboard-task-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dashboard-task-list::-webkit-scrollbar-thumb {
+  background: $color-primary;
   border-radius: 10px;
 }
 
-.load__circle {
-  display: flex;
-  width: 14px;
-  height: 14px;
-  margin: 12px 6px;
+.dashboard-task-list::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.load__describe {
+/* task footer completed */
+.task__footer--completed {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin: 0 16px 8px 0;
-  padding-top: 14px;
 }
 
-.describe__heading {
-  overflow: hidden;
-  font-size: 16px;
-  font-weight: 600;
-  overflow-wrap: break-word;
+.task__status--completed,
+.task__date--completed {
+  width: 100%;
 }
 
-.describe__information {
+/* task image completed */
+.task__image--completed {
+  width: 88px;
+  height: 88px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+// right side
+.task__status__INDEX {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: 14px;
-  font-weight: 400;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
 
-  @media screen and (max-width: 767px) {
-    flex-direction: column-reverse;
-    align-items: center;
+  @media screen and (max-width: 1067px) {
+    padding: 18px;
+    border: 1px solid $color-shadow;
+    box-shadow: -4px 4px 4px $color-shadow,
+      4px 4px 4px $color-shadow;
   }
 }
 
-
-
-.describe__information p {
- 
-  overflow: hidden;
-
-  white-space: normal;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  opacity: 0.8;
-}
-
-.describe__footer {
-  display: flex;
-  justify-content: space-between;
-  font-size: 15px;
-  font-weight: 400;
-
-  @media screen and (max-width: 675px) {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-}
-
-.moderate {
-  color: $color-moderate;
-}
-
-.low {
-  color: $color-low;
-}
-
-.extreme {
-  color: $color-progress;
-}
-
-.footer__status--progress {
-  color: $color-progress;
-}
-
-.footer__create-date {
-  opacity: 0.5;
-}
-
-p {
-  margin: 0;
+.status,
+.completed {
+  border-radius: 10px;
+  box-shadow: -4px 4px 4px $color-shadow, 4px 4px 4px $color-shadow;
 }
 
 .status {
@@ -318,6 +265,50 @@ p {
   gap: 10px;
 }
 
+.completed {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 15px;
+  padding: 18px 26px;
+}
+
+.completed__task {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.completed__heading {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 10px;
+  color: $color-primary;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.completed__task {
+  overflow-y: auto;
+  max-height: 44vh;
+  padding-right: 8px;
+}
+
+.completed__task::-webkit-scrollbar {
+  width: 6px;
+}
+
+.completed__task::-webkit-scrollbar-thumb {
+  background: $color-primary;
+  border-radius: 10px;
+}
+
+.completed__task::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* task progress */
 .progress__wrapper {
   display: flex;
   flex-direction: column;
@@ -400,30 +391,7 @@ p {
   background-color: $color-circle-not-started;
 }
 
-.completed {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  gap: 15px;
-  padding: 18px 26px;
-}
-
-.completed__task {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.completed__heading {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  gap: 10px;
-  color: $color-primary;
-  font-size: 15px;
-  font-weight: 500;
-}
-
+/* modal */
 .priority-radio {
   appearance: none;
   -webkit-appearance: none;
@@ -440,29 +408,4 @@ p {
 .priority-radio:checked {
   background-color: $color-primary;
   border-color: currentColor;
-}
-
-/* dashboard task list */
-
-.dashboard-task-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border-radius: 10px;
-  max-height: 65vh;
-  overflow-y: auto;
-  padding-right: 8px;
-}
-
-.dashboard-task-list::-webkit-scrollbar {
-  width: 6px;
-}
-
-.dashboard-task-list::-webkit-scrollbar-thumb {
-  background: $color-primary;
-  border-radius: 10px;
-}
-
-.dashboard-task-list::-webkit-scrollbar-track {
-  background: transparent;
 }

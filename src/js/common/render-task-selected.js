@@ -3,7 +3,7 @@ import { formatTaskDate } from "../common/format-task-date.js";
 import { formatPriority } from "../common/format-priority.js";
 import { formatStatus } from "../common/format-status.js";
 import { deleteTaskById } from "../common/delete-task-by-id.js";
-import { getTaskById } from "./storage.js";
+import { getTaskById, updateTaskById, getTaskIdFromUrl } from "./storage.js";
 
 let taskDetails;
 
@@ -93,4 +93,21 @@ function redirectToViewTask(id) {
 
 document.addEventListener("task:deleted", () => {
     renderEmptyState();
+});
+
+document.addEventListener("click", (e) => {
+    const completedTaskBtn = e.target.closest("[data-completed-task]");
+    if (!completedTaskBtn) return;
+
+    const detailsItem = completedTaskBtn.closest(".task-details__item");
+    if (!detailsItem) return;
+
+    const taskId = detailsItem.dataset.taskId;
+    if (!taskId) return;
+
+    const confirmCompleted = confirm("Mark this task as completed?");
+    if (!confirmCompleted) return;
+
+    updateTaskById(taskId, { status: "completed" });
+    window.location.reload();
 });
