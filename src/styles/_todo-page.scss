@@ -94,86 +94,8 @@
   transform: translateY(1000%);
 }
 
-.task {
-  display: flex;
-  border: 1px solid $color-border-main;
-  border-radius: 10px;
-}
 
-/* task circle */
-.task__circle {
-  padding: 10px 10px 0 10px;
-}
 
-/* task body */
-.task__body {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex-grow: 1;
-  padding: 10px 10px 10px 0;
-}
-
-/* task header */
-.task__title {
-  font-size: 16px;
-  font-weight: 600;
-  margin: 0;
-}
-
-/* task content */
-.task__content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.task__description {
-  font-size: 14px;
-  font-weight: 400;
-  opacity: 0.8;
-}
-
-.task__image {
-  width: 88px;
-  height: 88px;
-  border-radius: 10px;
-  object-fit: cover;
-
-  @media screen and (max-width: 1800px) {
-  min-width: 88px;
-  min-height: 88px;
-  }
-}
-
-/* task footer */
-.task__status--completed {
-  color: $color-circle-completed;
-}
-
-.task__priority--extreme {
-  color: $color-circle-not-started;
-}
-
-.task__priority--low {
-  color: $color-circle-completed;
-}
-
-.task__status--not-started {
-  color: $color-circle-not-started;
-}
-
-.task__status--in-progress {
-  color: $color-moderate;
-}
-
-.task__priority--moderate {
-  color: $color-moderate;
-}
-
-.task__date {
-  opacity: 0.8;
-}
 
 /* no selected task */
 .task-details__greetings {

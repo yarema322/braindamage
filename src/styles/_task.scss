@@ -1,0 +1,115 @@
+@use 'variables' as *; 
+
+.task {
+    display: flex;
+    border: 1px solid $color-border-main;
+    border-radius: 10px;
+
+    &__circle {
+        padding: 10px 10px 0 10px;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        flex-grow: 1;
+        padding: 10px 10px 10px 0;
+    }
+
+    &__title {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    &__description {
+        font-size: 14px;
+        font-weight: 400;
+        opacity: 0.8;
+    }
+
+    &__image {
+        width: 88px;
+        height: 88px;
+        border-radius: 10px;
+        object-fit: cover;
+
+        @media screen and (max-width: 1800px) {
+            min-width: 88px;
+            min-height: 88px;
+        }
+    }
+
+    &__status {
+        width: 90px;
+
+        &--not-started {
+            color: $color-circle-not-started;
+        }
+
+        &--in-progress {
+            color: $color-moderate;
+        }
+
+        &--completed {
+            color: $color-circle-completed;
+        }
+    }
+
+    &__priority {
+        width: 90px;
+
+        &--extreme {
+            color: $color-circle-not-started;
+        }
+
+        &--low {
+            color: $color-circle-completed;
+        }
+
+        &--moderate {
+            color: $color-moderate;
+        }
+    }
+
+    &__date {
+        opacity: 0.8;
+        width: 114px;
+    }
+
+    &--completed {
+        .task__content {
+            justify-content: flex-start; 
+            padding-right: 100px;    
+        }
+
+        .task__image {
+            position: absolute;
+            right: 0;
+
+            min-width: unset;
+            min-height: unset;
+            width: 60px;
+            height: 60px;     
+        }
+
+        .task__footer {
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .task__status,
+        .task__date {
+            width: 100%;
+        }
+    }
+}
+

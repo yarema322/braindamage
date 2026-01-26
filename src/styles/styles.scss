@@ -8,6 +8,7 @@
 @use 'sidebar';
 @use 'overlay';
 
+@use 'task.scss';
 // pages
 @use 'sign-in-page.scss';
 @use 'sign-up-page.scss';
@@ -22,12 +23,3 @@
 @use 'create-categories.scss';
 @use 'vital-task-page.scss';
 
-.task__priority{
-    width: 90px;
-}
-.task__status{
-    width: 90px;
-}
-.task__date {
-    width: 114px;
-}
