@@ -7,10 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!container) return;
 
     const tasks = getTasksFromStorage();
-    const vitalTasks = tasks.filter(task => task.mode === "vital");
-    container.innerHTML = vitalTasks
-        .map(task => taskTpl(toTemplateModel(task)))
-        .join("");
+    const vitalTasks = tasks.filter(task => task.mode === "vital" && task.status !== "completed");
+    container.innerHTML = vitalTasks.map(task => taskTpl(toTemplateModel(task))).join("");
 });
 
 document.addEventListener("click", (e) => {

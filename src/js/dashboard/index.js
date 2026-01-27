@@ -26,7 +26,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!taskListContainer) return;
 
   const tasks = getTasksFromStorage();
-  taskListContainer.innerHTML = tasks.map(t => taskTpl(toTemplateModel(t))).join("");
+  const taskInProcess = tasks.slice().filter(t => t.status !== "completed");
+  taskListContainer.innerHTML = taskInProcess.map(t => taskTpl(toTemplateModel(t))).join("");
 
   const taskListContainerCompleted = document.getElementById("completed-task-list");
   if (!taskListContainerCompleted) return;

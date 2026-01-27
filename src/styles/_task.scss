@@ -86,6 +86,9 @@
     }
 
     &--completed {
+        .task__body {
+            gap: 14px;
+        }
         .task__content {
             justify-content: flex-start; 
             padding-right: 100px;    
