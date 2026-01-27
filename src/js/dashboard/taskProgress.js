@@ -3,9 +3,9 @@ import { getTasksFromStorage } from "../common/storage.js";
 const tasks = getTasksFromStorage();
 const total = tasks.length || 1;
 
-const percentOfNotStarted = Math.round((tasks.filter(task => task.status === "not-started").length / total)) * 100;
-const percentOfInProgress = Math.round((tasks.filter(task => task.status === "in-progress").length / total)) * 100;
-const percentOfCompleted = Math.round((tasks.filter(task => task.status === "completed").length / total)) * 100;
+const percentOfNotStarted = Math.round((tasks.filter(task => task.status === "not-started").length / total) * 100);
+const percentOfInProgress = Math.round((tasks.filter(task => task.status === "in-progress").length / total) * 100);
+const percentOfCompleted = Math.round((tasks.filter(task => task.status === "completed").length / total) * 100);
   
 
 function setProgress(id, percent) {
@@ -26,5 +26,3 @@ function setProgress(id, percent) {
       setProgress("progress-completed", percentOfCompleted);
       setProgress("progress-inprogress", percentOfInProgress);
       setProgress("progress-notstarted", percentOfNotStarted);
-
-      
