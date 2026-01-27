@@ -3,7 +3,7 @@ import { formatTaskDate } from "../common/format-task-date.js";
 import { formatPriority } from "../common/format-priority.js";
 import { formatStatus } from "../common/format-status.js";
 import { deleteTaskById } from "../common/delete-task-by-id.js";
-import { getTaskById, updateTaskById, getTaskIdFromUrl } from "./storage.js";
+import { getTaskById, updateTaskById } from "./storage.js";
 
 let taskDetails;
 
@@ -108,6 +108,10 @@ document.addEventListener("click", (e) => {
     const confirmCompleted = confirm("Mark this task as completed?");
     if (!confirmCompleted) return;
 
-    updateTaskById(taskId, { status: "completed" });
+    updateTaskById(taskId, { 
+        status: "completed", 
+        completedAt: new Date().toISOString()
+    });
+    
     window.location.reload();
 });
