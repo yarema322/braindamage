@@ -39,7 +39,6 @@ p {
   }
 }
 
-/* greetings bar */
 .greetings__bar {
   display: flex;
   gap: 10px;
@@ -81,6 +80,7 @@ p {
   border-radius: 10px;
   backdrop-filter: sepia(90%);
 }
+
 
 .greetings__button {
   display: flex;
@@ -125,8 +125,8 @@ p {
   }
 }
 
-// left side
-.task__active {
+// task manage
+.task__manage {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -134,40 +134,37 @@ p {
   padding: 18px 26px;
   background: $color-white;
   box-shadow: -4px 4px 4px $color-shadow, 4px 4px 4px $color-shadow;
+  border-radius: 10px;
 }
 
-.heading__manage {
+.manage__actions {
   display: flex;
   justify-content: space-between;
   font-size: 15px;
   font-weight: 500;
 }
 
-.manage {
+.manage__title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
+  color: $color-primary;
 }
 
-.heading__date {
+.manage__date {
   display: flex;
   gap: 20px;
   font-size: 12px;
   font-weight: 400;
 }
 
-.heading__date ul {
+.manage__date ul {
   margin: 0;
   padding: 0 0 0 20px;
   opacity: 0.5;
 }
 
-.manage--to-do {
-  color: $color-primary;
-}
-
-/* dashboard task list */
 .dashboard-task-list {
   display: flex;
   flex-direction: column;
@@ -191,27 +188,8 @@ p {
   background: transparent;
 }
 
-/* task footer completed */
-.task__footer--completed {
-  display: flex;
-  flex-direction: column;
-}
-
-.task__status--completed,
-.task__date--completed {
-  width: 100%;
-}
-
-/* task image completed */
-.task__image--completed {
-  width: 88px;
-  height: 88px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-// right side
-.task__status__INDEX {
+// task condition
+.task__condition {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -224,21 +202,21 @@ p {
       4px 4px 4px $color-shadow;
   }
 }
-
-.status,
-.completed {
+  // condition status
+.condition__status,
+.condition__completed{
   border-radius: 10px;
   box-shadow: -4px 4px 4px $color-shadow, 4px 4px 4px $color-shadow;
 }
 
-.status {
+.condition__status {
   display: flex;
   flex-direction: column;
   gap: 15px;
   padding: 18px 26px;
 }
 
-.status__heading {
+.status__header {
   display: flex;
   justify-content: left;
   align-items: center;
@@ -265,50 +243,7 @@ p {
   gap: 10px;
 }
 
-.completed {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  gap: 15px;
-  padding: 18px 26px;
-}
-
-.completed__task {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.completed__heading {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  gap: 10px;
-  color: $color-primary;
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.completed__task {
-  overflow-y: auto;
-  max-height: 44vh;
-  padding-right: 8px;
-}
-
-.completed__task::-webkit-scrollbar {
-  width: 6px;
-}
-
-.completed__task::-webkit-scrollbar-thumb {
-  background: $color-primary;
-  border-radius: 10px;
-}
-
-.completed__task::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* task progress */
+      // task progress
 .progress__wrapper {
   display: flex;
   flex-direction: column;
@@ -391,21 +326,46 @@ p {
   background-color: $color-circle-not-started;
 }
 
-/* modal */
-.priority-radio {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-
-  width: 16px;
-  height: 16px;
-  border: 1px solid $color-border-main;
-  border-radius: 3px;
-  cursor: pointer;
-  position: relative;
+  // condition completed
+.condition__completed {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 15px;
+  padding: 18px 26px;
 }
 
-.priority-radio:checked {
-  background-color: $color-primary;
-  border-color: currentColor;
+.completed__task {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.completed__header {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 10px;
+  color: $color-primary;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.completed__task {
+  overflow-y: auto;
+  max-height: 44vh;
+  padding-right: 8px;
+}
+
+.completed__task::-webkit-scrollbar {
+  width: 6px;
+}
+
+.completed__task::-webkit-scrollbar-thumb {
+  background: $color-primary;
+  border-radius: 10px;
+}
+
+.completed__task::-webkit-scrollbar-track {
+  background: transparent;
 }

@@ -269,10 +269,10 @@
         </div>
 
         <div class="content__frame">
-          <div class="task task__active">
-            <div class="task__heading">
-              <div class="heading__manage">
-                <div class="manage manage--to-do">
+          <div class="task__manage">
+            <div class="manage__header">
+              <div class="manage__actions">
+                <div class="manage__title">
                   <svg
                     width="29"
                     height="33"
@@ -289,8 +289,11 @@
                   </svg>
                   <p>To-Do</p>
                 </div>
-                <div class="manage manage--add-task">
-                  <button id="add-task" class="add-task" data-open="add-task">
+                <div class="manage__buttons">
+                  <button
+                    id="add-task"
+                    class="manage__buttons--add-task"
+                    data-open="add-task">
                     <svg
                       width="23"
                       height="23"
@@ -305,7 +308,7 @@
                   </button>
                 </div>
               </div>
-              <div class="heading__date">
+              <div class="manage__date">
                 <div class="day"></div>
                 <ul>
                   <li>Today</li>
@@ -314,9 +317,9 @@
             </div>
             <div class="dashboard-task-list" id="task-list"></div>
           </div>
-          <div class="task__status__INDEX">
-            <div class="status">
-              <div class="status__heading">
+          <div class="task__condition">
+            <div class="condition__status">
+              <div class="status__header">
                 <svg
                   width="23"
                   height="23"
@@ -400,8 +403,8 @@
                 </div>
               </div>
             </div>
-            <div class="completed">
-              <div class="completed__heading">
+            <div class="condition__completed">
+              <div class="completed__header">
                 <svg
                   width="21"
                   height="24"
@@ -427,7 +430,6 @@
       class="modal-container"
       id="modal-container__add-task"
       data-modal="add-task"></div>
-
     <div
       class="modal-container"
       id="modal-container__invite"
