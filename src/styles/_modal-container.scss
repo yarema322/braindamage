@@ -1,0 +1,58 @@
+@use 'variables' as *; 
+@use '_custom-upload-btn.scss';
+
+.add-task {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.add-task:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+  color: #f24e1e;
+}
+
+.add-task svg {
+  transition: transform 0.3s ease;
+}
+
+.add-task:hover svg {
+  transform: rotate(180deg);
+}
+
+.add-task span {
+  display: flex;
+  align-self: center;
+  opacity: 0.6;
+}
+
+.modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  overflow-y: auto;
+
+  @media screen and (max-height: 900px) {
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+}
+
+.modal-container.show {
+  pointer-events: auto;
+  opacity: 1;
+}

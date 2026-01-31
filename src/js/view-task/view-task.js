@@ -1,6 +1,5 @@
 import "../../styles/styles.scss";
 import "../common/modal-window.js";
-import "../common/modal-form.js";
 import "../common/history-back-button.js";
 import "./render-view-task.js";
 import "./edit-task.js";
@@ -24,4 +23,4 @@ document.addEventListener("DOMContentLoaded", async () => {
   initFileUpload("#drop-zone", "#task-image");
   initDatePicker();
   initEditTaskPrefill();
-});
+}); 

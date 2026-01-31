@@ -1,9 +1,8 @@
 import "../../styles/styles.scss";
 import "./date-short.js";
 import "./taskProgress.js";
-import "./add-task.js";
+import { initAddTask } from "./add-task.js";  // ← CHANGED: import the function
 import "../common/modal-window.js";
-import "../common/modal-form.js";
 import "./drop-down-roles.js";
 import taskTpl from "../../assets/partials/task.hbs";
 
@@ -36,6 +35,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   taskListContainerCompleted.innerHTML = completedTasks.map(t => taskCompleted(completedTask(t))).join("");
 
   await loadLayout();
+
+  // ← NEW: Initialize add-task AFTER layout is loaded
+  initAddTask();
 
   highlightSidebar();
   initHamMenu();

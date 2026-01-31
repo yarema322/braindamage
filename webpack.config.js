@@ -6,7 +6,7 @@ const { watch } = require("fs");
 const { create } = require("domain");
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: {
     signup: "./src/js/signup/signup.js",
     signin: "./src/js/signin/signin.js",

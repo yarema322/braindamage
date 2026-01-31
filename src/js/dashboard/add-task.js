@@ -1,26 +1,22 @@
 import { getTasksFromStorage, saveTasksToStorage } from "../common/storage.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+export function initAddTask() {
   const form = document.getElementById("modal-form");
   if (!form) return;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // data from the form
-    const title = document.getElementById("task-title").value.trim();
-    const createdAt = document.getElementById("task-create-date").value;
-    const priority = form.elements["task-priority"].value;
-    const description = document.getElementById("task-description").value.trim();
-  
-    // localStorage
+    const title = document.getElementById("add-task-title")?.value?.trim();
+    const createdAt = document.getElementById("add-task-date")?.value;
+    const priorityInput = form.querySelector('input[name="add-task-priority"]:checked');
+    const priority = priorityInput ? priorityInput.value : 'low';
+    const description = document.getElementById("add-task-description")?.value?.trim();
+
     const tasks = getTasksFromStorage();
-
-    // save picture
     const imageInput = document.getElementById("task-image");
-    const file = imageInput.files[0];
+    const file = imageInput?.files[0];
 
-    // save task
     const saveTask = (image) => {
       const task = {
         id: crypto.randomUUID(),
@@ -36,25 +32,25 @@ document.addEventListener("DOMContentLoaded", () => {
       tasks.push(task);
       saveTasksToStorage(tasks);
 
+      const modal = document.querySelector('[data-modal="add-task"]');
+      if (modal) {
+        modal.classList.remove("show");
+      }
+
       form.reset();
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 300);
     };
 
-    // no picture
     if (!file) {
       saveTask(null);
       return;
     }
 
-    // picture
     const reader = new FileReader();
-
-    reader.onload = () => {
-      const imageBase64 = reader.result;
-      saveTask(imageBase64);
-    };
-
+    reader.onload = () => saveTask(reader.result);
     reader.readAsDataURL(file);
-
-    window.location.reload();
   });
-});
+}
