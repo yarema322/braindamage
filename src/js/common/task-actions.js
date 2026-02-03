@@ -1,11 +1,27 @@
 document.addEventListener("click", (e) => {
-    const button = e.target.closest(".task__button--more-options");
-    if (!button) return;
+    const toggleButton = e.target.closest(".task__button--more-options");
+    const menuContainer = e.target.closest(".task__actions");
 
-    const wrapper = button.closest(".task__more-options");
-    const menu = wrapper.querySelector(".task__actions");
+    if (toggleButton) {
+        const wrapper = toggleButton.closest(".task__more-options");
+        const currentMenu = wrapper.querySelector(".task__actions");
 
-    menu.classList.toggle("show");
+        document.querySelectorAll(".task__actions.show").forEach((menu) => {
+            if (menu !== currentMenu) {
+                menu.classList.remove("show");
+            }
+        });
+
+        currentMenu.classList.toggle("show");
+        return;
+    }
+
+    if (menuContainer) {
+        menuContainer.classList.remove("show");
+        return;
+    }
+
+    document.querySelectorAll(".task__actions.show").forEach((menu) => {
+        menu.classList.remove("show");
+    });
 });
-
-// close when clicking outside

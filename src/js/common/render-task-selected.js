@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderEmptyState();
 });
 
+// event task list buttons
 document.addEventListener("click", (e) => {
     // view
     const btn = e.target.closest(".task__button");
