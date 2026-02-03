@@ -1,24 +1,12 @@
-import { truncate } from "./truncate.js";
-import { formatPriority } from "./format-priority.js";
-import { formatStatus } from "./format-status.js";
-import { renderStatusIcon } from "./render-status-icon.js";
-import { formatTaskDate } from "./format-task-date.js";
+import { getTasksFromStorage } from "./storage.js";
+import taskTpl from "../../assets/partials/task.hbs";
+import { toTemplateModel } from "../common/render-task.js";
 
-export function toTemplateModel(task) {
-    return {
-        id: task.id,
-        taskTitle: truncate(task.title, 20),
-        taskDescriptionShort: truncate(task.description, 60),
+export function renderTaskList(){
+    const container = document.getElementById("task-list__container");
+    if (!container) return;
 
-        priority: task.priority,
-        priorityLabel: formatPriority(task.priority),
-
-        status: task.status,
-        statusLabel: formatStatus(task.status),
-        statusIcon: renderStatusIcon(task.status),
-        
-        createdAtLabel: formatTaskDate(task.createdAt),
-
-        image: task.image || "",
-    };
-};
+    const tasks = getTasksFromStorage();
+    const taskInProgress = tasks.slice().filter(t => t.status !== "completed" && t.mode !== "vital");
+    container.innerHTML = taskInProgress.map(t => taskTpl(toTemplateModel(t))).join("");
+}

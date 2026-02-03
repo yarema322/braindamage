@@ -1,7 +1,7 @@
 import "../../styles/styles.scss";
 import "./date-short.js";
 import "./taskProgress.js";
-import { initAddTask } from "./add-task.js";  // ← CHANGED: import the function
+import { initAddTask } from "./add-task.js";
 import "../common/modal-window.js";
 import "./drop-down-roles.js";
 import taskTpl from "../../assets/partials/task.hbs";
@@ -16,7 +16,7 @@ import { initResizeHandler } from "../common/resize-handler.js";
 import { initClickOutside } from "../common/click-outside-sidebar.js";
 import { initFileUpload } from "../common/file-preview.js";
 import { highlightSidebar } from "../common/highlight-sidebar.js";
-import { toTemplateModel } from "../common/render-task-list.js";
+import { toTemplateModel } from "../common/render-task.js";
 import { getTasksFromStorage } from "../common/storage.js";
 import { completedTask } from "../common/render-task-list-completed.js";
 
@@ -36,9 +36,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   await loadLayout();
 
-  // ← NEW: Initialize add-task AFTER layout is loaded
   initAddTask();
-
   highlightSidebar();
   initHamMenu();
   initResizeHandler(".sidebar", ".ham__menu", ".overlay", throttle);

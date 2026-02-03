@@ -3,7 +3,10 @@ async function loadPartial(id, url) {
   const html = await res.text();
   
   if (!document.getElementById(id)) return;
-  document.getElementById(id).innerHTML = html;
+
+  const element = document.getElementById(id);
+  if (!element || element.innerHTML.trim()) return;
+  element.innerHTML = html;
 
   if (id === "header") {
     const m = await import("./date-full.js");

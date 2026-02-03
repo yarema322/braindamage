@@ -14,7 +14,29 @@
         flex-direction: column;
         gap: 4px;
         flex-grow: 1;
-        padding: 10px 10px 10px 0;
+        padding: 6px 10px 10px 0;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__more-options {
+        
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    &__button--more-options {
+        height: 28px;
+        width: 28px;
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        cursor: pointer;
     }
 
     &__title {
@@ -22,6 +44,7 @@
         font-weight: 600;
         margin: 0;
     }
+
 
     &__content {
         display: flex;
@@ -49,7 +72,7 @@
     }
 
     &__status {
-        width: 90px;
+        //width: 90px;
 
         &--not-started {
             color: $color-circle-not-started;
@@ -65,7 +88,7 @@
     }
 
     &__priority {
-        width: 90px;
+        //width: 90px;
 
         &--extreme {
             color: $color-circle-not-started;
@@ -82,7 +105,7 @@
 
     &__date {
         opacity: 0.8;
-        width: 114px;
+        // width: 114px;
     }
 
     &--completed {

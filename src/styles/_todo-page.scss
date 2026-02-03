@@ -57,7 +57,7 @@
   flex-direction: column;
   gap: 10px;
 
-  max-height: 74vh;
+  max-height: 76vh;
   overflow-y: auto;
 
   padding-right: 8px;
@@ -80,7 +80,7 @@
 
 /* header task list */
 .task-list__title {
-  margin-bottom: 20px;
+  margin-bottom: 6px;
   font-size: 16px;
   font-weight: 600;
 }
@@ -133,7 +133,6 @@ display: flex;
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 20px;
   gap: 10px;
 }
 

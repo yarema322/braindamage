@@ -3,6 +3,18 @@
         <div class="task__body">
             <header class="task__header">
                 <h2 class="task__title">{{taskTitle}}</h2>
+                <div class="task__more-options">
+                    <button class="task__button--more-options"> 
+                        <svg width="28px" height="28px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6,30a6,6,0,1,1,6-6A6,6,0,0,1,6,30ZM6,19a5,5,0,1,0,5,5A5,5,0,0,0,6,19Z"/><path d="M24,30a6,6,0,1,1,6-6A6,6,0,0,1,24,30Zm0-11a5,5,0,1,0,5,5A5,5,0,0,0,24,19Z"/><path d="M42,30a6,6,0,1,1,6-6A6,6,0,0,1,42,30Zm0-11a5,5,0,1,0,5,5A5,5,0,0,0,42,19Z"/><rect width="48" height="48" fill="none"/></svg>
+                    </button>
+                    <div class="task__actions">
+                        <button class="task__button task__button--view">View</button>
+                        <button class="task__button task__button--vital">Vital</button>
+                        <button class="task__button task__button--edit">Edit</button>
+                        <button class="task__button task__button--delete">Delete</button>
+                        <button class="task__button task__button--finish">Finish</button>
+                    </div>
+                </div>
             </header>
             <div class="task__content">
                 <p class="task__description">{{taskDescriptionShort}}</p>

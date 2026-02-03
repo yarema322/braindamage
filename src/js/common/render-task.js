@@ -1,8 +1,9 @@
-import { truncate } from "../common/truncate.js";
-import { formatPriority } from "../common/format-priority.js";
-import { formatStatus } from "../common/format-status.js";
-import { renderStatusIcon } from "../common/render-status-icon.js";
-import { formatTaskDate } from "../common/format-task-date.js";
+import { truncate } from "./truncate.js";
+import { formatPriority } from "./format-priority.js";
+import { formatStatus } from "./format-status.js";
+import { renderStatusIcon } from "./render-status-icon.js";
+import { formatTaskDate } from "./format-task-date.js";
+import "./task-actions.js";
 
 export function toTemplateModel(task) {
     return {

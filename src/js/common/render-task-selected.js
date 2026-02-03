@@ -4,6 +4,7 @@ import { formatPriority } from "../common/format-priority.js";
 import { formatStatus } from "../common/format-status.js";
 import { deleteTaskById } from "../common/delete-task-by-id.js";
 import { getTaskById, updateTaskById } from "./storage.js";
+import { renderTaskList } from "../common/render-task-list.js";
 
 let taskDetails;
 
@@ -12,54 +13,53 @@ document.addEventListener("DOMContentLoaded", () => {
     renderEmptyState();
 });
 
-document.addEventListener("task:selected", (e) => {
-    const taskId = e.detail;
+document.addEventListener("click", (e) => {
+    // view
+    const btn = e.target.closest(".task__button");
+    if (!btn) return;
+
+    const taskEl = btn.closest(".task");
+    if (!taskEl) return;
+
+    const taskId = taskEl.dataset.taskId;
     if (!taskId) return;
 
-    const task = getTaskById(taskId);
-    if (!task) return;
-
-    renderSelectedTask(task);
-});
-
-// if no selected task
-function renderEmptyState () {
-    taskDetails.innerHTML = `
-        <p class="task-details__greetings">Select a task to see details</p>
-        <span class="task-details__underline"></span>
-    `;
-};
-
-document.addEventListener("click", (e) => {
-    const editBtn = e.target.closest("[data-view-task]");
-    const deleteBtn = e.target.closest("[data-delete-button]");
-    const taskEditBtn = e.target.closest(".task-details__button--edit");
-
-    if (editBtn) {
-        const id = editBtn.dataset.taskId;
-        if (!id) return;
-
-        redirectToViewTask(id);
+    if (btn.classList.contains("task__button--view")) {
+        const task = getTaskById(taskId);
+        if (!task) return;
+        renderSelectedTask(task);
     }
 
-    if (deleteBtn) {
-        const id = deleteBtn.dataset.taskId;
-        if (!id) return;
+    // vital
+    if (btn.classList.contains("task__button--vital")) {
+        const confirmVital = confirm("Get this task as vital?");
+        if (!confirmVital) return;
 
-        const confirmed = confirm("Delete this task?");
-        if (!confirmed) return;
-
-        deleteTaskById(id);
+        updateTaskById(taskId, { mode: "vital", status: "in-progress" });
+        renderTaskList();
     }
 
-    if (taskEditBtn) {
-        const detailsItem = taskEditBtn.closest(".task-details__item");
-        if (!detailsItem) return;
+    // edit
 
-        const taskId = detailsItem.dataset.taskId;
-        if (!taskId) return;
+    // delete
+    if (btn.classList.contains("task__button--delete")) {
+        const confirmDelete = confirm("Delete this task?");
+        if (!confirmDelete) return;
 
-        window.location.href = `view-task.html?id=${taskId}`;
+        deleteTaskById(taskId);
+        renderEmptyState();
+        renderTaskList();
+    }
+    // finish
+    if (btn.classList.contains("task__button--finish")) {
+        const confirmFinish = confirm("Mark this task as completed?");
+        if (!confirmFinish) return;
+
+        updateTaskById(taskId, {
+            status: "completed",
+            completedAt: new Date().toISOString()
+        });
+        renderTaskList();
     }
 });
 
@@ -68,50 +68,25 @@ export function renderSelectedTask(task) {
 
     const model = {
         id: task.id,
-
         image: task.image || "",
-
         taskTitle: task.title,
-
         priority: task.priority,
         priorityLabel: formatPriority(task.priority),
-
         status: task.status,
         statusLabel: formatStatus(task.status),
-
         createdAtLabel: formatTaskDate(task.createdAt),
-
         taskDescription: task.description,
     };
 
     taskDetails.innerHTML = taskSelectedTpl(model);
-};
-
-function redirectToViewTask(id) {
-    window.location.href = `view-task.html?id=${id}`;
 }
 
-document.addEventListener("task:deleted", () => {
-    renderEmptyState();
-});
+function renderEmptyState() {
+    if (!taskDetails) return;
 
-document.addEventListener("click", (e) => {
-    const completedTaskBtn = e.target.closest("[data-completed-task]");
-    if (!completedTaskBtn) return;
+    taskDetails.innerHTML = `
+        <p class="task-details__greetings">Select a task to see details</p>
+        <span class="task-details__underline"></span>
+    `;
+}
 
-    const detailsItem = completedTaskBtn.closest(".task-details__item");
-    if (!detailsItem) return;
-
-    const taskId = detailsItem.dataset.taskId;
-    if (!taskId) return;
-
-    const confirmCompleted = confirm("Mark this task as completed?");
-    if (!confirmCompleted) return;
-
-    updateTaskById(taskId, { 
-        status: "completed", 
-        completedAt: new Date().toISOString()
-    });
-    
-    window.location.reload();
-});
