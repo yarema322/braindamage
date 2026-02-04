@@ -8,13 +8,21 @@
     padding: 8px;
     border: 1px solid $color-border-main;
     border-radius: 10px;
-
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    
     position: absolute;
-    transform: translate(36%, 44%);
-}
 
-.task__actions.show{
-    display: flex;
+    &.show {
+        display: flex;
+        position: fixed;
+    }
+
+    &.open-up {
+        top: auto;
+        bottom: 10;
+        margin-top: 0;
+    }
 }
 
 .task__button {

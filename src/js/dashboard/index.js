@@ -16,12 +16,14 @@ import { highlightSidebar } from "../common/highlight-sidebar.js";
 import { renderTaskList } from "../common/render-task-list.js";
 
 import { initAddTask } from "./add-task.js";
-import "./render-task-list-completed.js";
+import { renderCompletedTaskList } from "./render-task-list-completed.js";
 
 const dashboardFilter = (t) => t.status !== "completed";
+const completedFilter = (t) => t.status === "completed";
 
 document.addEventListener("DOMContentLoaded", async () => {
   renderTaskList("dashboard-task-list__container", dashboardFilter);
+  renderCompletedTaskList("completed-task-list", completedFilter);
 
   await loadLayout();
 
