@@ -1,8 +1,7 @@
 import { formatTaskDate } from "../common/format-task-date.js";
-import { deleteTaskById } from "../common/delete-task-by-id.js";
 import { formatPriority } from "../common/format-priority.js";
 import { formatStatus } from "../common/format-status.js";
-import { getTaskById, updateTaskById, getTaskIdFromUrl } from "../common/storage.js";
+import { getTaskById, updateTaskById, getTaskIdFromUrl, deleteTaskById } from "../common/storage.js";
 
 // id from URL
 
