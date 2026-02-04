@@ -1,7 +1,13 @@
-import { renderTaskList} from "../common/render-task-list.js";
+import { getTasksFromStorage } from "../common/storage.js";
+import completedTaskTpl from "../../assets/partials/task-completed.hbs";
+import { completedTask } from "./render-task-completed.js";
 
-const completedFilter = (t) => t.status === "completed";
+export function renderCompletedTaskList(containerId, filterFn = (t) => true) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderTaskList("completed-task-list", completedFilter);
-});
+  const tasks = getTasksFromStorage();
+
+  const filteredTasks = tasks.filter(filterFn);
+  container.innerHTML = filteredTasks.map(t => completedTaskTpl(completedTask(t))).join("");
+};

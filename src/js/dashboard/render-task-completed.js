@@ -1,7 +1,7 @@
-import { formatStatus } from "../common/format-status.js";
-import { renderStatusIcon } from "../common/render-status-icon.js";
-import { formatTaskDate } from "../common/format-task-date.js";
 import { truncate } from "../common/truncate.js";
+import { renderStatusIcon } from "../common/render-status-icon.js";
+import { formatStatus } from "../common/format-status.js";
+import { formatTaskDate } from "../common/format-task-date.js";
 
 export function completedTask(task) {
     return {
