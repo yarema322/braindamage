@@ -11,7 +11,7 @@ const percentOfCompleted = Math.round((tasks.filter(task => task.status === "com
 function setProgress(id, percent) {
         const circle = document.getElementById(id);
         const label = document.getElementById("percent-" + id.split("-")[1]);
-        if (!circle || !label) return;
+        if (!circle || !label) {return;}
 
         const radius = 45;
         const circumference = 2 * Math.PI * radius;

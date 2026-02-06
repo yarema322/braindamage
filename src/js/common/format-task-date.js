@@ -1,5 +1,5 @@
 export function formatTaskDate(isoDate) {
-  if (!isoDate) return "";
+  if (!isoDate) {return "";}
 
   const date = new Date(isoDate);
 

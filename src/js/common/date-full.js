@@ -21,6 +21,11 @@ export function dateFull() {
     
     const formattedDate = `${day}/${month}/${year}`;
 
-    if (dayElement) dayElement.textContent = dayName;
-    if (fullDateElement) fullDateElement.textContent = formattedDate;
+    if (dayElement) {
+        dayElement.textContent = dayName
+    };
+    
+    if (fullDateElement) {
+        fullDateElement.textContent = formattedDate
+    };
 };

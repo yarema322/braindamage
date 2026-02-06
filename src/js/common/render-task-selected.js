@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 export function renderSelectedTask(task) {
-    if (!taskDetails) return;
+    if (!taskDetails) {return;}
 
     const model = {
         id: task.id,
@@ -29,7 +29,7 @@ export function renderSelectedTask(task) {
 }
 
 export function renderEmptyState() {
-    if (!taskDetails) return;
+    if (!taskDetails) {return;}
 
     taskDetails.innerHTML = `
         <p class="task-details__greetings">Select a task to see details</p>

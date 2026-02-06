@@ -9,10 +9,10 @@ import { getTaskById, updateTaskById, getTaskIdFromUrl, deleteTaskById } from ".
 // process of rendering
 document.addEventListener("DOMContentLoaded", () => {
     const taskId = getTaskIdFromUrl();
-    if (!taskId) return;
+    if (!taskId) {return;}
 
     const task = getTaskById(taskId);
-    if (!task) return;
+    if (!task) {return;}
 
     renderViewTask(task);
 });
@@ -73,13 +73,13 @@ export function renderViewTask(task) {
 // delete task 
 document.addEventListener("click", (e) => {
     const deleteBtn = e.target.closest("[data-delete-task]");
-    if (!deleteBtn) return;
+    if (!deleteBtn) {return;}
 
     const taskId = getTaskIdFromUrl();
-    if (!taskId) return;
+    if (!taskId) {return;}
 
     const confirmed = confirm("Delete this task?");
-    if (!confirmed) return;
+    if (!confirmed) {return;}
 
     deleteTaskById(taskId);
 
@@ -90,13 +90,13 @@ document.addEventListener("click", (e) => {
 
 document.addEventListener("click", (e) => {
     const vitalBtn = e.target.closest("[data-vital-task]");
-    if (!vitalBtn) return;
+    if (!vitalBtn) {return;}
 
     const taskId = getTaskIdFromUrl();
-    if (!taskId) return;
+    if (!taskId) {return;}
 
     const confirmVital = confirm("Get this task vital status?");
-    if (!confirmVital) return;
+    if (!confirmVital) {return;}
 
     updateTaskById(taskId, { mode: "vital", status: "in-progress" });
     window.location.reload();

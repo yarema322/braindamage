@@ -2,10 +2,10 @@ async function loadPartial(id, url) {
   const res = await fetch(url);
   const html = await res.text();
   
-  if (!document.getElementById(id)) return;
+  if (!document.getElementById(id)) {return;}
 
   const element = document.getElementById(id);
-  if (!element || element.innerHTML.trim()) return;
+  if (!element || element.innerHTML.trim()) {return;}
   element.innerHTML = html;
 
   if (id === "header") {

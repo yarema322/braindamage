@@ -2,7 +2,7 @@ import { getTasksFromStorage, saveTasksToStorage } from "../common/storage.js";
 
 export function initAddTask() {
   const form = document.getElementById("modal-form");
-  if (!form) return;
+  if (!form) {return;}
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();

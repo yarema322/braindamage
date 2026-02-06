@@ -4,7 +4,7 @@ import { toTemplateModel } from "../common/render-task.js";
 import { renderSelectedTask, renderEmptyState } from "./render-task-selected.js";
 
 let activeContainerId = null;
-let activeFilterFn = (t) => true;
+let activeFilterFn = () => true;
 
 export function renderTaskList(containerId, filterFn) {
     if (containerId) {
@@ -15,10 +15,10 @@ export function renderTaskList(containerId, filterFn) {
         activeFilterFn = filterFn;
     }
 
-    if (!activeContainerId) return;
+    if (!activeContainerId) {return;}
 
     const container = document.getElementById(activeContainerId);
-    if (!container) return;
+    if (!container) {return;}
 
     const tasks = getTasksFromStorage();
 
@@ -29,25 +29,25 @@ export function renderTaskList(containerId, filterFn) {
 
 document.addEventListener("click", (e) => {
     const btn = e.target.closest(".task__button");
-    if (!btn) return;
+    if (!btn) {return;}
 
     const taskEl = btn.closest(".task");
-    if (!taskEl) return;
+    if (!taskEl) {return;}
 
     const taskId = taskEl.dataset.taskId;
-    if (!taskId) return;
+    if (!taskId) {return;}
 
     // VIEW
     if (btn.classList.contains("task__button--view")) {
         const task = getTaskById(taskId);
-        if (!task) return;
+        if (!task) {return;}
         renderSelectedTask(task);
     }
 
     // VITAL
     if (btn.classList.contains("task__button--vital")) {
         const confirmVital = confirm("Get this task as vital?");
-        if (!confirmVital) return;
+        if (!confirmVital) {return;}
 
         updateTaskById(taskId, { mode: "vital", status: "in-progress" });
         
@@ -59,7 +59,7 @@ document.addEventListener("click", (e) => {
     // DELETE
     if (btn.classList.contains("task__button--delete")) {
         const confirmDelete = confirm("Delete this task?");
-        if (!confirmDelete) return;
+        if (!confirmDelete) {return;}
 
         deleteTaskById(taskId);
         renderEmptyState();
@@ -69,7 +69,7 @@ document.addEventListener("click", (e) => {
     // FINISH
     if (btn.classList.contains("task__button--finish")) {
         const confirmFinish = confirm("Mark this task as completed?");
-        if (!confirmFinish) return;
+        if (!confirmFinish) {return;}
 
         updateTaskById(taskId, {
             status: "completed",

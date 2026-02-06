@@ -11,12 +11,12 @@ export function getTasksFromStorage() {
 }
 
 export function saveTasksToStorage(tasks) {
-    if (!Array.isArray(tasks)) return;
+    if (!Array.isArray(tasks)) {return;}
     localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
 }
 
 export function getTaskById(id) {
-    if (!id) return null;
+    if (!id) {return null;}
     const tasks = getTasksFromStorage();
     return tasks.find(t => String(t.id) === String(id)) || null;
 }
@@ -25,7 +25,7 @@ export function updateTaskById(id, patch) {
     const tasks = getTasksFromStorage();
 
     const index = tasks.findIndex(t => String(t.id) === String(id));
-    if (index === -1) return null;
+    if (index === -1) {return null;}
 
     tasks[index] = { ...tasks[index], ...patch };
     saveTasksToStorage(tasks);
@@ -39,7 +39,7 @@ export function getTaskIdFromUrl() {
 }
 
 export function deleteTaskById(taskId) {
-  if (!taskId) return;
+  if (!taskId) {return;}
 
   const tasks = getTasksFromStorage();
   const updatedTasks = tasks.filter(task => String(task.id) !== String(taskId));

@@ -2,14 +2,14 @@ import { getTaskById, getTaskIdFromUrl } from "../common/storage.js";
 
 export function initEditTaskPrefill() {
   const editBtn = document.querySelector('[data-open="task-edit-modal"]');
-  if (!editBtn) return;
+  if (!editBtn) {return;}
 
   editBtn.addEventListener("click", () => {
     const taskId = getTaskIdFromUrl();
-    if (!taskId) return;
+    if (!taskId) {return;}
 
     const task = getTaskById(taskId);
-    if (!task) return;
+    if (!task) {return;}
 
     document.querySelector("#edit-task-title").value = task.title || "";
     document.querySelector("#edit-task-date").value = task.date || "";
@@ -19,6 +19,6 @@ export function initEditTaskPrefill() {
     const priorityInput = document.querySelector(
       `input[name="priority"][value="${task.priority}"]`
     );
-    if (priorityInput) priorityInput.checked = true;
+    if (priorityInput) {priorityInput.checked = true;}
   });
 }

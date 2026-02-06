@@ -2,14 +2,14 @@ import { getTaskById, updateTaskById } from "../common/storage";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".view-task-edit-modal__form");
-  if (!form) return;
+  if (!form) {return;}
 
   const params = new URLSearchParams(window.location.search);
   const taskId = params.get("id");
-  if (!taskId) return;
+  if (!taskId) {return;}
 
   const task = getTaskById(taskId);
-  if (!task) return;
+  if (!task) {return;}
 
   form.title.value = task.title || "";
   form.date.value = task.createdAt || "";
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
 
     const confirmed = confirm ("Save changes?");
-    if (!confirmed) return;
+    if (!confirmed) {return;}
 
     const title = form.title.value.trim();
     const date = form.date.value;
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const description = form.description.value.trim();
     const imageFile = form.image?.files?.[0];
 
-    if (!title) return;
+    if (!title) {return;}
 
     if (imageFile) {
       const reader = new FileReader();
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function update(taskId, patch) {
   const updatedTask = updateTaskById(taskId, patch);
-  if (!updatedTask) return;
+  if (!updatedTask) {return;}
 
   window.location.href = `view-task.html?id=${taskId}`;
 }

@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { watch } = require("fs");
 const { create } = require("domain");
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   mode: "development",
@@ -139,6 +140,7 @@ module.exports = {
       ]
     }),
 
+    new ESLintPlugin(),
   ],
   resolve: {
     extensions: [".js", ".scss", ".css", ".hbs",],

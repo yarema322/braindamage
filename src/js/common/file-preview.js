@@ -1,6 +1,6 @@
 export function showFileNames(files) {
   const container = document.getElementById("drop-zone");
-  if (!container) return;
+  if (!container) {return;}
 
   const svgElements = container.querySelectorAll("svg");
   const uploadText = container.querySelector(".upload-text");
@@ -10,15 +10,15 @@ export function showFileNames(files) {
 
   if (files.length === 0) {
     svgElements.forEach((svg) => (svg.style.display = "block"));
-    if (uploadText) uploadText.style.display = "inline";
+    if (uploadText) {uploadText.style.display = "inline";}
     return;
   }
 
   svgElements.forEach((svg) => (svg.style.display = "none"));
-  if (uploadText) uploadText.style.display = "none";
+  if (uploadText) {uploadText.style.display = "none";}
 
   Array.from(files).forEach((file) => {
-    if (!file.type.startsWith("image/")) return;
+    if (!file.type.startsWith("image/")) {return;}
 
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -40,7 +40,7 @@ export function initFileUpload(dropZoneSelector, inputSelector) {
   const dropZone = document.querySelector(dropZoneSelector);
   const fileInput = document.querySelector(inputSelector);
 
-  if (!dropZone || !fileInput) return;
+  if (!dropZone || !fileInput) {return;}
 
   fileInput.addEventListener("change", (e) => {
     showFileNames(e.target.files);
