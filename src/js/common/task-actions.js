@@ -42,7 +42,7 @@ document.addEventListener("click", (e) => {
         return;
     }
 
-    if (!menuContainer) {
+    if (!menuContainer || menuContainer) {
         document.querySelectorAll(".task__actions.show").forEach((menu) => {
             menu.classList.remove("show");
         });
