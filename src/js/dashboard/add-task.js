@@ -1,4 +1,5 @@
 import { getTasksFromStorage, saveTasksToStorage } from "../common/storage.js";
+import { renderTaskList } from "../common/render-task-list.js";
 
 export function initAddTask() {
   const form = document.getElementById("modal-form");
@@ -39,9 +40,8 @@ export function initAddTask() {
 
       form.reset();
 
-      setTimeout(() => {
-        window.location.reload();
-      }, 300);
+      renderTaskList("dashboard-task-list__container");
+
     };
 
     if (!file) {
