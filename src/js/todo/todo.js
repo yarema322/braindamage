@@ -1,6 +1,9 @@
 import "../../styles/styles.scss";
-import "./task-todo.js";
 import "../common/render-task-selected.js";
+import "../common/task-selected-actions.js"
+import "../common/modal-window.js";
+
+import "./task-todo.js";
 
 import { loadLayout } from "../common/layout";
 import { throttle } from "../common/throttle.js";
