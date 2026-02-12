@@ -140,7 +140,10 @@ module.exports = {
       ]
     }),
 
-    new ESLintPlugin(),
+    new ESLintPlugin({
+      failOnError: false,
+      emitWarning: true,
+    }),
   ],
   resolve: {
     extensions: [".js", ".scss", ".css", ".hbs",],

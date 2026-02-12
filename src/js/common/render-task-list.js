@@ -55,6 +55,9 @@ document.addEventListener("click", (e) => {
     }
 
     // EDIT 
+    if (btn.classList.contains("task__button--edit")) {
+        window.location.href = `view-task.html?id=${taskId}`;
+    }
 
     // DELETE
     if (btn.classList.contains("task__button--delete")) {
