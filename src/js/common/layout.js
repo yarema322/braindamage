@@ -19,4 +19,5 @@ export async function loadLayout() {
   await loadPartial("sidebar", "partials/sidebar.html");
   await loadPartial("modal-container__add-task", "partials/modal-add-task.html");
   await loadPartial("modal-container__invite", "partials/modal-invite-members.html");
+  await loadPartial("modal-container__task-edit", "partials/modal-edit-task.html");
 }

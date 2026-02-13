@@ -31,7 +31,11 @@ module.exports = {
     port: 9000,
     compress: true,
     hot: true,
-    open: true,
+    open: {
+      app: {
+        name: "google-chrome",
+      },
+    },
     static: {
       directory: path.join(__dirname, 'dist'),
     },

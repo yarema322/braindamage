@@ -12,6 +12,8 @@ import { initResizeHandler } from "../common/resize-handler.js";
 import { initClickOutside } from "../common/click-outside-sidebar.js";
 import { highlightSidebar } from "../common/highlight-sidebar.js";
 
+import { initEditTaskPrefill } from "../view-task/edit-task-prefill.js";
+
 document.addEventListener("DOMContentLoaded", async () => {
   await loadLayout();
 
@@ -19,6 +21,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   initHamMenu();
   initResizeHandler(".sidebar", ".ham__menu", ".overlay", throttle);
   initClickOutside(".sidebar", ".ham__menu", ".overlay");
+
+  initEditTaskPrefill();
 });
 
 
