@@ -25,5 +25,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   initClickOutside(".sidebar", ".ham__menu", ".overlay");
   initFileUpload("#drop-zone", "#task-image");
   initDatePicker();
+  
   initEditTaskPrefill();
 }); 

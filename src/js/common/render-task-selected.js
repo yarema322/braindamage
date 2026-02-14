@@ -1,7 +1,5 @@
 import taskSelectedTpl from "../../assets/partials/task-selected.hbs";
-import { formatTaskDate } from "../common/format-task-date.js";
-import { formatPriority } from "../common/format-priority.js";
-import { formatStatus } from "../common/format-status.js";
+import { createTaskViewModel } from "./task-model-mapper.js";
 
 let taskDetails;
 
@@ -13,19 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 export function renderSelectedTask(task) {
     if (!taskDetails) {return;}
 
-    const model = {
-        id: task.id,
-        image: task.image || "",
-        taskTitle: task.title,
-        priority: task.priority,
-        priorityLabel: formatPriority(task.priority),
-        status: task.status,
-        statusLabel: formatStatus(task.status),
-        createdAtLabel: formatTaskDate(task.createdAt),
-        taskDescription: task.description,
-    };
-
-    taskDetails.innerHTML = taskSelectedTpl(model);
+    taskDetails.innerHTML = taskSelectedTpl(createTaskViewModel(task));
 }
 
 export function renderEmptyState() {

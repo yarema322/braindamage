@@ -1,7 +1,13 @@
 @use 'variables' as *; 
 
-.view-task { 
+.view-task {
+    display: flex;
+    flex-grow: 1;
     height: calc(100% - 20px);
+}
+
+.view-task__item { 
+    
 
     display: flex; /*!*/
     flex-direction: column; /*!*/

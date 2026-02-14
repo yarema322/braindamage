@@ -1,75 +1,37 @@
-import { formatTaskDate } from "../common/format-task-date.js";
-import { formatPriority } from "../common/format-priority.js";
-import { formatStatus } from "../common/format-status.js";
-import { getTaskById, updateTaskById, getTaskIdFromUrl, deleteTaskById } from "../common/storage.js";
+// for listeners
+import { getTaskIdFromUrl, deleteTaskById, updateTaskById, getTaskById } from "../common/storage";
+import { createTaskViewModel } from "../common/task-model-mapper.js";
 
-// id from URL
+import viewTaskTpl from "../../assets/partials/view-task-selected.hbs";
 
+let viewTaskEl;
 
-// process of rendering
 document.addEventListener("DOMContentLoaded", () => {
+    viewTaskEl = document.getElementById("view-task");
+    if (!viewTaskEl) {return;}
+
     const taskId = getTaskIdFromUrl();
-    if (!taskId) {return;}
 
-    const task = getTaskById(taskId);
-    if (!task) {return;}
+    if (taskId) {
+        const task = getTaskById(taskId);
+        
+        if (task) {
+            renderViewTask(task);
+        } else { 
+            window.location.href = "todo.html";
+        }
 
-    renderViewTask(task);
+    }
 });
 
-// render task
-const containerViewTask = document.querySelector(".view-task");
-const template = document.getElementById("view-task-template");
+function renderViewTask(task) {
+    if (!viewTaskEl) {return;}
 
-export function renderViewTask(task) {
-    containerViewTask.innerHTML = "";
-
-    const fragment = template.content.cloneNode(true);
-
-    // img
-    const img = fragment.querySelector(".view-task__header-img");
-    if (task.image) {
-        img.src = task.image;
-    } else {
-        img.remove();
-    }
-
-    // task title
-    fragment.querySelector(".view-task__title").textContent = task.title;
-    // task priority
-    const priorityViewTask = fragment.querySelector(".view-task__priority");
-    
-    if (task.priority) {
-        priorityViewTask.innerHTML = `
-            Priority: <span class="view-task__priority--${task.priority}">
-                ${formatPriority(task.priority)}
-            </span>
-            `;
-    } else {
-        priorityViewTask.remove();
-    }
-
-    // task status
-    const statusViewTask = fragment.querySelector(".view-task__status");
-
-    if (task.status) {
-        statusViewTask.innerHTML = `
-            Status: <span class="view-task__status--${task.status}">
-                ${formatStatus(task.status)}
-            </span>
-            `;
-    } else {
-        statusViewTask.remove();
-    }
-    // task date
-    const createdOn = fragment.querySelector(".view-task__date");
-    createdOn.textContent = `Created on: ${formatTaskDate(task.createdAt)}`;
-    // task description
-    fragment.querySelector(".view-task__description").textContent = task.description;
-
-    containerViewTask.append(fragment);
+    viewTaskEl.innerHTML = viewTaskTpl(createTaskViewModel(task));
 }
 
+
+// event listeners 
 // delete task 
 document.addEventListener("click", (e) => {
     const deleteBtn = e.target.closest("[data-delete-task]");
@@ -87,7 +49,6 @@ document.addEventListener("click", (e) => {
 });
 
 // vital button 
-
 document.addEventListener("click", (e) => {
     const vitalBtn = e.target.closest("[data-vital-task]");
     if (!vitalBtn) {return;}
