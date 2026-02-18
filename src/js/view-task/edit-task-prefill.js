@@ -1,24 +1,25 @@
-import { getTaskById, getTaskIdFromUrl } from "../common/storage.js";
+import { getTaskById } from "../common/storage.js";
 
 export function initEditTaskPrefill() {
-  const editBtn = document.querySelector('[data-open="task-edit-modal"]');
-  if (!editBtn) {return;}
+  document.addEventListener("click", (e) => {
+    const editBtn = e.target.closest('[data-open="task-edit-modal"][data-task-id]');
+    if (!editBtn) {return;}
 
-  editBtn.addEventListener("click", () => {
-    const taskId = getTaskIdFromUrl();
-    if (!taskId) {return;}
-
+    const taskId = editBtn.dataset.taskId;
     const task = getTaskById(taskId);
     if (!task) {return;}
 
-    document.querySelector("#edit-task-title").value = task.title || "";
-    document.querySelector("#edit-task-date").value = task.date || "";
-    document.querySelector("#edit-task-description").value =
-      task.description || "";
+    const form = document.querySelector(".view-task-edit-modal__form");
+    if (!form) {return;}
 
-    const priorityInput = document.querySelector(
-      `input[name="priority"][value="${task.priority}"]`
-    );
-    if (priorityInput) {priorityInput.checked = true;}
+
+    form.dataset.editingTaskId = taskId;
+    form.title.value = task.title || "";
+    form.date.value = task.createdAt || ""; 
+    form.description.value = task.description || "";
+    
+    if (form.priority) {
+      form.priority.value = task.priority || "low";
+    }
   });
 }
